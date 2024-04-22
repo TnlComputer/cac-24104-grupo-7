@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  background-color: #181419;
+  color: white;
+}
+
+.header {
+  background-color: #9f3647;
+  color: #ffffff;
+  height: 10vh;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+
+  .navBar {
+    background-color: #9f3647;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: 1.5rem 0;
+
+    .navLink {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+  }
+  .navItems {
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+    .navITem {
+      margin-right: 20px;
+
+      .linkNav {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+
+        transition: transform 0.3s, box-shadow 0.3s;
+
+        &:hover {
+          transform: scale(0.95);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          border-radius: 5px;
+        }
+      }
+
+      .linkNav.login {
+        background-color: #181419;
+        color: white;
+
+        border-radius: 5px;
+        /* Agregar efecto de botón presionado */
+        transition: transform 0.3s, box-shadow 0.3s;
+
+        &:hover {
+          background-color: #9f3647;
+          /* transform: scale(0.95);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);*/
+        }
+      }
+    }
+  }
+}
+
+.mainDetail {
+  .detail {
+    padding-top: 50px;
+    background: linear-gradient(to right top, #6d6969a7, #6d6969a7),
+      url('../assets/img/mario-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 20vh);
+  
+    .detailDiv {
+      background-color: transparent;
+      width: 75vw;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 60px;
+
+      img {
+        border-radius: 20px;
+      }
+
+      .textDetail {
+        h1 {
+          font-size: 2.2rem;
+          font-weight: 700;
+        }
+
+        h2 {
+          margin-top: 20px;
+        }
+
+        .credits {
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+
+  .trailer {
+    padding-top: 150px;
+    padding-bottom: 100px;
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 70px;
+
+    .contentInfo {
+      .redes {
+        margin-bottom: 20px;
+
+        ul {
+          list-style: none;
+          display: flex;
+          column-gap: 20px;
+
+          li {
+            a {
+              text-decoration: none;
+              color: #ffffff;
+              font-size: 2.5rem;
+              margin-right: 50px;
+            }
+          }
+        }
+        .socialImg {
+          background-color: #ffffff;
+        }
+      }
+
+      .info {
+        table {
+          width: 100%;
+
+          tr {
+            td {
+              font-size: 1.2rem;
+              padding: 10px 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* .main {
+  .section {
+    color: white;
+    background: linear-gradient(to right top, #0000008a, #0000008a),
+      url(../assets/img/banner-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .tituloPrincipal {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .subtituloPrincipal {
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .botonRegistrarse {
+      background-color: #9f3647;
+      color: #ffffff;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+
+      &:hover {
+        background-color: #9f3647;
+        transform: scale(0.95);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+} */
+
+footer {
+  width: 100vw;
+  height: 10vh;
+}
