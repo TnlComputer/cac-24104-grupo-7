@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bgprimary : #9f3647;
+    --bgsecundary : #181419; 
+    --textcolor: white;
+}
+
+h1{
+    color: var(--textcolor);
+    font-size: 3rem;
+    font-weight: 900;
+    font-family: "Nunito", sans-serif;
+}
+
+h2{
+    color: var(--textcolor);
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: "Nunito", sans-serif;
+}
+
+h3{
+    color: var(--textcolor);
+    font-family: "Nunito", sans-serif
+}
+
+a{
+    text-decoration: none;
+    color: var(--textcolor);
+}
+
+body{
+    header{
+        background-color: var(--bgprimary);
+        color: var(--textcolor);
+        height: 10vh;
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        
+        
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 4rem;
+            height: 100%;
+            
+            .logo{
+                height: 50%;
+                display: flex;
+                align-items: center;
+                svg{
+                    height: 2rem;
+                    width: auto;
+                }
+            }
+            ul{
+                list-style-type: none;
+                display: flex;
+                gap: 1rem;
+
+                li{
+                    padding: 0.5rem 1.5rem;
+                }
+            }
+        }
+        
+    }
+
+    main{
+        .principal{
+            height: 90vh;
+            /*background-image: url("../assets/img/banner-bg.jpg");*/
+            background: linear-gradient(to right top, #0000008a, #0000008a), url("../assets/img/banner-bg.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /*background-blend-mode:soft-light;
+            background-color: rgba(34, 31, 31, 0.411);*/
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 4rem;
+
+            h1, h2{
+                text-align: center;
+            }
+
+            .mainReg{
+                padding: 0.5rem 1.25rem;
+                background-color: var(--bgprimary);
+            }
+        }
+    }
+
+}
