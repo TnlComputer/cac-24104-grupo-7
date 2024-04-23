@@ -1,1 +1,62 @@
-hola mundo
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAC-MOVIES</title>
+  <link rel="shortcut icon" href="../favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a href="./index.html">
+          <i class="fas fa-film" aria-hidden="true"></i>
+          CAC-Movies
+        </a>
+      </li>
+      <li><a href="./pages/iniciosesion.html">Iniciar Sesión</a></li>
+      <li><a href="./pages/registrarse.html">Registrarse</a></li>
+      <li><a href="#tendencias">Tendencias</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="main">
+    <section class="seccionPrincipal">
+      <h1 class="titulo">Películas y series ilimitadas <br> en un solo lugar</h1>
+      <h2 class="subtitulo">Disfruta donde quieras. <br> Cancela en cualquier momento.</h2>
+      <a class="registro" href="./pages/registrarse.html">Registrate</a>
+    </section>
+    <section class="buscador">
+      <h3 class="SeccionBusqueda">¿Qué estas buscando para ver?</h3>
+      <form class="BusquedaPeliculas">
+        <input class="ingresarbusqueda" type="text" placeholder="Buscar" id="buscar" name="buscar">
+        <input class="botonBuscar" type="submit" value="Buscar">
+    </section>
+  </main>
+  <footer class="footer">
+    <nav class="navegacion">
+      <ul class="listaNav">
+        <li class="listaItem"><a class="linkNav" href="">Términos y condiciones</a></li>
+        <li class="listaItem"><a class="linkNav" href="">Preguntas frecuentes</a></li>
+        <li class="listaItem"><a class="linkNav" href="">Ayuda</a></li>
+        <li class="listaItem"><a class="linkNav administradorPeliculas" href="">Administrador Peliculas</a></li>
+      </ul>
+    </nav>
+    <a href="#main" class="flechaArriba">
+      <img src="./assets/img/flecha-hacia-arriba.png" alt="ir arriba flecha">
+    </a>
+  </footer>
+
+</body>
+
+</html>
