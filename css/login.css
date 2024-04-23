@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(
+      to right top,
+      rgba(36, 36, 36, 0.4509803922),
+      rgba(36, 36, 36, 0.4509803922)
+    ),
+    url(../assets/img/bg-register.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+}
+
+nav {
+  height: 8vh;
+  padding: 30px;
+}
+nav a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+main {
+  width: 30%;
+  height: 90vh;
+  margin: 0 auto;
+  background-color: #2a2a2a;
+  border-radius: 5px;
+  padding: 40px 20px;
+  text-align: center;
+}
+main section {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+main section h1 {
+  font-size: 40px;
+}
+main section form {
+  width: 100%;
+  padding: 20px 40px;
+}
+main section form p {
+  display: none;
+  color: #ff0000;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+main section form input {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 40px;
+  padding: 0px 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  border-radius: 20px;
+  border: 2px solid #9f3647;
+  background-color: #333333;
+  outline: none;
+  color: #ffffff;
+}
+main section form button {
+  width: 90%;
+  margin-top: 10px;
+  box-sizing: content-box;
+  background-color: #9f3647;
+  border: 2px solid #9f3647;
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+}
+main section form a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #787878;
+  position: relative;
+  display: block;
+  text-align: left;
+}
+
+@media only screen and (max-width: 1200px) {
+  main {
+    width: 90%;
+  }
+  main div form button {
+    margin-top: 20px;
+  }
+  main div form a {
+    text-align: center;
+    margin-top: 40px;
+  }
+}
