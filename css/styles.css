@@ -203,6 +203,15 @@ nav ul li:nth-child(2) a:hover {
 footer {
   width: 100vw;
   height: 10vh;
+
+  .botonTop {
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+  }
 }
 
 /* css Elias */
