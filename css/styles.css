@@ -245,6 +245,7 @@ footer > a {
 }
 footer > a i {
   position: sticky;
+  color: white;
   top: 5px;
   left: 6px;
 }
