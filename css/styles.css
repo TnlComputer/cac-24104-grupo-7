@@ -141,10 +141,10 @@ nav ul li:nth-child(2) a:hover {
       url(../assets/img/mario-bg.jpg);
     background-size: cover;
     background-position: center;
-    height: 75vh;
+    height: 75%;
 
     .detailDiv {
-      width: 75vw;
+      width: 75%;
       margin: 0 auto;
       display: flex;
       justify-content: center;
@@ -223,10 +223,8 @@ nav ul li:nth-child(2) a:hover {
 }
 
 @media screen and (max-width: 768px) {
-  .mainDetalil {
+  .mainDetail {
     .detail {
-      height: initial;
-
       .detailDiv {
         flex-direction: column;
         row-gap: 20px;
@@ -236,7 +234,7 @@ nav ul li:nth-child(2) a:hover {
           height: 300px;
         }
 
-        .textoDetalle {
+        .pDetail {
           h1 {
             font-size: 1.5rem;
           }
@@ -245,7 +243,7 @@ nav ul li:nth-child(2) a:hover {
             font-size: 1rem;
           }
 
-          .contenedorCreditos {
+          .credits {
             flex-direction: column;
             row-gap: 10px;
           }
@@ -260,7 +258,7 @@ nav ul li:nth-child(2) a:hover {
       flex-direction: column;
       row-gap: 20px;
 
-      .contenedorTrailer {
+      .contentTrailer {
         width: 100%;
 
         h2 {
@@ -273,7 +271,7 @@ nav ul li:nth-child(2) a:hover {
         }
       }
 
-      .contenedorInfo {
+      .contentInfo {
         width: 100%;
 
         .redes {
