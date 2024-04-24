@@ -231,7 +231,7 @@ footer div a:last-child {
   border-radius: 5px;
 }
 footer > a {
-  position: absolute;
+  position: fixed;
   right: 25px;
   bottom: 25px;
   color: #000000;
