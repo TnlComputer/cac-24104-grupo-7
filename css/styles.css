@@ -212,11 +212,13 @@ footer {
   font-size: 18px;
   text-align: center;
 }
+
 footer div {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
 }
+
 footer div a {
   display: inline-block;
   font-size: 20px;
@@ -225,11 +227,13 @@ footer div a {
   font-weight: 700;
   margin: 0 10px;
 }
+
 footer div a:last-child {
   padding: 5px;
   background-color: #000000;
   border-radius: 5px;
 }
+
 footer > a {
   position: absolute;
   right: 25px;
@@ -243,11 +247,14 @@ footer > a {
   width: 30px;
   font-size: 16px;
 }
+
 footer > a i {
   position: fixed;
-  /* color: white; */
-  top: 5px;
-  left: 6px;
+  bottom: 0;
+  color: white;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 798px) {
