@@ -244,8 +244,8 @@ footer > a {
   font-size: 16px;
 }
 footer > a i {
-  position: sticky;
-  color: white;
+  position: fixed;
+  /* color: white; */
   top: 5px;
   left: 6px;
 }
