@@ -1,9 +1,9 @@
 :root {
-  --text-color: hsl(0, 0%, 100%);
+  --text-color-blanco: hsl(0, 0%, 100%);
+  --text-color-negro: hsl(288, 11%, 9%);
   --bg-color: hsl(350, 49%, 42%);
-  --bg-fondo-color: rgba(0, 0, 0, 0.3);
-  --bg-secondary-color: hsl(0, 0%, 0%);
-  --bg-terciary-color: hsl(0, 0%, 23%);
+  --bg-fondo-negro: hsl(288, 11%, 9%);
+  --bg-fondo-blanco: hsl(0, 0%, 100%);
 }
 
 * {
@@ -11,6 +11,11 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Nunito', sans-serif;
+}
+
+body {
+  background-color: var(--bg-fondo-negro);
+  color: white;
 }
 
 nav {
@@ -35,7 +40,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: var(--text-color);
+  color: var(--text-color-blanco);
   text-decoration: none;
   display: inline-block;
   margin: 0 20px;
@@ -45,7 +50,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  box-shadow: 0 0 10px var(--bg-fondo-color);
+  box-shadow: 0 0 10px var(--bg-fondo-negro);
 }
 
 nav ul li:first-child {
@@ -67,7 +72,7 @@ nav ul li:nth-child(2) {
 }
 
 nav ul li:nth-child(2) a {
-  background-color: var(--bg-secondary-color);
+  background-color: var(--bg-fondo-negro);
 }
 
 nav ul li:nth-child(2) a:hover {
@@ -191,14 +196,14 @@ nav ul li:nth-child(2) a:hover {
           li {
             a {
               text-decoration: none;
-              color: #ffffff;
+              color: var(--text-color-blanco);
               font-size: 2.5rem;
               margin-right: 50px;
             }
           }
         }
         .socialImg {
-          background-color: #ffffff;
+          background-color: var(--bg-color-blanco);
         }
       }
 
@@ -219,7 +224,7 @@ nav ul li:nth-child(2) a:hover {
 }
 
 footer {
-  background-color: #9f3647;
+  background-color: var(--bg-color);
   height: 12vh;
   z-index: 3;
   width: 100%;
@@ -237,7 +242,7 @@ footer div {
 footer div a {
   display: inline-block;
   font-size: 20px;
-  color: #ffffff;
+  color: var(--text-color-blanco);
   text-decoration: none;
   font-weight: 700;
   margin: 0 10px;
@@ -245,7 +250,7 @@ footer div a {
 
 footer div a:last-child {
   padding: 5px;
-  background-color: #000000;
+  background-color: var(--bg-fondo-negro);
   border-radius: 5px;
 }
 
@@ -253,11 +258,9 @@ footer > a {
   position: fixed;
   right: 25px;
   bottom: 25px;
-  /* color: #000000; */
-  color: #ffffff;
+  color: var(--text-color-negro);
   background-color: transparent;
-  /* border: 2px solid #000000; */
-  border: 2px solid #ffffff;
+  border: 2px solid var(--bg-fondo-negro);
   border-radius: 50%;
   padding: 5px;
   height: 30px;
@@ -296,16 +299,12 @@ footer > a i {
 
 .separacion {
   width: 80vw;
-  border: #9f3647 solid 2px;
+  border: var(--bg-color) solid 2px;
   margin: 0 auto;
   margin-top: 10px;
 }
 
 /* css Elias */
-body {
-  background-color: #1c171d;
-  color: white;
-}
 
 .main .seccionPrincipal {
   background-image: url('../assets/img/banner-bg.jpg');
@@ -377,12 +376,13 @@ body {
 }
 
 .tendencia {
-  background-color: #1c171d;
+  background-color: var(--bg-fondo-color);
+  /* background-color: #1c171d; */
   color: white;
   width: 80vw;
-  margin: auto;
+  margin: 10px auto;
   text-align: center;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .tituloTendencia {
@@ -432,11 +432,11 @@ body {
 
 /* css Facundo*/
 .aclamadas {
-  background-color: #1c171d;
   width: 80vw;
+  /* background-color: var(--bg-fondo-color); */
+  color: white;
+  margin: 20px auto 35px auto;
   text-align: center;
-  margin: 20px 0;
-  /* justify-content: center; */
 }
 
 .tituloAclamada {
@@ -445,20 +445,24 @@ body {
 }
 
 .peliculasAclamadas {
-  width: 80vw;
-  margin-left: 10%;
+  /* width: 80vw; */
+  /* margin-left: 20px; */
   /* text-align: center; */
-  overflow-x: scroll;
+  overflow-x: none;
   overflow-y: hidden;
   white-space: nowrap;
+}
+.peliculasAclamadas:hover {
+  overflow-x: scroll;
 }
 
 .peliculaAclamada {
   width: 170px;
+  min-width: 170px;
   /* height: 250px; */
   position: relative;
   display: inline-block;
-  border-radius: 25px;
+  border-radius: 55px;
   margin: 20px 25px;
   /* margin-left: 50; */
 }
