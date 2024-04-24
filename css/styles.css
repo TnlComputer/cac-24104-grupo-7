@@ -273,10 +273,10 @@ footer > a i {
 }
 
 .separacion {
-  width: 100vw;
-  height: 1px;
+  width: 80vw;
   border: #9f3647 solid 2px;
-  /* padding: 10rem; */
+  margin: 0 auto;
+  margin-top: 10px;
 }
 
 /* css Elias */
@@ -357,7 +357,7 @@ body {
 .tendencia {
   background-color: #1c171d;
   color: white;
-  width: 80%;
+  width: 80vw;
   margin: auto;
   text-align: center;
   margin-top: 10px;
@@ -380,6 +380,7 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 5px;
+  gap: 60px;
 }
 
 .imgTendencia {
@@ -393,8 +394,8 @@ body {
 .botonSiguiente {
   border: 0px solid transparent;
   box-sizing: content-box;
-  margin-top: 50px;
-  margin-left: 20px;
+  margin-top: 3rem;
+  margin-left: 1.5rem;
   background-color: #943142;
   color: white;
   padding: 1rem;
@@ -402,7 +403,41 @@ body {
   font-size: 1rem;
   font-weight: 400;
   text-decoration: none;
-  margin-bottom: 57px;
+  margin-bottom: 3rem;
 }
 
 /* fin css Elias */
+
+/* css Facundo*/
+.aclamadas {
+  background-color: #1c171d;
+  width: 80vw;
+  text-align: center;
+  margin: 20px 0;
+  /* justify-content: center; */
+}
+
+.tituloAclamada {
+  font-size: 2.3rem;
+  font-weight: 650;
+}
+
+.peliculasAclamadas {
+  width: 80vw;
+  margin-left: 10%;
+  /* text-align: center; */
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.peliculaAclamada {
+  width: 170px;
+  /* height: 250px; */
+  position: relative;
+  display: inline-block;
+  border-radius: 25px;
+  margin: 20px 25px;
+  /* margin-left: 50; */
+}
+/* fin css facundo*/
