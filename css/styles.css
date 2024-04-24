@@ -361,7 +361,7 @@ footer > a i {
 .SeccionBusqueda {
   font-size: 2.5rem;
   font-weight: 650;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -396,7 +396,7 @@ footer > a i {
 input[type='text'] {
   background-color: var(--bg-fondo-blanco);
   padding: 12px;
-  width: 450px;
+  width: 500px;
   border-radius: 25px;
 }
 
