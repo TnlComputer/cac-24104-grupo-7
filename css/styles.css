@@ -241,7 +241,7 @@ footer div {
 
 footer div a {
   display: inline-block;
-  font-size: 20px;
+  font-size: 18px;
   color: var(--text-color-blanco);
   text-decoration: none;
   font-weight: 700;
@@ -249,7 +249,7 @@ footer div a {
 }
 
 footer div a:last-child {
-  padding: 5px;
+  padding: 10px;
   background-color: var(--bg-fondo-negro);
   border-radius: 5px;
 }
@@ -338,8 +338,8 @@ footer > a i {
 
 .registro,
 .botonBuscar {
-  background-color: #ac364a;
-  color: #f7f0f0;
+  background-color: var(--bg-color);
+  color: var(--text-color-blanco);
   padding: 1rem 2rem;
   border-radius: 5px;
   font-size: 1.2rem;
@@ -349,9 +349,9 @@ footer > a i {
 }
 
 .buscador {
-  background-color: #181419;
-  color: rgb(255, 255, 255);
-  height: calc(30vh);
+  background-color: var(--text-color-negro);
+  color: var(--text-color-blanco);
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -368,14 +368,36 @@ footer > a i {
   align-items: center;
 }
 
-.botonBuscar {
+.ingresarBusqueda {
+  border: 2px solid var(--bg-color-blanco);
+  border-radius: 25px;
+  color: var(--text-color-negro);
   font-size: 1.2rem;
-  height: 30px;
-  margin: 20px 10px;
-  padding: 0 20px;
-  border-radius: 5px;
-  border: none;
+  height: 50px;
+  margin: 25px;
+  padding: 0px 20px;
+  width: 400px;
+}
+
+.botonBuscar {
+  background-color: var(--bg-color);
+  color: var(--text-color-blanco);
+  /* height: 40px; */
+  margin-left: 5px;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 650;
+  border: 2px solid white;
   text-align: center;
+  transition: transform 5ms, box-shadow 5ms;
+}
+
+input[type='text'] {
+  background-color: var(--bg-fondo-blanco);
+  padding: 12px;
+  width: 450px;
+  border-radius: 25px;
 }
 
 .tendencia {
