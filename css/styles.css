@@ -251,6 +251,59 @@ nav ul li:nth-child(2) a:hover {
   }
 }
 
+@media only screen and (max-width: 720px) {
+  .buscador {
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* h3 titulo de busqueda */
+    .SeccionBusqueda {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .BusquedaPeliculas {
+      max-width: 100%;
+      /* input busqueda */
+      .ingresarbusqueda {
+        width: 80%;
+        min-width: 80%;
+        padding: 0 20px;
+        font-size: 1rem;
+        border-radius: 25px;
+      }
+
+      /* boton buscar */
+      .botonBuscar {
+        font-size: 1rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 450px) {
+  .buscador {
+    /* h3 titulo de busqueda */
+    .SeccionBusqueda {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+    }
+    .BusquedaPeliculas {
+      display: block;
+      max-width: 100%;
+      text-align: center;
+      /* input busqueda */
+      .ingresarbusqueda {
+        padding: 15px;
+        font-size: 1rem;
+        border-radius: 25px;
+      }
+    }
+  }
+}
+
 .tendencia {
   background-color: var(--bg-fondo-color);
   /* background-color: #1c171d; */
