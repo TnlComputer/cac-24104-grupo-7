@@ -315,41 +315,49 @@ nav ul li:nth-child(2) a:hover {
 /* fin css Elias */
 
 /* css Facundo*/
+/* div contenedor general aclamadas */
 .aclamadas {
-  width: 80%;
   /* background-color: var(--bg-fondo-color); */
+  width: 80%;
   color: var(--text-color-blanco);
-  margin: 10px auto 35px auto;
+  margin: 10px auto 50px auto;
   text-align: center;
 }
 
+/* titulo las mas aclamadas */
 .tituloAclamada {
-  font-size: 2.3rem;
-  font-weight: 650;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
 }
 
+/* div contenedor imagenes aclamadas  */
 .peliculasAclamadas {
-  /* width: 80vw; */
-  /* margin-left: 20px; */
-  /* text-align: center; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   overflow-x: none;
   overflow-y: hidden;
-  white-space: nowrap;
-}
+  /* white-space: nowrap; */
 
-.peliculasAclamadas:hover {
-  overflow-x: scroll;
-}
+  &:hover {
+    overflow-x: scroll;
+  }
 
-.peliculaAclamada {
-  width: 170px;
-  min-width: 170px;
-  /* height: 250px; */
-  position: relative;
-  display: inline-block;
-  border-radius: 55px;
-  margin: 20px 25px;
-  /* margin-left: 50; */
+  /* card pelicula imagen */
+  .peliculaAclamada {
+    width: 170px;
+    min-width: 170px;
+    height: 250px;
+    border-radius: 55px;
+    margin: 20px 25px;
+    img {
+      border-radius: 5%;
+      width: 95%;
+      height: 95%;
+      object-fit: cover;
+    }
+  }
 }
 /* fin css facundo*/
 
