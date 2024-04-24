@@ -188,7 +188,7 @@ nav ul li:nth-child(2) a:hover {
   &:hover {
     background-color: #9f3647;
     transform: scale(0.95);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px var(--bg-fondo-gris);
   }
 }
 
@@ -237,7 +237,7 @@ nav ul li:nth-child(2) a:hover {
       border-radius: 25px;
       font-size: 1.2rem;
       font-weight: 700;
-      border: 2px solid var(--bg-color-blanco);
+      border: 2px solid var(--bg-fondo-blanco);
       text-align: center;
       transition: transform 5ms, box-shadow 5ms;
       display: inline-block;
