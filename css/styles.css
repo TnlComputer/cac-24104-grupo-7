@@ -366,7 +366,7 @@ body {
   font-weight: 650;
   border: 2px solid white;
   text-align: center;
-  transition: box-shadow 0.3s;
+  transition: transform 5ms, box-shadow 5ms
 }
 
 .tendencia {
@@ -418,7 +418,7 @@ body {
   font-weight: 400;
   text-decoration: none;
   margin-bottom: 57px;
-  transition: box-shadow 5ms;
+  transition: transform 5ms, box-shadow 5ms;
 }
 
 /* fin css Elias */
