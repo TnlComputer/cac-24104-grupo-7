@@ -115,23 +115,22 @@ nav ul li:nth-child(2) a:hover {
   nav ul li:nth-child(2) {
     margin-right: 0;
   }
-
-  @keyframes tilt-n-move-shaking {
-    0% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-    25% {
-      transform: translate(5px, 5px) rotate(5deg);
-    }
-    50% {
-      transform: translate(0, 0) rotate(0eg);
-    }
-    75% {
-      transform: translate(-5px, 5px) rotate(-5deg);
-    }
-    100% {
-      transform: translate(0, 0) rotate(0deg);
-    }
+}
+@keyframes tilt-n-move-shaking {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(5px, 5px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0eg);
+  }
+  75% {
+    transform: translate(-5px, 5px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
   }
 }
 
@@ -215,6 +214,91 @@ nav ul li:nth-child(2) a:hover {
             td {
               font-size: 1.2rem;
               padding: 10px 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mainDetalil {
+    .detail {
+      height: initial;
+
+      .detailDiv {
+        flex-direction: column;
+        row-gap: 20px;
+
+        img {
+          width: 100%;
+          height: 300px;
+        }
+
+        .textoDetalle {
+          h1 {
+            font-size: 1.5rem;
+          }
+
+          h2 {
+            font-size: 1rem;
+          }
+
+          .contenedorCreditos {
+            flex-direction: column;
+            row-gap: 10px;
+          }
+        }
+      }
+    }
+
+    .trailer {
+      width: 95%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      flex-direction: column;
+      row-gap: 20px;
+
+      .contenedorTrailer {
+        width: 100%;
+
+        h2 {
+          margin-bottom: 20px;
+        }
+
+        iframe {
+          width: 100%;
+          height: 300px;
+        }
+      }
+
+      .contenedorInfo {
+        width: 100%;
+
+        .redes {
+          width: 100%;
+
+          ul {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            li {
+              a {
+                font-size: 2rem;
+                margin-right: 20px;
+              }
+            }
+          }
+        }
+
+        .info {
+          table {
+            tr {
+              td {
+                font-size: 1rem;
+              }
             }
           }
         }
