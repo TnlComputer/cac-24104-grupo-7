@@ -1,3 +1,20 @@
+:root {
+  --text-color: hsl(0, 0%, 100%);
+  --bg-color: hsl(350, 49%, 42%);
+  --bg-fondo-color: rgba(0, 0, 0, 0.3);
+  --bg-secondary-color: hsl(0, 0%, 0%);
+  --bg-terciary-color: hsl(0, 0%, 23%);
+  /* --border-radius: 0.4rem;
+  --transition: color 0.1s, background-color 0.2s ease-in-out;
+  --skill-bar-length: 0%; */
+
+  /* --width: 300px;
+  --padding: 10px;
+  --bgcolor: rgb(52, 52, 52);
+  --hovercolor: rgb(23, 23, 23);
+  --width-collapsed: 50px; */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +23,7 @@
 }
 
 nav {
-  background-color: #9f3647;
+  background-color: var(--bg-color);
   position: sticky;
   top: 0;
   height: 10vh;
@@ -25,7 +42,7 @@ nav ul li {
   float: right;
 }
 nav ul li a {
-  color: #ffffff;
+  color: var(--text-color);
   text-decoration: none;
   display: inline-block;
   margin: 0 20px;
@@ -34,7 +51,7 @@ nav ul li a {
   transition: box-shadow 0.3s;
 }
 nav ul li a:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px var(--bg-fondo-color);
 }
 nav ul li:first-child {
   float: left;
@@ -51,10 +68,10 @@ nav ul li:nth-child(2) {
   margin-right: 30px;
 }
 nav ul li:nth-child(2) a {
-  background-color: #000000;
+  background-color: var(--bg-secondary-color);
 }
 nav ul li:nth-child(2) a:hover {
-  background-color: #3b3b3b;
+  background-color: var(--bg-color);
 }
 
 @media only screen and (max-width: 768px) {
@@ -117,13 +134,12 @@ nav ul li:nth-child(2) a:hover {
   .detail {
     padding-top: 50px;
     background: linear-gradient(to right top, #6d6969a7, #6d6969a7),
-      url('../assets/img/mario-bg.jpg');
+      url(../assets/img/mario-bg.jpg);
     background-size: cover;
     background-position: center;
-    height: calc(100vh - 20vh);
+    height: 75vh;
 
     .detailDiv {
-      background-color: transparent;
       width: 75vw;
       margin: 0 auto;
       display: flex;
@@ -144,12 +160,11 @@ nav ul li:nth-child(2) a:hover {
         h2 {
           margin-top: 20px;
         }
-
-        .credits {
-          margin-top: 20px;
-          display: flex;
-          justify-content: space-between;
-        }
+      }
+      .credits {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
       }
     }
   }
@@ -157,7 +172,7 @@ nav ul li:nth-child(2) a:hover {
   .trailer {
     padding-top: 150px;
     padding-bottom: 100px;
-    width: 75%;
+    width: 75vw;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -334,7 +349,7 @@ body {
 .buscador {
   background-color: #181419;
   color: rgb(255, 255, 255);
-  height: calc(100vh - 10vh);
+  height: calc(30vh);
   display: flex;
   flex-direction: column;
   justify-content: center;
