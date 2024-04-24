@@ -222,7 +222,7 @@ nav ul li:nth-child(2) a:hover {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1152px) {
   .mainDetail {
     .detail {
       .detailDiv {
