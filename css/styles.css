@@ -258,9 +258,9 @@ footer > a {
   position: fixed;
   right: 25px;
   bottom: 25px;
-  color: var(--text-color-negro);
+  color: var(--text-color-blanco);
   background-color: transparent;
-  border: 2px solid var(--bg-fondo-negro);
+  border: 2px solid var(--bg-fondo-blanco);
   border-radius: 50%;
   padding: 5px;
   height: 30px;
@@ -270,7 +270,7 @@ footer > a {
 
 footer > a i {
   position: absolute;
-  top: 5px;
+  top: 6px;
   left: 6px;
   cursor: pointer;
 }
@@ -281,14 +281,17 @@ footer > a i {
     font-weight: 400;
     font-size: 16px;
   }
+
   footer div {
     padding: 10px;
   }
+
   footer div a {
     font-size: 16px;
     margin: 10px 0;
     display: block;
   }
+
   footer div a:last-child {
     width: 200px;
     position: relative;
