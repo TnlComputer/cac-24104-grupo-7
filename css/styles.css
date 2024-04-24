@@ -238,9 +238,11 @@ footer > a {
   position: fixed;
   right: 25px;
   bottom: 25px;
-  color: #000000;
+  /* color: #000000; */
+  color: #ffffff;
   background-color: transparent;
-  border: 2px solid #000000;
+  /* border: 2px solid #000000; */
+  border: 2px solid #ffffff;
   border-radius: 50%;
   padding: 5px;
   height: 30px;
