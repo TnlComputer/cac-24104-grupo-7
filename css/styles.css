@@ -235,7 +235,7 @@ footer div a:last-child {
 }
 
 footer > a {
-  position: absolute;
+  position: fixed;
   right: 25px;
   bottom: 25px;
   color: #000000;
@@ -249,11 +249,9 @@ footer > a {
 }
 
 footer > a i {
-  position: fixed;
-  bottom: 0;
-  color: white;
-  top: 20px;
-  left: 20px;
+  position: absolute;
+  top: 5px;
+  left: 6px;
   cursor: pointer;
 }
 
