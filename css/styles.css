@@ -4,15 +4,6 @@
   --bg-fondo-color: rgba(0, 0, 0, 0.3);
   --bg-secondary-color: hsl(0, 0%, 0%);
   --bg-terciary-color: hsl(0, 0%, 23%);
-  /* --border-radius: 0.4rem;
-  --transition: color 0.1s, background-color 0.2s ease-in-out;
-  --skill-bar-length: 0%; */
-
-  /* --width: 300px;
-  --padding: 10px;
-  --bgcolor: rgb(52, 52, 52);
-  --hovercolor: rgb(23, 23, 23);
-  --width-collapsed: 50px; */
 }
 
 * {
@@ -38,9 +29,11 @@ nav ul {
   position: relative;
   top: 20px;
 }
+
 nav ul li {
   float: right;
 }
+
 nav ul li a {
   color: var(--text-color);
   text-decoration: none;
@@ -50,26 +43,33 @@ nav ul li a {
   border-radius: 5px;
   transition: box-shadow 0.3s;
 }
+
 nav ul li a:hover {
   box-shadow: 0 0 10px var(--bg-fondo-color);
 }
+
 nav ul li:first-child {
   float: left;
   font-size: 20px;
 }
+
 nav ul li:first-child a {
   transition: none;
 }
+
 nav ul li:first-child a:hover {
   box-shadow: none;
   animation: tilt-n-move-shaking 0.25s infinite;
 }
+
 nav ul li:nth-child(2) {
   margin-right: 30px;
 }
+
 nav ul li:nth-child(2) a {
   background-color: var(--bg-secondary-color);
 }
+
 nav ul li:nth-child(2) a:hover {
   background-color: var(--bg-color);
 }
