@@ -5,6 +5,7 @@
   --bg-fondo-negro: hsl(288, 11%, 9%);
   --bg-fondo-blanco: hsl(0, 0%, 100%);
   --bg-fondo-gris: rgba(255, 255, 255, 0.3);
+  --negro: #0000007a;
 }
 
 * {
@@ -147,13 +148,12 @@ nav ul li:nth-child(2) a:hover {
 .main {
   .seccionPrincipal {
     height: 90vh;
-    background: linear-gradient(to right top, #1110107b, #1110107b),
+    background: linear-gradient(to right top, var(--negro), var(--negro)),
       url(../assets/img/banner-bg.jpg);
-    /* background-image: url('../assets/img/banner-bg.jpg'); */
     background-color: var(--bg-fondo-negro);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -161,7 +161,6 @@ nav ul li:nth-child(2) a:hover {
     text-align: center;
     color: var(--text-color-blanco);
     animation: startFromCenter 1s;
-    /* filter: blur(2px); */
   }
 
   .titulo {
@@ -206,7 +205,7 @@ nav ul li:nth-child(2) a:hover {
   align-items: center;
   animation: appearFromBottom 1s forwards;
 
-  /* h3 titulo de busqueda */
+  /* titulo de busqueda */
   .SeccionBusqueda {
     font-size: 2.5rem;
     font-weight: 700;
@@ -262,6 +261,7 @@ nav ul li:nth-child(2) a:hover {
     width: 100%;
     flex-direction: column;
     flex-wrap: wrap;
+
     /* h3 titulo de busqueda */
     .SeccionBusqueda {
       font-size: 2rem;
@@ -270,6 +270,7 @@ nav ul li:nth-child(2) a:hover {
     }
     .BusquedaPeliculas {
       max-width: 100%;
+
       /* input busqueda */
       .ingresarbusqueda {
         width: 80%;
@@ -299,6 +300,7 @@ nav ul li:nth-child(2) a:hover {
       display: block;
       max-width: 100%;
       text-align: center;
+
       /* input busqueda */
       .ingresarbusqueda {
         padding: 15px;
@@ -310,13 +312,10 @@ nav ul li:nth-child(2) a:hover {
 }
 
 .tendencia {
-  background-color: var(--bg-fondo-color);
-  /* background-color: #1c171d; */
   color: var(--text-color-blanco);
   width: 80vw;
   margin: 10px auto 0 auto;
   text-align: center;
-  /* margin-top: 10px; */
   animation: appearFromBottom 1s forwards;
   padding-top: 10vh;
 
@@ -364,7 +363,6 @@ nav ul li:nth-child(2) a:hover {
     margin-left: 20px;
     padding: 1rem;
     border-radius: 5px;
-    /* font-size: 1rem; */
     font-weight: 600;
     text-decoration: none;
     margin-bottom: 60px;
@@ -382,7 +380,6 @@ nav ul li:nth-child(2) a:hover {
 /* css Facundo*/
 /* div contenedor general aclamadas */
 .aclamadas {
-  /* background-color: var(--bg-fondo-color); */
   width: 80%;
   color: var(--text-color-blanco);
   margin: 10px auto 50px auto;
@@ -404,7 +401,6 @@ nav ul li:nth-child(2) a:hover {
   align-items: flex-start;
   overflow-x: none;
   overflow-y: hidden;
-  /* white-space: nowrap; */
 
   &:hover {
     overflow-x: scroll;
@@ -412,10 +408,8 @@ nav ul li:nth-child(2) a:hover {
 
   /* card pelicula imagen */
   .peliculaAclamada {
-    /* width: 170px; */
     min-width: 170px;
     max-width: 170px;
-    /* height: 250px; */
     border-radius: 55px;
     margin: 20px 20px;
     cursor: pointer;
@@ -507,6 +501,7 @@ footer > a i {
   }
 }
 /* footer */
+
 /* fin Index */
 
 /* Detalle */
