@@ -5,6 +5,7 @@
   --bg-fondo-negro: hsl(288, 11%, 9%);
   --bg-fondo-blanco: hsl(0, 0%, 100%);
   --bg-fondo-gris: rgba(255, 255, 255, 0.3);
+  --negro: hsla(0, 0%, 0%, 0.478);
 }
 
 * {
@@ -18,8 +19,8 @@ body {
   height: 100vh;
   background: linear-gradient(
       to right top,
-      rgba(36, 36, 36, 0.4509803922),
-      rgba(36, 36, 36, 0.4509803922)
+      rgba(36, 36, 36, 0.451),
+      rgba(36, 36, 36, 0.451)
     ),
     url(../assets/img/bg-register.jpg);
   background-size: cover;
@@ -29,7 +30,7 @@ body {
 }
 
 nav {
-  background-color: #9f3647;
+  background-color: var(--bg-color);
   height: 10vh;
   padding: 30px;
 }

@@ -1,3 +1,13 @@
+:root {
+  --text-color-blanco: hsl(0, 0%, 100%);
+  --text-color-negro: hsl(288, 11%, 9%);
+  --bg-color: hsl(350, 49%, 42%);
+  --bg-fondo-negro: hsl(288, 11%, 9%);
+  --bg-fondo-blanco: hsl(0, 0%, 100%);
+  --bg-fondo-gris: hsla(0, 0%, 100%, 0.3);
+  --negro: hsla(0, 0%, 0%, 0.478);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -16,11 +26,11 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: #ffffff;
+  color: var(--text-color-blanco);
 }
 
 nav {
-  background-color: #9f3647;
+  background-color: var(--bg-color);
   height: 10vh;
   padding: 30px;
 }

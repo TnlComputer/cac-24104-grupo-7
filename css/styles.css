@@ -4,8 +4,8 @@
   --bg-color: hsl(350, 49%, 42%);
   --bg-fondo-negro: hsl(288, 11%, 9%);
   --bg-fondo-blanco: hsl(0, 0%, 100%);
-  --bg-fondo-gris: rgba(255, 255, 255, 0.3);
-  --negro: #0000007a;
+  --bg-fondo-gris: hsla(0, 0%, 100%, 0.3);
+  --negro: hsla(0, 0%, 0%, 0.478);
 }
 
 * {
@@ -472,7 +472,7 @@ footer > a {
 footer > a i {
   position: absolute;
   top: 5px;
-  left: 6px;
+  left: 7px;
   cursor: pointer;
 }
 
