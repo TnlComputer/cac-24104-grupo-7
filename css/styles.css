@@ -230,6 +230,7 @@ nav ul li:nth-child(2) a:hover {
       font-size: 1.2rem;
       border-radius: 25px;
       border: 2px solid var(--bg-color-blanco);
+      outline: none;
     }
 
     /* boton buscar */
