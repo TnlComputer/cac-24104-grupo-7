@@ -21,7 +21,7 @@ body {
 
 nav {
   background-color: #9f3647;
-  height: 8vh;
+  height: 10vh;
   padding: 30px;
 }
 
@@ -34,12 +34,13 @@ nav a {
 
 main {
   width: 30%;
-  height: 90vh;
-  margin: 0 auto;
+  height: 85vh;
+  margin: 15px auto;
   background-color: #2a2a2a;
   border-radius: 5px;
   padding: 40px 20px;
   text-align: center;
+  animation: startFromCenter 1s;
 }
 main section {
   position: relative;
@@ -111,5 +112,16 @@ main section form a {
   main section form a {
     text-align: center;
     margin-top: 40px;
+  }
+}
+
+@keyframes startFromCenter {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
