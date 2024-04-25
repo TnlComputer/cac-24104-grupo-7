@@ -411,11 +411,13 @@ nav ul li:nth-child(2) a:hover {
 
   /* card pelicula imagen */
   .peliculaAclamada {
-    width: 170px;
+    /* width: 170px; */
     min-width: 170px;
-    height: 250px;
+    max-width: 170px;
+    /* height: 250px; */
     border-radius: 55px;
-    margin: 20px 25px;
+    margin: 20px 20px;
+    cursor: pointer;
     img {
       border-radius: 5%;
       width: 95%;

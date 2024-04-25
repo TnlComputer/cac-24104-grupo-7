@@ -24,12 +24,41 @@ nav {
   height: 10vh;
   padding: 30px;
 }
-
 nav a {
+  display: inline-block;
+  color: var(--text-color-blanco);
   text-decoration: none;
+  border-radius: 5px;
   font-weight: 700;
-  color: #ffffff;
   font-size: 20px;
+  transition: box-shadow 0.3s;
+}
+
+nav a:hover {
+  box-shadow: 0 0 10px var(--bg-fondo-negro);
+}
+
+nav a:hover {
+  box-shadow: none;
+  animation: tilt-n-move-shaking 0.25s infinite;
+}
+
+@keyframes tilt-n-move-shaking {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(5px, 5px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0eg);
+  }
+  75% {
+    transform: translate(-5px, 5px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 }
 
 main {
@@ -103,24 +132,6 @@ main section form a {
   position: relative;
   display: block;
   text-align: left;
-}
-
-@keyframes tilt-n-move-shaking {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  25% {
-    transform: translate(5px, 5px) rotate(5deg);
-  }
-  50% {
-    transform: translate(0, 0) rotate(0eg);
-  }
-  75% {
-    transform: translate(-5px, 5px) rotate(-5deg);
-  }
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
 }
 
 @media only screen and (max-width: 1200px) {
