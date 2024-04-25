@@ -147,17 +147,21 @@ nav ul li:nth-child(2) a:hover {
 .main {
   .seccionPrincipal {
     height: 90vh;
-    display: flex;
-    background-image: url('../assets/img/banner-bg.jpg');
+    background: linear-gradient(to right top, #1110107b, #1110107b),
+      url(../assets/img/banner-bg.jpg);
+    /* background-image: url('../assets/img/banner-bg.jpg'); */
     background-color: var(--bg-fondo-negro);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: var(--text-color-blanco);
+    animation: startFromCenter 1s;
+    /* filter: blur(2px); */
   }
 
   .titulo {
@@ -186,7 +190,7 @@ nav ul li:nth-child(2) a:hover {
   transition: transform 0.3s, box-shadow 0.3s;
 
   &:hover {
-    background-color: #9f3647;
+    background-color: var(--bg-color);
     transform: scale(0.95);
     box-shadow: 0 0 10px var(--bg-fondo-gris);
   }
@@ -200,6 +204,7 @@ nav ul li:nth-child(2) a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  animation: appearFromBottom 1s forwards;
 
   /* h3 titulo de busqueda */
   .SeccionBusqueda {
@@ -282,7 +287,6 @@ nav ul li:nth-child(2) a:hover {
   }
 }
 
-
 @media only screen and (max-width: 450px) {
   .buscador {
     /* h3 titulo de busqueda */
@@ -312,6 +316,7 @@ nav ul li:nth-child(2) a:hover {
   margin: 10px auto 0 auto;
   text-align: center;
   /* margin-top: 10px; */
+  animation: appearFromBottom 1s forwards;
 
   .tituloTendencia {
     font-size: 2.5rem;
@@ -333,6 +338,11 @@ nav ul li:nth-child(2) a:hover {
     overflow: hidden;
     border-radius: 10px;
     transition: all 0.5s ease;
+  }
+
+  .pelicula:hover {
+    transform: scale(0.9);
+    box-shadow: 0 0 30px var(--bg-color);
   }
 
   .imgTendencia {
@@ -375,6 +385,7 @@ nav ul li:nth-child(2) a:hover {
   color: var(--text-color-blanco);
   margin: 10px auto 50px auto;
   text-align: center;
+  animation: appearFromBottom 1s forwards;
 }
 
 /* titulo las mas aclamadas */
@@ -507,6 +518,7 @@ footer > a i {
     background-size: cover;
     background-position: center;
     height: 75%;
+    animation: startFromCenter 1s;
 
     .detailDiv {
       width: 75%;
@@ -547,6 +559,7 @@ footer > a i {
     justify-content: space-between;
     align-items: center;
     column-gap: 70px;
+    animation: appearFromBottom 1s forwards;
 
     .contentInfo {
       .redes {
@@ -670,3 +683,25 @@ footer > a i {
   }
 }
 /* Fin detalle */
+
+@keyframes startFromCenter {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes appearFromBottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
