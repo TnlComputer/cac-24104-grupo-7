@@ -23,7 +23,7 @@ body {
   width: 80vw;
   border: var(--bg-color) solid 2px;
   margin: 0 auto;
-  margin-top: 10px;
+  margin: 10px 0 10px 0;
 }
 
 /* index */
@@ -309,6 +309,10 @@ nav ul li:nth-child(2) a:hover {
   }
 }
 
+/* #tendencia {
+  margin-top: 20vh;
+} */
+
 .tendencia {
   background-color: var(--bg-fondo-color);
   /* background-color: #1c171d; */
@@ -318,6 +322,7 @@ nav ul li:nth-child(2) a:hover {
   text-align: center;
   /* margin-top: 10px; */
   animation: appearFromBottom 1s forwards;
+  padding-top: 10vh;
 
   .tituloTendencia {
     font-size: 2.5rem;
