@@ -309,10 +309,6 @@ nav ul li:nth-child(2) a:hover {
   }
 }
 
-/* #tendencia {
-  margin-top: 20vh;
-} */
-
 .tendencia {
   background-color: var(--bg-fondo-color);
   /* background-color: #1c171d; */
@@ -481,7 +477,7 @@ footer > a {
 
 footer > a i {
   position: absolute;
-  top: 6px;
+  top: 5px;
   left: 6px;
   cursor: pointer;
 }
