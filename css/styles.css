@@ -1,152 +1,7 @@
-:root {
-  --text-color-blanco: hsl(0, 0%, 100%);
-  --text-color-negro: hsl(288, 11%, 9%);
-  --bg-color: hsl(350, 49%, 42%);
-  --bg-fondo-negro: hsl(288, 11%, 9%);
-  --bg-fondo-blanco: hsl(0, 0%, 100%);
-  --bg-fondo-gris: rgba(255, 255, 255, 0.3);
-  --negro: #0000007a;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Nunito', sans-serif;
-}
-
-body {
-  background-color: var(--bg-fondo-negro);
-  color: var(--text-color-blanco);
-}
-
-.separacion {
-  width: 80vw;
-  border: var(--bg-color) solid 2px;
-  margin: 0 auto;
-  margin: 10px 0 10px 0;
-}
-
-/* index */
-nav {
-  background-color: var(--bg-color);
-  position: sticky;
-  top: 0;
-  height: 10vh;
-  z-index: 3;
-  width: 100%;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-nav ul {
-  list-style: none;
-  position: relative;
-  top: 20px;
-}
-
-nav ul li {
-  float: right;
-}
-
-nav ul li a {
-  color: var(--text-color-blanco);
-  text-decoration: none;
-  display: inline-block;
-  margin: 0 20px;
-  padding: 10px;
-  border-radius: 5px;
-  transition: box-shadow 0.3s;
-}
-
-nav ul li a:hover {
-  box-shadow: 0 0 10px var(--bg-fondo-negro);
-}
-
-nav ul li:first-child {
-  float: left;
-  font-size: 20px;
-}
-
-nav ul li:first-child a {
-  transition: none;
-}
-
-nav ul li:first-child a:hover {
-  box-shadow: none;
-  animation: tilt-n-move-shaking 0.25s infinite;
-}
-
-nav ul li:nth-child(2) {
-  margin-right: 30px;
-}
-
-nav ul li:nth-child(2) a {
-  background-color: var(--bg-fondo-negro);
-}
-
-nav ul li:nth-child(2) a:hover {
-  background-color: var(--bg-color);
-}
-
-@media only screen and (max-width: 768px) {
-  nav {
-    font-size: 16px;
-    font-weight: 400;
-    height: 13vh;
-  }
-  nav ul li a {
-    padding: 5px;
-    margin: 0 10px;
-  }
-  nav ul li:first-child {
-    float: none;
-    width: 100%;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 5px;
-  }
-  nav ul li:nth-child(2) {
-    margin-right: 200px;
-  }
-}
-
-@media only screen and (max-width: 650px) {
-  nav ul li:nth-child(2) {
-    margin-right: 100px;
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  nav ul li a {
-    margin: 0 5px;
-  }
-  nav ul li:nth-child(2) {
-    margin-right: 0;
-  }
-}
-@keyframes tilt-n-move-shaking {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  25% {
-    transform: translate(5px, 5px) rotate(5deg);
-  }
-  50% {
-    transform: translate(0, 0) rotate(0eg);
-  }
-  75% {
-    transform: translate(-5px, 5px) rotate(-5deg);
-  }
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-}
-
 /* css Elias */
 .main {
   .seccionPrincipal {
+    /* padding-top: 10vh; */
     height: 90vh;
     background: linear-gradient(to right top, var(--negro), var(--negro)),
       url(../assets/img/banner-bg.jpg);
@@ -203,7 +58,7 @@ nav ul li:nth-child(2) a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: appearFromBottom 1s forwards;
+  opacity: 0;
 
   /* titulo de busqueda */
   .SeccionBusqueda {
@@ -317,8 +172,8 @@ nav ul li:nth-child(2) a:hover {
   width: 80vw;
   margin: 10px auto 0 auto;
   text-align: center;
-  animation: appearFromBottom 1s forwards;
   padding-top: 10vh;
+  opacity: 0;
 
   /* h4 del titulo de tendencias */
   .tituloTendencia {
@@ -340,42 +195,22 @@ nav ul li:nth-child(2) a:hover {
     width: 200px;
     height: 300px;
     position: relative;
-    overflow: hidden;
     border-radius: 10px;
     transition: all 0.5s ease;
+  }
 
-    /* titulo pelicula */
-    .titlePelicula {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      color: transparent;
-      top: 0%;
-      bottom: 0%;
-      font-size: 1.6rem;
-      text-align: center;
-      margin: auto 0;
-      vertical-align: middle;
-
-      h4 {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        color: black;
-        font-weight: bold;
-        opacity: 0;
-        &:hover {
-          vertical-align: middle;
-          top: 40%;
-          opacity: 1;
-        }
-      }
-
-      &:hover {
-        backdrop-filter: blur(2px);
-        /* opacity: 1; */
-      }
-    }
+  .pelicula h3 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    overflow: hidden;
+    z-index: 2;
+    font-size: 1.6rem;
+    opacity: 0;
+    color: #000000;
+    transition: opacity 0.5s ease-in-out;
   }
 
   .pelicula:hover {
@@ -383,10 +218,17 @@ nav ul li:nth-child(2) a:hover {
     transform: scale(0.9);
   }
 
+  .pelicula:hover .imgTendencia {
+    filter: blur(2px);
+  }
+
+  .pelicula:hover h3 {
+    opacity: 1;
+  }
+
   .imgTendencia {
     width: 100%;
     height: 100%;
-    /* object-fit: cover; */
     border-radius: 10px;
   }
 
@@ -421,7 +263,7 @@ nav ul li:nth-child(2) a:hover {
   color: var(--text-color-blanco);
   margin: 10px auto 50px auto;
   text-align: center;
-  animation: appearFromBottom 1s forwards;
+  opacity: 0;
 }
 
 /* titulo las mas aclamadas */
@@ -460,265 +302,9 @@ nav ul li:nth-child(2) a:hover {
 }
 /* fin css facundo*/
 
-footer {
-  background-color: var(--bg-color);
-  height: 12vh;
-  z-index: 3;
-  width: 100%;
-  font-weight: 700;
-  font-size: 18px;
-  text-align: center;
+.animationFromBottom {
+  animation: appearFromBottom 1s forwards;
 }
-
-/* footer */
-footer div {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-footer div a {
-  display: inline-block;
-  font-size: 18px;
-  color: var(--text-color-blanco);
-  text-decoration: none;
-  font-weight: 700;
-  margin: 0 10px;
-}
-
-footer div a:last-child {
-  padding: 10px;
-  background-color: var(--bg-fondo-negro);
-  border-radius: 5px;
-}
-
-footer > a {
-  position: fixed;
-  right: 25px;
-  bottom: 25px;
-  color: var(--text-color-blanco);
-  background-color: transparent;
-  border: 2px solid var(--bg-fondo-blanco);
-  border-radius: 50%;
-  padding: 5px;
-  height: 30px;
-  width: 30px;
-  font-size: 16px;
-}
-
-footer > a i {
-  position: absolute;
-  top: 5px;
-  left: 7px;
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 798px) {
-  footer {
-    height: 20vh;
-    font-weight: 400;
-    font-size: 16px;
-  }
-
-  footer div {
-    padding: 10px;
-  }
-
-  footer div a {
-    font-size: 16px;
-    margin: 10px 0;
-    display: block;
-  }
-
-  footer div a:last-child {
-    width: 200px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-/* footer */
-
-/* fin Index */
-
-/* Detalle */
-.mainDetail {
-  .detail {
-    padding-top: 50px;
-    background: linear-gradient(
-        to right top,
-        var(--bg-fondo-gris),
-        var(--bg-fondo-gris)
-      ),
-      url(../assets/img/mario-bg.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 75%;
-    animation: startFromCenter 1s;
-
-    .detailDiv {
-      width: 75%;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      column-gap: 60px;
-
-      img {
-        border-radius: 20px;
-      }
-
-      .pDetail {
-        h1 {
-          font-size: 2.2rem;
-          font-weight: 700;
-        }
-
-        h2 {
-          margin-top: 20px;
-        }
-      }
-      .credits {
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-  }
-
-  .trailer {
-    padding-top: 150px;
-    padding-bottom: 100px;
-    width: 75vw;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    column-gap: 70px;
-    animation: appearFromBottom 1s forwards;
-
-    .contentInfo {
-      .redes {
-        margin-bottom: 20px;
-
-        ul {
-          list-style: none;
-          display: flex;
-          column-gap: 20px;
-
-          li {
-            a {
-              text-decoration: none;
-              color: var(--text-color-blanco);
-              font-size: 2.5rem;
-              margin-right: 50px;
-            }
-          }
-        }
-        .socialImg {
-          background-color: var(--bg-color-blanco);
-        }
-      }
-
-      .info {
-        table {
-          width: 100%;
-
-          tr {
-            td {
-              font-size: 1.2rem;
-              padding: 10px 0px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1152px) {
-  .mainDetail {
-    .detail {
-      .detailDiv {
-        flex-direction: column;
-        row-gap: 20px;
-
-        img {
-          width: 100%;
-          height: 300px;
-        }
-
-        .pDetail {
-          h1 {
-            font-size: 1.5rem;
-          }
-
-          h2 {
-            font-size: 1rem;
-          }
-
-          .credits {
-            flex-direction: column;
-            row-gap: 10px;
-          }
-        }
-      }
-    }
-
-    .trailer {
-      width: 95%;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      flex-direction: column;
-      row-gap: 20px;
-
-      .contentTrailer {
-        width: 100%;
-
-        h2 {
-          margin-bottom: 20px;
-        }
-
-        iframe {
-          width: 100%;
-          height: 300px;
-        }
-      }
-
-      .contentInfo {
-        width: 100%;
-
-        .redes {
-          width: 100%;
-
-          ul {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-
-            li {
-              a {
-                font-size: 2rem;
-                margin-right: 20px;
-              }
-            }
-          }
-        }
-
-        .info {
-          table {
-            tr {
-              td {
-                font-size: 1rem;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-/* Fin detalle */
 
 @keyframes startFromCenter {
   0% {

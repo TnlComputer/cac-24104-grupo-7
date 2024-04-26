@@ -2,11 +2,13 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CAC-MOVIES</title>
-  <link rel="shortcut icon" href="../favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="shortcut icon" href="../favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/header.css" />
+  <link rel="stylesheet" href="./css/footer.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -32,43 +34,87 @@
 
   <main class="main">
     <section class="seccionPrincipal">
-      <h1 class="titulo">Películas y series ilimitadas <br> en un solo lugar</h1>
-      <h2 class="subtitulo">Disfruta donde quieras. <br> Cancela en cualquier momento.</h2>
+      <h1 class="titulo">
+        Películas y series ilimitadas <br />
+        en un solo lugar
+      </h1>
+      <h2 class="subtitulo">
+        Disfruta donde quieras. <br />
+        Cancela en cualquier momento.
+      </h2>
       <a class="registro" href="./pages/register.html">Registrate</a>
     </section>
     <section class="buscador">
       <h3 class="SeccionBusqueda">¿Qué estas buscando para ver?</h3>
       <form class="BusquedaPeliculas">
-        <input class="ingresarbusqueda" type="text" placeholder="Buscar..." id="buscar" name="buscar">
-        <input class="botonBuscar" type="submit" value="Buscar">
+        <input class="ingresarbusqueda" type="text" placeholder="Buscar..." id="buscar" name="buscar" />
+        <input class="botonBuscar" type="submit" value="Buscar" />
       </form>
     </section>
     <section id="tendencia" class="tendencia">
       <div class="separacion"></div>
       <h4 class="tituloTendencia">Las tendencias de hoy</h4>
       <div class="peliculas">
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_1.jpg"></a>
-          <div class="titlePelicula">
-          <h4>The Beekeeper</h4>
-        </div></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_2.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_3.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_4.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_5.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_6.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_7.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_8.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_9.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_10.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_11.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_12.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_13.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_14.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_15.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_16.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_17.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_18.jpg"></a></div>
-        <div class="pelicula"><a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_19.jpg"></a></div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html">
+            <img class="imgTendencia" src="./assets/img/peli_1.jpg" />
+            <h3>The Beekeeper</h3>
+          </a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_2.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_3.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_4.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_5.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_6.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_7.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_8.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_9.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_10.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_11.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_12.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_13.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_14.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_15.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_16.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_17.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_18.jpg" /></a>
+        </div>
+        <div class="pelicula">
+          <a href="./pages/detalle.html"><img class="imgTendencia" src="./assets/img/peli_19.jpg" /></a>
+        </div>
       </div>
       <button class="botonAnterior">Anterior</button>
       <button class="botonSiguiente">Siguiente</button>
@@ -78,45 +124,55 @@
       <h4 class="tituloAclamada">Las más aclamadas</h4>
 
       <div class="peliculasAclamadas">
-
-        <div class="peliculaAclamada"><img class="imgTendencia" src="./assets/img/aclamada_1.jpg" alt="imagen aclamada">
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_1.jpg" alt="imagen aclamada" />
         </div>
 
-        <div class="peliculaAclamada"><img class="imgTendencia" src="./assets/img/aclamada_2.jpg" alt="imagen aclamada">
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_2.jpg" alt="imagen aclamada" />
         </div>
 
-        <div class="peliculaAclamada"><img class="imgTendencia" src="./assets/img/aclamada_3.jpg" alt="imagen aclamada">
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_3.jpg" alt="imagen aclamada" />
         </div>
 
-        <div class="peliculaAclamada"><img class="imgTendencia" src="./assets/img/aclamada_4.jpg" alt="imagen aclamada">
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_4.jpg" alt="imagen aclamada" />
         </div>
 
-        <div class="peliculaAclamada"><img class="imgTendencia" src="./assets/img/aclamada_5.jpg" alt="imagen aclamada">
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_5.jpg" alt="imagen aclamada" />
         </div>
 
-        <div class="peliculaAclamada"><img class="imgTendencia" src="./assets/img/aclamada_6.jpg" alt="imagen aclamada">
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_6.jpg" alt="imagen aclamada" />
         </div>
 
-        <div class="peliculaAclamada"><img class="imgTendencia" src="./assets/img/aclamada_7.jpg" alt="imagen aclamada">
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_7.jpg" alt="imagen aclamada" />
         </div>
 
-        <div class="peliculaAclamada"><img class="imgTendencia" src="./assets/img/aclamada_8.jpg" alt="imagen aclamada">
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_8.jpg" alt="imagen aclamada" />
         </div>
 
-        <div class="peliculaAclamada"><img class="imgTendencia" src="./assets/img/aclamada_9.jpg" alt="imagen aclamada">
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_9.jpg" alt="imagen aclamada" />
         </div>
 
-        <div class="peliculaAclamada"><img class="imgTendencia" src="./assets/img/aclamada_10.jpg"
-            alt="imagen aclamada"></div>
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_10.jpg" alt="imagen aclamada" />
+        </div>
 
-        <div class="peliculaAclamada"><img class="imgTendencia" src="./assets/img/aclamada_11.jpg"
-            alt="imagen aclamada"></div>
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_11.jpg" alt="imagen aclamada" />
+        </div>
 
-        <div class="peliculaAclamada"><img class="imgTendencia" src="./assets/img/aclamada_12.jpg"
-            alt="imagen aclamada"></div>
-
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_12.jpg" alt="imagen aclamada" />
+        </div>
       </div>
-      </section>
+    </div>
   </main>
   <footer>
     <div>
@@ -127,6 +183,8 @@
     </div>
     <a href="#main"><i class="fa-solid fa-angle-up"></i></a>
   </footer>
+
+  <script src="./script/animations.js"></script>
 </body>
 
 </html>
