@@ -24,10 +24,8 @@ body {
   width: 80vw;
   border: var(--bg-color) solid 2px;
   margin: 0 auto;
-  margin: 10px 0 10px 0;
 }
 
-/* index */
 nav {
   background-color: var(--bg-color);
   position: sticky;
