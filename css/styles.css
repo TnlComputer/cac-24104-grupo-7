@@ -311,6 +311,7 @@ nav ul li:nth-child(2) a:hover {
   }
 }
 
+/* Seccion Tendencia */
 .tendencia {
   color: var(--text-color-blanco);
   width: 80vw;
@@ -319,12 +320,14 @@ nav ul li:nth-child(2) a:hover {
   animation: appearFromBottom 1s forwards;
   padding-top: 10vh;
 
+  /* h4 del titulo de tendencias */
   .tituloTendencia {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 40px;
   }
 
+  /* contenedor peliculas */
   .peliculas {
     display: flex;
     justify-content: center;
@@ -332,6 +335,7 @@ nav ul li:nth-child(2) a:hover {
     gap: 60px;
   }
 
+  /* pelicula individual */
   .pelicula {
     width: 200px;
     height: 300px;
@@ -339,17 +343,45 @@ nav ul li:nth-child(2) a:hover {
     overflow: hidden;
     border-radius: 10px;
     transition: all 0.5s ease;
+
+    /* titulo pelicula */
+    .titlePelicula {
+      width: 100%;
+      height: 100%;
+      color: black;
+      margin: auto 0;
+      position: absolute;
+      top: 0;
+
+      h4 {
+        top: 50%;
+        /* top: 0; */
+        font-size: 1.6rem;
+        font-weight: bold;
+        /* visibility: hidden; */
+        /* opacity: 0; */
+        &:hover {
+          visibility: visible;
+          /* z-index: 3; */
+        }
+      }
+
+      &:hover {
+        backdrop-filter: blur(2px);
+        /* opacity: 1; */
+      }
+    }
   }
 
   .pelicula:hover {
-    transform: scale(0.9);
     box-shadow: 0 0 30px var(--bg-color);
+    transform: scale(0.9);
   }
 
   .imgTendencia {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
     border-radius: 10px;
   }
 
