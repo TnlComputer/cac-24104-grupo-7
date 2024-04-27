@@ -21,25 +21,55 @@ body {
 
 nav {
   background-color: #9f3647;
-  height: 8vh;
+  height: 10vh;
   padding: 30px;
 }
-
 nav a {
+  display: inline-block;
+  color: var(--text-color-blanco);
   text-decoration: none;
+  border-radius: 5px;
   font-weight: 700;
-  color: #ffffff;
   font-size: 20px;
+  transition: box-shadow 0.3s;
+}
+
+nav a:hover {
+  box-shadow: 0 0 10px var(--bg-fondo-negro);
+}
+
+nav a:hover {
+  box-shadow: none;
+  animation: tilt-n-move-shaking 0.25s infinite;
+}
+
+@keyframes tilt-n-move-shaking {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(5px, 5px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0eg);
+  }
+  75% {
+    transform: translate(-5px, 5px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 }
 
 main {
   width: 30%;
-  height: 90vh;
-  margin: 0 auto;
+  height: 85vh;
+  margin: 15px auto;
   background-color: #2a2a2a;
   border-radius: 5px;
   padding: 40px 20px;
   text-align: center;
+  animation: startFromCenter 1s;
 }
 main section {
   position: relative;
@@ -111,5 +141,16 @@ main section form a {
   main section form a {
     text-align: center;
     margin-top: 40px;
+  }
+}
+
+@keyframes startFromCenter {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
