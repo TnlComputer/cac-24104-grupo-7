@@ -3,8 +3,14 @@
   .seccionPrincipal {
     /* padding-top: 10vh; */
     height: 90vh;
-    background: linear-gradient(to right top, var(--negro), var(--negro)),
+    background-image: -moz-linear-gradient(
+        to right top,
+        var(--negro),
+        var(--negro)
+      ),
       url(../assets/img/banner-bg.jpg);
+    /* background: linear-gradient(to right top, var(--negro), var(--negro)),
+      url(../assets/img/banner-bg.jpg); */
     background-color: var(--bg-fondo-negro);
     background-size: cover;
     background-position: center;
@@ -211,9 +217,9 @@
     opacity: 0;
     color: #000000;
     transition: opacity 0.5s ease-in-out;
-          text-shadow: -1px -1px 0 var(--text-color-blanco),
-      1px -1px 0 var(--text-color-blanco), -1px 1px 0 var(--text-color-blanco), 1px 1px 0 var(--text-color-blanco);
-
+    text-shadow: -1px -1px 0 var(--text-color-blanco),
+      1px -1px 0 var(--text-color-blanco), -1px 1px 0 var(--text-color-blanco),
+      1px 1px 0 var(--text-color-blanco);
   }
 
   .pelicula:hover {
