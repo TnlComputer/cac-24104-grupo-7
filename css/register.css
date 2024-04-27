@@ -1,26 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Nunito', sans-serif;
-}
-
 body {
   height: 100vh;
   background: linear-gradient(
       to right top,
-      rgba(36, 36, 36, 0.4509803922),
-      rgba(36, 36, 36, 0.4509803922)
+      var(--negro-body),
+      var(--negro-body)
     ),
     url(../assets/img/bg-register.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: #ffffff;
+  color: var(--text-color-blanco);
 }
 
 nav {
-  background-color: #9f3647;
+  background-color: var(--bg-color);
   height: 10vh;
   padding: 30px;
 }
@@ -65,7 +58,7 @@ main {
   width: 30%;
   height: 85vh;
   margin: 15px auto;
-  background-color: #2a2a2a;
+  background-color: var(--negro-main);
   border-radius: 5px;
   padding: 40px 20px;
   text-align: center;
@@ -85,7 +78,7 @@ main section form {
 }
 main section form p {
   display: none;
-  color: #ff0000;
+  color: var(--rojo);
   font-size: 14px;
   margin-bottom: 10px;
 }
@@ -98,10 +91,10 @@ main section form select {
   margin-top: 10px;
   font-size: 20px;
   border-radius: 20px;
-  border: 2px solid #9f3647;
-  background-color: #333333;
+  border: 2px solid var(--bg-color);
+  background-color: var(--negro-section);
   outline: none;
-  color: #ffffff;
+  color: var(--text-color-blanco);
 }
 main section form div {
   text-align: left;
@@ -117,9 +110,9 @@ main section form button {
   width: 90%;
   margin-top: 10px;
   box-sizing: content-box;
-  background-color: #9f3647;
-  border: 2px solid #9f3647;
-  color: #ffffff;
+  background-color: var(--bg-color);
+  border: 2px solid var(--bg-color);
+  color: var(--text-color-blanco);
   padding: 16px;
   border-radius: 5px;
   font-size: 16px;
@@ -128,7 +121,7 @@ main section form button {
 main section form a {
   font-size: 16px;
   text-decoration: none;
-  color: #787878;
+  color: var(--gris);
   position: relative;
   display: block;
   text-align: left;

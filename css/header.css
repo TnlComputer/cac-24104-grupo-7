@@ -6,6 +6,11 @@
   --bg-fondo-blanco: hsl(0, 0%, 100%);
   --bg-fondo-gris: rgba(255, 255, 255, 0.3);
   --negro: #0000007a;
+  --negro-body: rgba(36, 36, 36, 0.4509803922);
+  --negro-main: #2a2a2a;
+  --negro-section: #333333;
+  --rojo: #ff0000;
+  --gris: #787878;
 }
 
 * {
