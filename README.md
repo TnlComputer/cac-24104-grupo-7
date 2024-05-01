@@ -1,12 +1,11 @@
 # Project Pre-entrega Clone web 28/04/2024
 ### Comision 2104
 ### Grupo 7
-  [Integrantes] 
-    Jorge Gustavo Martinez
-    Facundo Baeza
-    Francis Damian Nahuel Rodríguez González
-    Elias Paredes
-    Martin Sebastian Tigani
+  [Integrante 1] Jorge Gustavo Martinez
+  [Integrante 2] Facundo Baeza
+  [Integrante 3] Francis Damian Nahuel Rodríguez González
+  [Integrante 4] Elias Paredes
+  [Integrante 5] Martin Sebastian Tigani
 
 ## Table of Contents
 - [Project Pre-entrega Clone web 28/04/2024](#project-pre-entrega-clone-web-28042024)
