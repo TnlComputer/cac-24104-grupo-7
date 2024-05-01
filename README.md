@@ -1,7 +1,7 @@
-# Pre-entrega Clone web 28/04/2024
+# Pre-entrega Clone web
 
 ## Table of Contents
-- [Pre-entrega Clone web 28/04/2024](#pre-entrega-clone-web-28042024)
+- [Pre-entrega Clone web](#pre-entrega-clone-web)
   - [Table of Contents](#table-of-contents)
     - [Comision 2104](#comision-2104)
     - [Grupo 7](#grupo-7)
