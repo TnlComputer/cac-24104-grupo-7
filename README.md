@@ -1,20 +1,23 @@
 # Project Pre-entrega Clone web 28/04/2024
-### Comision 2104
-### Grupo 7
-*  [Integrante 1] Jorge Gustavo Martinez
-*  [Integrante 2] Facundo Baeza
-*  [Integrante 3] Francis Damian Nahuel Rodríguez González
-*  [Integrante 4] Elias Paredes
-*  [Integrante 5] Martin Sebastian Tigani
 
 ## Table of Contents
 - [Project Pre-entrega Clone web 28/04/2024](#project-pre-entrega-clone-web-28042024)
-    - [Comision 2104](#comision-2104)
-    - [Grupo 7](#grupo-7)
   - [Table of Contents](#table-of-contents)
+- [Comision 2104](#comision-2104)
+    - [Grupo 7](#grupo-7)
     - [Información General](#información-general)
     - [Screenshot](#screenshot)
-  - [Tecnologias](#tecnologias)
+  - [Tecnologías](#tecnologías)
+
+# Comision 2104
+***
+### Grupo 7
+***
+* [Integrante 1] Jorge Gustavo Martinez
+* [Integrante 2] Facundo Baeza
+* [Integrante 3] Francis Damian Nahuel Rodríguez González
+* [Integrante 4] Elias Paredes
+* [Integrante 5] Martin Sebastian Tigani
 
 ### Información General
 
@@ -31,10 +34,12 @@ https://giselemilagros88.github.io/cac_movies_javaphp/
 
 La entrega será pegando el link de donde está alojado su trabajo, puede ser cualquiera de las siguientes alternativas: 
 
+
+
 ### Screenshot
 ![Image text](https://www.tnlcomputer.com.ar/imagenPortada.png)
 
-## Tecnologias
+## Tecnologías
 ***
 Tecnologias utilizadas en el proyecto:
 * [HTML](https://developer.mozilla.org/es/docs/Web/HTML)
