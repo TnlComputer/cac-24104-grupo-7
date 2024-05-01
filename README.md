@@ -3,13 +3,13 @@
 ## Table of Contents
 - [Project Pre-entrega Clone web 28/04/2024](#project-pre-entrega-clone-web-28042024)
   - [Table of Contents](#table-of-contents)
-- [Comision 2104](#comision-2104)
+    - [Comision 2104](#comision-2104)
     - [Grupo 7](#grupo-7)
     - [Información General](#información-general)
     - [Screenshot](#screenshot)
   - [Tecnologías](#tecnologías)
 
-# Comision 2104
+### Comision 2104
 ***
 ### Grupo 7
 ***
