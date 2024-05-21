@@ -139,3 +139,10 @@ main section form a {
     opacity: 1;
   }
 }
+
+.error-email,
+.error-password {
+  display: none;
+  color: red;
+  font-size: 0.9em;
+}
