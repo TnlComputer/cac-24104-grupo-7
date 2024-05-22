@@ -146,17 +146,3 @@ nav ul li:nth-child(2) a:hover {
     transform: translate(0, 0) rotate(0deg);
   }
 }
-
-#scrollToTop {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  font-size: 24px;
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-}
