@@ -9,8 +9,9 @@ const ts = new Date().getTime().toString();
 const hash = md5(ts + PRIVATE_KEY + PUBLIC_KEY);
 const url = `${baseURL}${endpoint}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`;
 
-fetch(url)
+    fetch(url)
     .then(response => {
+        // Verifica si la solicitud fue exitosa
         if (response.ok) {
             return response.json();
         } else {
@@ -18,7 +19,22 @@ fetch(url)
         }
     })
     .then(data => {
-        console.log(data);
+        const characters = data.data.results;
+       console.log(characters)
+        characters.forEach(character => {
+            const imgSrc = `${character.thumbnail.path}.${character.thumbnail.extension}`;
+            const imgElement = document.createElement('img');
+            imgElement.src = imgSrc;
+            document.body.appendChild(imgElement);
+        });
+        //  const characters = data.data.results;
+        // characters.forEach(character => {
+        //     console.log(`Cómics de ${character.name}:`);
+        //     character.comics.items.forEach(comic => {
+        //         console.log(comic.name);
+        //     });
+        //          console.log('---');
+        // });
     })
     .catch(error => {
         console.error('Error:', error);
