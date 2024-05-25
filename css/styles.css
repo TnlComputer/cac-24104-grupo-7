@@ -2,8 +2,13 @@
 .main {
   .seccionPrincipal {
     height: 90vh;
-    background: linear-gradient(to right top, var(--negro), var(--negro)),
-      url(../assets/img/banner-bg.jpg);
+        background-image: -webkit-linear-gradient(to right top, var(--negro), var(--negro)), url(../assets/img/banner-bg.jpg);
+    background-image: -moz-linear-gradient(to right top, var(--negro), var(--negro)), url(../assets/img/banner-bg.jpg);
+    background-image: -o-linear-gradient(to right top, var(--negro), var(--negro)), url(../assets/img/banner-bg.jpg);
+    background-image: linear-gradient(to right top, var(--negro), var(--negro)), url(../assets/img/banner-bg.jpg);
+
+    /* background: linear-gradient(to right top, var(--negro), var(--negro)),
+      url(../assets/img/banner-bg.jpg); */
     background-color: var(--bg-fondo-negro);
     background-size: cover;
     background-position: center;
