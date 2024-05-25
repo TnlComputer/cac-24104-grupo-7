@@ -18,6 +18,28 @@
 </head>
 
 <body id="main">
+
+  <!-- Menú hamburguesa para dispositivos pequeños
+  <div class="navbar">
+    <div class="navbar-toggler" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul class="navbar-menu" id="navbar-menu">
+      <li>
+        <a href="./index.html">
+          <i class="fas fa-film" aria-hidden="true"></i>
+          CAC-Movies
+        </a>
+      </li>
+      <li><a href="./pages/login.html">Iniciar Sesión</a></li>
+      <li><a href="./pages/register.html">Registrarse</a></li>
+      <li><a href="#tendencia">Tendencias</a></li>
+      <li><a href="./pages/marvel.html">Marvel</a></li>
+    </ul>
+  </div> -->
+
   <nav>
     <ul>
       <li>
@@ -241,7 +263,12 @@
     <a id="scrollToTop" href="#main"><i class="fa-solid fa-angle-up"></i></a>
 
   </footer>
-
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("navbar-menu");
+      menu.classList.toggle("active");
+    }
+  </script>
   <script src="./js/tendencias.js"></script>
   <script src="./js/animations.js"></script>
 </body>
