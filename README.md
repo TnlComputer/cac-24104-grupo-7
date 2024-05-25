@@ -1,7 +1,7 @@
-# Pre-entrega Clone web
+# Entrega Final - Clone web
 
 ## Table of Contents
-- [Pre-entrega Clone web](#pre-entrega-clone-web)
+- [Entrega Final - Clone web](#entrega-final---clone-web)
   - [Table of Contents](#table-of-contents)
     - [Comision 2104](#comision-2104)
     - [Grupo 7](#grupo-7)
@@ -45,4 +45,5 @@ Tecnologias utilizadas en el proyecto:
 * [HTML](https://developer.mozilla.org/es/docs/Web/HTML)
 * [CSS](https://developer.mozilla.org/es/docs/Web/CSS): Version 3
 * [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
+* [api Marvel](https://developer.marvel.com/docs)
 
