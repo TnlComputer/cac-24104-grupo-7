@@ -7,8 +7,8 @@
   <title>Detalle</title>
   <link rel="shortcut icon" href="../favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="../css/header.css" />
-  <link rel="stylesheet" href="../css/footer.css" />
   <link rel="stylesheet" href="../css/detalle.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
   <link
     href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap"
     rel="stylesheet" />
@@ -18,7 +18,7 @@
 </head>
 
 <body id="main">
-  <header class="header">
+  <header>
     <nav>
       <ul>
         <li>
@@ -27,12 +27,17 @@
             CAC-Movies
           </a>
         </li>
-        <li><a href="../pages/login.html">Iniciar Sesión</a></li>
-        <li><a href="../pages/register.html">Registrarse</a></li>
+        <li><a href="./marvel.html">Marvel</a></li>
         <li><a href="../index.html#tendencia">Tendencias</a></li>
+        <li><a href="./register.html">Registrarse</a></li>
+        <li><a href="./login.html" class="login-btn">Iniciar Sesión</a></li>
       </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
     </nav>
   </header>
+
   <main class="mainDetail">
     <section class="detail">
       <div class="detailDiv">
@@ -135,8 +140,15 @@
       <a href="#">Ayuda</a>
       <a href="#">Administrador Peliculas</a>
     </div>
-    <a href="#main"><i class="fa-solid fa-angle-up"></i></a>
+    <!-- <a id="scrollToTop" href="#main"><i class="fa-solid fa-angle-up"></i></a> -->
   </footer>
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector("nav ul");
+      menu.classList.toggle("active");
+    }
+  </script>
+  <script src='../js/animations.js'></script>
 </body>
 
 </html>

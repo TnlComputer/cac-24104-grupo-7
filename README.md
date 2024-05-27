@@ -1,13 +1,14 @@
-# Pre-entrega Clone web
+# Entrega Final - Clone web
 
 ## Table of Contents
-- [Pre-entrega Clone web](#pre-entrega-clone-web)
+- [Entrega Final - Clone web](#entrega-final---clone-web)
   - [Table of Contents](#table-of-contents)
     - [Comision 2104](#comision-2104)
     - [Grupo 7](#grupo-7)
     - [Información General](#información-general)
     - [Screenshot](#screenshot)
   - [Tecnologías](#tecnologías)
+  - [Modificaciones](#modificaciones)
 
 ### Comision 2104
 ***
@@ -45,4 +46,12 @@ Tecnologias utilizadas en el proyecto:
 * [HTML](https://developer.mozilla.org/es/docs/Web/HTML)
 * [CSS](https://developer.mozilla.org/es/docs/Web/CSS): Version 3
 * [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
+* [api Marvel](https://developer.marvel.com/docs)
 
+## Modificaciones
+* Se agrego el menu hamburguesa a partir de los 768px
+* Se agrego Api Marvel, llamando a la api de series
+* Se agrego la ayuda
+* Se agrego los Términos y Condiciones
+* Se agregaron las validciones en el Identificarse y Registrarse.
+* Se agrego un Json con las Tendendias para manejar la paginación

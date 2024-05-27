@@ -31,32 +31,43 @@ body {
   margin: 0 auto;
 }
 
-nav {
+header {
+  width: 100%;
   background-color: var(--bg-color);
   position: sticky;
   top: 0;
+  z-index: 1000;
+}
+
+nav {
   height: 10vh;
-  z-index: 3;
-  width: 100%;
-  font-weight: 700;
-  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
 nav ul {
   list-style: none;
-  position: relative;
-  top: 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
 }
 
 nav ul li {
-  float: right;
+  margin-left: 20px;
+}
+
+nav ul li:first-child {
+  margin-left: 0;
+  margin-right: auto;
 }
 
 nav ul li a {
   color: var(--text-color-blanco);
   text-decoration: none;
   display: inline-block;
-  margin: 0 20px;
   padding: 10px;
   border-radius: 5px;
   transition: box-shadow 0.3s;
@@ -66,69 +77,55 @@ nav ul li a:hover {
   box-shadow: 0 0 10px var(--bg-fondo-negro);
 }
 
-nav ul li:first-child {
-  float: left;
-  font-size: 20px;
-}
-
-nav ul li:first-child a {
-  transition: none;
-}
-
-nav ul li:first-child a:hover {
-  box-shadow: none;
-  animation: tilt-n-move-shaking 0.25s infinite;
-}
-
-nav ul li:nth-child(2) {
-  margin-right: 30px;
-}
-
-nav ul li:nth-child(2) a {
+nav ul li a.login-btn {
   background-color: var(--bg-fondo-negro);
 }
 
-nav ul li:nth-child(2) a:hover {
+nav ul li a.login-btn:hover {
   background-color: var(--bg-color);
 }
 
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger i {
+  font-size: 24px;
+  color: var(--text-color-blanco);
+}
+
 @media only screen and (max-width: 768px) {
-  nav {
-    font-size: 16px;
-    font-weight: 400;
-    height: 13vh;
+  .hamburger {
+    display: block;
   }
-  nav ul li a {
-    padding: 5px;
-    margin: 0 10px;
-  }
-  nav ul li:first-child {
-    float: none;
+
+  nav ul {
+    position: absolute;
+    top: 10vh;
+    left: 0;
     width: 100%;
+    height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    transition: height 0.3s ease;
+  }
+
+  nav ul.active {
+    height: calc(100vh - 40vh);
+  }
+
+  nav ul li {
+    margin: 10px 0;
     text-align: center;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 5px;
   }
-  nav ul li:nth-child(2) {
-    margin-right: 200px;
+
+  nav ul li:first-child {
+    margin: 10px 0;
   }
 }
 
-@media only screen and (max-width: 650px) {
-  nav ul li:nth-child(2) {
-    margin-right: 100px;
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  nav ul li a {
-    margin: 0 5px;
-  }
-  nav ul li:nth-child(2) {
-    margin-right: 0;
-  }
-}
 @keyframes tilt-n-move-shaking {
   0% {
     transform: translate(0, 0) rotate(0deg);
@@ -145,4 +142,9 @@ nav ul li:nth-child(2) a:hover {
   100% {
     transform: translate(0, 0) rotate(0deg);
   }
+}
+
+nav ul li:first-child a:hover {
+  box-shadow: none;
+  animation: tilt-n-move-shaking 0.25s infinite;
 }

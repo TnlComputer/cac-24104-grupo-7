@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Disfruta de películas y series ilimitadas en CAC-Movies. Regístrate y empieza a ver tus favoritos hoy mismo." />
+  <meta name="keywords" content="películas, series, streaming, CAC-Movies, entretenimiento" />
   <title>CAC-MOVIES</title>
   <link rel="shortcut icon" href="../favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="./css/header.css" />
@@ -18,20 +21,26 @@
 </head>
 
 <body id="main">
-  <nav>
-    <ul>
-      <li>
-        <a href="./index.html">
-          <i class="fas fa-film" aria-hidden="true"></i>
-          CAC-Movies
-        </a>
-      </li>
-      <li><a href="./pages/login.html">Iniciar Sesión</a></li>
-      <li><a href="./pages/register.html">Registrarse</a></li>
-      <li><a href="#tendencia">Tendencias</a></li>
-      <li><a href="./pages/marvel.html">Marvel</a></li>
-    </ul>
-  </nav>
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="./index.html">
+            <i class="fas fa-film" aria-hidden="true"></i>
+            CAC-Movies
+          </a>
+        </li>
+        <li><a href="./pages/marvel.html">Marvel</a></li>
+        <li><a href="#tendencia">Tendencias</a></li>
+        <li><a href="./pages/register.html">Registrarse</a></li>
+        <li><a href="./pages/login.html" class="login-btn">Iniciar Sesión</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
+
 
   <main class="main">
     <section class="seccionPrincipal">
@@ -46,203 +55,106 @@
       <a class="registro" href="./pages/register.html">Registrate</a>
     </section>
     <section class="buscador">
-      <h3 class="SeccionBusqueda">¿Qué estas buscando para ver?</h3>
+      <h3 class="SeccionBusqueda">¿Qué estás buscando para ver?</h3>
       <form class="BusquedaPeliculas">
+        <label for="buscar" class="visually-hidden">Buscar películas o series</label>
         <input class="ingresarbusqueda" type="text" placeholder="Buscar..." id="buscar" name="buscar" />
         <input class="botonBuscar" type="submit" value="Buscar" />
       </form>
     </section>
     <div class="separacion"></div>
     <section id="tendencia" class="tendencia">
-      <h4 class="tituloTendencia">Las tendencias de hoy</h4>
-      <div class="peliculas">
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_1.jpg" alt="The Beekeeper" loading="lazy" />
-            <h3>The Beekeeper</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_2.jpg" alt="Badlan Hunters" loading="lazy" />
-            <h3>Badlan Hunters</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_3.jpg" alt="The Marvel 5" loading="lazy" />
-            <h3>The Marvel 5</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_4.jpg" alt="Wonka" loading="lazy" />
-            <h3>Wonka</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_5.jpg" alt="Aquaman" loading="lazy" />
-            <h3>Aquaman</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_6.jpg" alt="Migration" loading="lazy" />
-            <h3>Migration</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_7.jpg" alt="60 Minutes" loading="lazy" />
-            <h3>60 Minutes</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_8.jpg" alt="Wish" loading="lazy" />
-            <h3>Wish</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_9.jpg" alt="The Masked Saint" loading="lazy" />
-            <h3>The Masked Saint</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_10.jpg" alt="Due Justice" loading="lazy" />
-            <h3>Due Justice</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_11.jpg" alt="Orion and The Dark" loading="lazy" />
-            <h3>Orion and The Dark</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_12.jpg" alt="Infierno Chino" loading="lazy" />
-            <h3>Infierno Chino</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_13.jpg" alt="Lift" loading="lazy" />
-            <h3>Lift</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_14.jpg" alt="Attak" loading="lazy" />
-            <h3>Attak</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_15.jpg" alt="Mutant Ghost Wargirl" loading="lazy" />
-            <h3>Mutant Ghost Wargirl</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_16.jpg" alt="Poor Things" loading="lazy" />
-            <h3>Poor Things</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_17.jpg" alt="The Five" loading="lazy" />
-            <h3>The Five</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_18.jpg" alt="Trunk Locked In" loading="lazy" />
-            <h3>Trunk Locked In</h3>
-          </a>
-        </div>
-        <div class="pelicula">
-          <a href="./pages/detalle.html">
-            <img class="imgTendencia" src="./assets/img/peli_19.jpg" alt="Anyone But You" loading="lazy" />
-            <h3>Anyone But You</h3>
-          </a>
-        </div>
+      <h3 class="tituloTendencia">Las tendencias de hoy</h3>
+      <div class="peliculas" aria-live="polite">
       </div>
       <button class="botonAnterior">Anterior</button>
       <button class="botonSiguiente">Siguiente</button>
     </section>
 
     <div class="separacion"></div>
-    <div class="aclamadas">
-      <h4 class="tituloAclamada">Las más aclamadas</h4>
+    <section class="aclamadas">
+      <h3 class="tituloAclamada">Las más aclamadas</h3>
 
       <div class="peliculasAclamadas">
         <div class="peliculaAclamada">
-          <img class="imgTendencia" src="./assets/img/aclamada_1.jpg" alt="imagen aclamada" loading="lazy" />
+          <img class="imgTendencia" src="./assets/img/aclamada_1.jpg" alt="Imagen de película aclamada 1"
+            loading="lazy" />
         </div>
 
         <div class="peliculaAclamada">
-          <img class="imgTendencia" src="./assets/img/aclamada_2.jpg" alt="imagen aclamada" loading="lazy" />
+          <img class="imgTendencia" src="./assets/img/aclamada_2.jpg" alt="Imagen de película aclamada 2"
+            loading="lazy" />
         </div>
 
         <div class="peliculaAclamada">
-          <img class="imgTendencia" src="./assets/img/aclamada_3.jpg" alt="imagen aclamada" loading="lazy" />
+          <img class="imgTendencia" src="./assets/img/aclamada_3.jpg" alt="Imagen de película aclamada 3"
+            loading="lazy" />
         </div>
 
         <div class="peliculaAclamada">
-          <img class="imgTendencia" src="./assets/img/aclamada_4.jpg" alt="imagen aclamada" loading="lazy" />
+          <img class="imgTendencia" src="./assets/img/aclamada_4.jpg" alt="Imagen de película aclamada 4"
+            loading="lazy" />
         </div>
 
         <div class="peliculaAclamada">
-          <img class="imgTendencia" src="./assets/img/aclamada_5.jpg" alt="imagen aclamada" loading="lazy" />
+          <img class="imgTendencia" src="./assets/img/aclamada_5.jpg" alt="Imagen de película aclamada 5"
+            loading="lazy" />
         </div>
 
         <div class="peliculaAclamada">
-          <img class="imgTendencia" src="./assets/img/aclamada_6.jpg" alt="imagen aclamada" loading="lazy" />
+          <img class="imgTendencia" src="./assets/img/aclamada_6.jpg" alt="Imagen de película aclamada 6"
+            loading="lazy" />
         </div>
 
         <div class="peliculaAclamada">
-          <img class="imgTendencia" src="./assets/img/aclamada_7.jpg" alt="imagen aclamada" loading="lazy" />
+          <img class="imgTendencia" src="./assets/img/aclamada_7.jpg" alt="Imagen de película aclamada 7"
+            loading="lazy" />
         </div>
 
         <div class="peliculaAclamada">
-          <img class="imgTendencia" src="./assets/img/aclamada_8.jpg" alt="imagen aclamada" loading="lazy" />
+          <img class="imgTendencia" src="./assets/img/aclamada_8.jpg" alt="Imagen de película aclamada 8"
+            loading="lazy" />
         </div>
 
         <div class="peliculaAclamada">
-          <img class="imgTendencia" src="./assets/img/aclamada_9.jpg" alt="imagen aclamada" loading="lazy" />
+          <img class="imgTendencia" src="./assets/img/aclamada_9.jpg" alt="Imagen de película aclamada 9"
+            loading="lazy" />
         </div>
 
         <div class="peliculaAclamada">
-          <img class="imgTendencia" src="./assets/img/aclamada_10.jpg" alt="imagen aclamada" loading="lazy" />
+          <img class="imgTendencia" src="./assets/img/aclamada_10.jpg" alt="Imagen de película aclamada 10"
+            loading="lazy" />
         </div>
 
         <div class="peliculaAclamada">
-          <img class="imgTendencia" src="./assets/img/aclamada_11.jpg" alt="imagen aclamada" loading="lazy" />
+          <img class="imgTendencia" src="./assets/img/aclamada_11.jpg" alt="Imagen de película aclamada 11"
+            loading="lazy" />
         </div>
 
         <div class="peliculaAclamada">
-          <img class="imgTendencia" src="./assets/img/aclamada_12.jpg" alt="imagen aclamada" loading="lazy" />
+          <img class="imgTendencia" src="./assets/img/aclamada_12.jpg" alt="Imagen de película aclamada 12"
+            loading="lazy" />
         </div>
       </div>
-    </div>
+    </section>
   </main>
   <footer>
     <div>
-      <a href="#">Términos y condiciones</a>
+      <a href="./pages/terminos_condiciones.html">Términos y condiciones</a>
       <a href="#">Preguntas frecuentes</a>
-      <a href="#">Ayuda</a>
-      <a href="#">Administrador Peliculas</a>
+      <a href="./pages/ayuda.html">Ayuda</a>
+      <a href="#">Administrador Películas</a>
     </div>
-    <!-- <a href="#main"><i class="fa-solid fa-angle-up"></i></a> -->
-    <a id="scrollToTop" href="#main"><i class="fa-solid fa-angle-up"></i></a>
-
+    <a id="scrollToTop" href="#main" title="Volver arriba"><i class="fa-solid fa-angle-up"></i></a>
   </footer>
-
-  <script src="./js/animations.js"></script>
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector("nav ul");
+      menu.classList.toggle("active");
+    }
+  </script>
+  <script src="./js/tendencias.js" defer></script>
+  <script src="./js/animations.js" defer></script>
 </body>
 
 </html>

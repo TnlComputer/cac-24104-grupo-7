@@ -24,12 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
   form.addEventListener("submit", function (event) {
-    let isValid = true;
+    event.preventDefault();
 
     // TODO: Validación del nombre
     if (!namePattern.test(nameInput.value.trim())) {
       nameError.style.display = "block";
-      isValid = false;
+      return;
     } else {
       nameError.style.display = "none";
     }
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // TODO: Validación del apellido
     if (!namePattern.test(surnameInput.value.trim())) {
       surnameError.style.display = "block";
-      isValid = false;
+      return;
     } else {
       surnameError.style.display = "none";
     }
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // TODO: Validación del email
     if (!emailPattern.test(emailInput.value.trim())) {
       emailError.style.display = "block";
-      isValid = false;
+      return;
     } else {
       emailError.style.display = "none";
     }
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // TODO: Validación de la contraseña
     if (!passwordPattern.test(passwordInput.value.trim())) {
       passwordError.style.display = "block";
-      isValid = false;
+      return;
     } else {
       passwordError.style.display = "none";
     }
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // TODO: Validación de la fecha de nacimiento
     if (dateInput.value.trim() === "") {
       dateError.style.display = "block";
-      isValid = false;
+      return;
     } else {
       dateError.style.display = "none";
     }
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // TODO: Validación del país
     if (countrySelect.value === "") {
       countryError.style.display = "block";
-      isValid = false;
+      return;
     } else {
       countryError.style.display = "none";
     }
@@ -77,14 +77,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // TODO: Validación de los términos y condiciones
     if (!termsCheckbox.checked) {
       termsError.style.display = "block";
-      isValid = false;
+      return;
     } else {
       termsError.style.display = "none";
     }
 
-    // TODO: prevengo que el boton registrarse se ejecute si no se cumplen las codiciones
-    if (!isValid) {
-      event.preventDefault();
+    // Guarda el usuario creado en session storage, redirecciona a login
+    if(sessionStorage.getItem(email.value.trim())){
+      // TODO: deberia mostrar un error de que ya existe ese usuario
+      console.error('ya existe');
+      return;
     }
+    sessionStorage.setItem(email.value.trim(), password.value.trim());
+    window.location.href = '../pages/login.html'; // Ruta de la página de login
   });
 });
