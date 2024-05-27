@@ -18,8 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const startIndex = (pagina - 1) * moviesPerPage;
         const endIndex = pagina * moviesPerPage;
 
+        // No avanza de pagina si no hay mas peliculas que no se mostraron
+        if (data.length + moviesPerPage - (currentPage * moviesPerPage) < 0) {
+          currentPage--;
+          return;
+        };
+
         // Filtra las películas que se mostrarán en la página actual
-        const peliculasPagina = data.slice(startIndex, endIndex);
+        const peliculasPagina = mockDB.slice(startIndex, endIndex);
 
         // Limpia el contenedor de películas
         peliculasContainer.innerHTML = '';
@@ -67,3 +73,4 @@ document.addEventListener("DOMContentLoaded", function () {
     cargarPeliculas(currentPage);
   });
 });
+
