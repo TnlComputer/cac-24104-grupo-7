@@ -60,7 +60,7 @@ function handleScroll() {
       trendSections.forEach(pelicula => {
         pelicula.classList.add('animationFromBottom');
       });
-    } 
+    }
   }
 }
 

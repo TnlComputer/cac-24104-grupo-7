@@ -1,0 +1,35 @@
+main section {
+    width: 30%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 50px;
+}
+
+main section h1 {
+	text-align: center;
+	font-size: 34px;
+	margin: 50px;
+}
+main section h3 {
+	text-align: center;
+	font-size: 28px;
+	margin: 50px 0 10px;
+}
+main section h4 {
+    text-align: center;
+	font-size: 22px;
+	margin: 20px 0 10px;
+}
+
+main section p {
+    font-size: 16px;
+    text-align: justify;
+}
+
+main section ol li {
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 18px;
+    margin-top: 10px;
+}

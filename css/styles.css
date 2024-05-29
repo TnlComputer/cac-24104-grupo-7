@@ -2,17 +2,14 @@
 .main {
   .seccionPrincipal {
     height: 90vh;
-        background-image: -webkit-linear-gradient(to right top, var(--negro), var(--negro)), url(../assets/img/banner-bg.jpg);
+    background-image: -webkit-linear-gradient(to right top, var(--negro), var(--negro)), url(../assets/img/banner-bg.jpg);
     background-image: -moz-linear-gradient(to right top, var(--negro), var(--negro)), url(../assets/img/banner-bg.jpg);
     background-image: -o-linear-gradient(to right top, var(--negro), var(--negro)), url(../assets/img/banner-bg.jpg);
     background-image: linear-gradient(to right top, var(--negro), var(--negro)), url(../assets/img/banner-bg.jpg);
 
-    /* background: linear-gradient(to right top, var(--negro), var(--negro)),
-      url(../assets/img/banner-bg.jpg); */
     background-color: var(--bg-fondo-negro);
     background-size: cover;
     background-position: center;
-    /* background-attachment: fixed; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,21 +61,18 @@
   align-items: center;
   opacity: 0;
 
-  /* titulo de busqueda */
   .SeccionBusqueda {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
   }
 
-  /* form busqueda */
   .BusquedaPeliculas {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
 
-    /* input busqueda */
     .ingresarbusqueda {
       width: 500px;
       height: 50px;
@@ -91,7 +85,6 @@
       outline: none;
     }
 
-    /* boton buscar */
     .botonBuscar {
       background-color: var(--bg-color);
       color: var(--text-color-blanco);
@@ -121,7 +114,6 @@
     flex-direction: column;
     flex-wrap: wrap;
 
-    /* h3 titulo de busqueda */
     .SeccionBusqueda {
       font-size: 2rem;
       font-weight: 700;
@@ -131,7 +123,6 @@
     .BusquedaPeliculas {
       max-width: 100%;
 
-      /* input busqueda */
       .ingresarbusqueda {
         width: 80%;
         min-width: 80%;
@@ -140,7 +131,6 @@
         border-radius: 25px;
       }
 
-      /* boton buscar */
       .botonBuscar {
         font-size: 1rem;
         font-weight: 700;
@@ -152,7 +142,6 @@
 @media only screen and (max-width: 450px) {
   .buscador {
 
-    /* h3 titulo de busqueda */
     .SeccionBusqueda {
       font-size: 1.5rem;
       margin-bottom: 0;
@@ -163,7 +152,6 @@
       max-width: 100%;
       text-align: center;
 
-      /* input busqueda */
       .ingresarbusqueda {
         padding: 15px;
         font-size: 1rem;
@@ -173,7 +161,6 @@
   }
 }
 
-/* Seccion Tendencia */
 .tendencia {
   color: var(--text-color-blanco);
   width: 80vw;
@@ -182,14 +169,12 @@
   padding-top: 10vh;
   opacity: 0;
 
-  /* h4 del titulo de tendencias */
   .tituloTendencia {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 40px;
   }
 
-  /* contenedor peliculas */
   .peliculas {
     display: flex;
     justify-content: center;
@@ -197,7 +182,6 @@
     gap: 60px;
   }
 
-  /* pelicula individual */
   .pelicula {
     width: 200px;
     height: 300px;
@@ -265,10 +249,6 @@
   }
 }
 
-/* fin css Elias */
-
-/* css Facundo*/
-/* div contenedor general aclamadas */
 .aclamadas {
   width: 80%;
   color: var(--text-color-blanco);
@@ -277,14 +257,12 @@
   opacity: 0;
 }
 
-/* titulo las mas aclamadas */
 .tituloAclamada {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 30px;
 }
 
-/* div contenedor imagenes aclamadas  */
 .peliculasAclamadas {
   display: flex;
   justify-content: flex-start;
@@ -296,7 +274,6 @@
     overflow-x: scroll;
   }
 
-  /* card pelicula imagen */
   .peliculaAclamada {
     min-width: 170px;
     max-width: 170px;
@@ -312,8 +289,6 @@
     }
   }
 }
-
-/* fin css facundo*/
 
 .animationFromBottom {
   animation: appearFromBottom 1s forwards;
