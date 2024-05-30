@@ -24,13 +24,21 @@
 </head>
 
 <body id="main">
-  <nav>
-    <a href="../index.html">
-      <i class="fas fa-film" aria-hidden="true"></i>
-      CAC-Movies
-    </a>
-  </nav>
-
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="../index.html">
+            <i class="fas fa-film" aria-hidden="true"></i>
+            CAC-Movies
+          </a>
+        </li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
   <main>
     <section>
       <h1>Registro</h1>
@@ -77,6 +85,13 @@
       </form>
     </section>
   </main>
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector("nav ul");
+      menu.classList.toggle("active");
+    }
+  </script>
+
   <script src="../js/validacionRegistro.js"></script>
 </body>
 
