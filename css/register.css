@@ -33,24 +33,64 @@ nav a:hover {
 
 nav a:hover {
   box-shadow: none;
-  animation: tilt-n-move-shaking 0.25s infinite;
+  animation: tilt-n-move-shaking 1s infinite;
 }
 
 @keyframes tilt-n-move-shaking {
   0% {
-    transform: translate(0, 0) rotate(0deg);
+    color: white;
+    transform: scale(1);
+    transform: translate(-10px, -3px);
   }
-  25% {
-    transform: translate(5px, 5px) rotate(5deg);
+  10% {
+    color: antiquewhite;
+    transform: scale(1.1);
+    transform: translate(0px, -1px);
+  }
+  20% {
+    color: lightgrey;
+    transform: scale(1.2);
+    transform: translate(10px, 1px);
+  }
+  30% {
+    color: darkgrey;
+    transform: scale(1.3);
+    transform: translate(20px, 3px);
+  }
+  40% {
+    color: grey;
+    transform: scale(1.4);
+    transform: translate(30px, 1px);
   }
   50% {
-    transform: translate(0, 0) rotate(0eg);
+    color: black;
+    transform: scale(1.4);
+    transform: translate(40px, -1px);
   }
-  75% {
-    transform: translate(-5px, 5px) rotate(-5deg);
+  60% {
+    color: grey;
+    transform: scale(1.4);
+    transform: translate(30px, -3px);
+  }
+  70% {
+    color: darkgrey;
+    transform: scale(1.3);
+    transform: translate(20px, -1px);
+  }
+  80% {
+    color: lightgrey;
+    transform: scale(1.2);
+    transform: translate(10px, 1px);
+  }
+  90% {
+    color: antiquewhite;
+    transform: scale(1.1);
+    transform: translate(0px, 3px);
   }
   100% {
-    transform: translate(0, 0) rotate(0deg);
+    color: white;
+    transform: scale(1);
+    transform: translate(-10px, -1px);
   }
 }
 
