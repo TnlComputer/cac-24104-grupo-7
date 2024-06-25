@@ -49,7 +49,7 @@ Tecnologias utilizadas en el proyecto:
 * [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
 * [api Marvel](https://developer.marvel.com/docs)
 * [Java](https://www.oracle.com/ar/java/technologies/downloads/#java17): Version 17 
-* [Java](https://docs.oracle.com/en/)
+* [Java](https://docs.oracle.com/en/): Documentación
 
 
 ## Modificaciones
