@@ -19,6 +19,7 @@
 * [Integrante 3] Francis Damian Nahuel Rodríguez González
 * [Integrante 4] Elias Paredes
 * [Integrante 5] Martin Sebastian Tigani
+* [Integrante 6] Maira Farias
 
 ### Información General
 
@@ -47,6 +48,9 @@ Tecnologias utilizadas en el proyecto:
 * [CSS](https://developer.mozilla.org/es/docs/Web/CSS): Version 3
 * [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
 * [api Marvel](https://developer.marvel.com/docs)
+* [Java](https://www.oracle.com/ar/java/technologies/downloads/#java17): Version 17 
+* [Java](https://docs.oracle.com/en/)
+
 
 ## Modificaciones
 * Se agrego el menu hamburguesa a partir de los 768px
@@ -54,4 +58,5 @@ Tecnologias utilizadas en el proyecto:
 * Se agrego la ayuda
 * Se agrego los Términos y Condiciones
 * Se agregaron las validciones en el Identificarse y Registrarse.
-* Se agrego un Json con las Tendendias para manejar la paginación
+* Se agrego un Json con las Tendendias para manejar la paginación.
+* Se divide el Front del Back para una mejor estructura del proyecto. 
