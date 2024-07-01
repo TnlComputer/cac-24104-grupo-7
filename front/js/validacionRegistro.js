@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const countryError = document.getElementById("countryError");
   const termsError = document.getElementById("termsError");
 
-  const namePattern = /^[A-Za-z\s]+$/;
+  const namePattern = /^[A-Za-zÁáÉéÍíÓóÚúÑñ\s]+$/;
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
 

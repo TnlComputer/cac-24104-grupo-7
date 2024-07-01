@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "id_role": 2,
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "mail": "juan.perez@gmail.com",
+    "password": "contraseña1",
+    "fecha_nacimiento": "2000-01-01",
+    "pais": "AR",
+    "created_at": "2024-06-26",
+    "updated_at": "2024-06-26"
+  },
+  {
+    "id": 2,
+    "id_role": 1,
+    "nombre": "María",
+    "apellido": "López",
+    "mail": "maria.lopez@gmail.com",
+    "password": "contraseña2",
+    "fecha_nacimiento": "1985-07-22",
+    "pais": "AR",
+    "created_at": "2024-06-26",
+    "updated_at": "2024-06-26"
+  },
+  {
+    "id": 3,
+    "id_role": 1,
+    "nombre": "Pedro",
+    "apellido": "García",
+    "mail": "pedro.garcia@gmail.com",
+    "password": "contraseña3",
+    "fecha_nacimiento": "1993-03-15",
+    "pais": "BR",
+    "created_at": "2024-06-26",
+    "updated_at": "2024-06-26"
+  },
+  {
+    "id": 4,
+    "id_role": 2,
+    "nombre": "Luis",
+    "apellido": "Martínez",
+    "mail": "luis.martinez@gmail.com",
+    "password": "contraseña4",
+    "fecha_nacimiento": "1988-11-10",
+    "pais": "CH",
+    "created_at": "2024-06-26",
+    "updated_at": "2024-06-26"
+  },
+  {
+    "id": 5,
+    "id_role": 1,
+    "nombre": "Ana",
+    "apellido": "Ramírez",
+    "mail": "ana.ramirez@gmail.com",
+    "password": "contraseña5",
+    "fecha_nacimiento": "1995-09-05",
+    "pais": "CO",
+    "created_at": "2024-06-26",
+    "updated_at": "2024-06-26"
+  }
+]
+
