@@ -1,19 +1,22 @@
 package com.ar.apimovies;
 
+import java.sql.Date;
+import java.sql.Time;
+
 public class Pelicula {
 
   private Long idPelicula;
-  private Long titulo;
-  private Long imagen;
+  private String titulo;
+  private String imagen;
   private Long id_genero;
   private Long id_director;
-  private Long duracion;
-  private String estreno;
+  private Time duracion;
+  private Date estreno;
   private String descripcion;
-  private double presupuesto;
-  private double recaudacion;
+  private Double presupuesto;
+  private Double recaudacion;
   private String url_trailer;
-  private boolean isActive;
+  private Boolean isActive;
   private String url_fb;
   private String url_x;
   private String url_ig;
@@ -23,8 +26,8 @@ public class Pelicula {
 
   }
 
-  public Pelicula(Long idPelicula, Long titulo, Long imagen, Long id_genero, Long id_director, Long duracion,
-      String estreno, String descripcion, double presupuesto, double recaudacion, String url_trailer, boolean isActive,
+  public Pelicula(Long idPelicula, String titulo, String imagen, Long id_genero, Long id_director, Time duracion,
+      Date estreno, String descripcion, Double presupuesto, Double recaudacion, String url_trailer, Boolean isActive,
       String url_fb, String url_x, String url_ig, String url_estudio) {
     this.idPelicula = idPelicula;
     this.titulo = titulo;
@@ -52,19 +55,19 @@ public class Pelicula {
     this.idPelicula = idPelicula;
   }
 
-  public Long getTitulo() {
+  public String getTitulo() {
     return titulo;
   }
 
-  public void setTitulo(Long titulo) {
+  public void setTitulo(String titulo) {
     this.titulo = titulo;
   }
 
-  public Long getImagen() {
+  public String getImagen() {
     return imagen;
   }
 
-  public void setImagen(Long imagen) {
+  public void setImagen(String imagen) {
     this.imagen = imagen;
   }
 
@@ -84,19 +87,19 @@ public class Pelicula {
     this.id_director = id_director;
   }
 
-  public Long getDuracion() {
+  public Time getDuracion() {
     return duracion;
   }
 
-  public void setDuracion(Long duracion) {
+  public void setDuracion(Time duracion) {
     this.duracion = duracion;
   }
 
-  public String getEstreno() {
+  public Date getEstreno() {
     return estreno;
   }
 
-  public void setEstreno(String estreno) {
+  public void setEstreno(Date estreno) {
     this.estreno = estreno;
   }
 
@@ -108,19 +111,19 @@ public class Pelicula {
     this.descripcion = descripcion;
   }
 
-  public double getPresupuesto() {
+  public Double getPresupuesto() {
     return presupuesto;
   }
 
-  public void setPresupuesto(double presupuesto) {
+  public void setPresupuesto(Double presupuesto) {
     this.presupuesto = presupuesto;
   }
 
-  public double getRecaudacion() {
+  public Double getRecaudacion() {
     return recaudacion;
   }
 
-  public void setRecaudacion(double recaudacion) {
+  public void setRecaudacion(Double recaudacion) {
     this.recaudacion = recaudacion;
   }
 
@@ -132,11 +135,11 @@ public class Pelicula {
     this.url_trailer = url_trailer;
   }
 
-  public boolean isActive() {
+  public Boolean getIsActive() {
     return isActive;
   }
 
-  public void setActive(boolean isActive) {
+  public void setIsActive(Boolean isActive) {
     this.isActive = isActive;
   }
 

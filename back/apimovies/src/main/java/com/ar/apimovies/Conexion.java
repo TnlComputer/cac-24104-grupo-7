@@ -8,7 +8,7 @@ public class Conexion {
 
   private static final String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
   private static final String URL = "jdbc:mysql://localhost:3306/tnlcom55_24104";
-  // private static final String URL = "jdbc:mysql://www.tnlcomputer:3306/tnlcom55_cac24104";
+  // private static final String URL = "jdbc:mysql://www.tnlcomputer.com.ar:3306/tnlcom55_cac24104";
   private static final String USER = "root";
   private static final String PASS = "";
 

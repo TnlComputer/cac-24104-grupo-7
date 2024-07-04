@@ -21,21 +21,21 @@ public class PeliculaDAO {
     try {
       pstm = cn.prepareStatement(insertPeliculaSql);
 
-      pstm.setString(1, insertPeliculaSql);
-      pstm.setString(2, insertPeliculaSql);
-      pstm.setString(3, insertPeliculaSql);
-      pstm.setString(4, insertPeliculaSql);
-      pstm.setString(5, insertPeliculaSql);
-      pstm.setString(6, insertPeliculaSql);
-      pstm.setString(7, insertPeliculaSql);
-      pstm.setString(8, insertPeliculaSql);
-      pstm.setString(9, insertPeliculaSql);
-      pstm.setString(10, insertPeliculaSql);
-      pstm.setString(11, insertPeliculaSql);
-      pstm.setString(12, insertPeliculaSql);
-      pstm.setString(13, insertPeliculaSql);
-      pstm.setString(14, insertPeliculaSql);
-      pstm.setString(15, insertPeliculaSql);
+      pstm.setString(1, pelicula.getTitulo());
+      pstm.setString(2, pelicula.getImagen());
+      pstm.setLong(3, pelicula.getId_genero());
+      pstm.setLong(4, pelicula.getId_director());
+      pstm.setTime(5, pelicula.getDuracion());
+      pstm.setDate(6, pelicula.getEstreno());
+      pstm.setString(7, pelicula.getDescripcion());
+      pstm.setDouble(8, pelicula.getPresupuesto());
+      pstm.setDouble(9, pelicula.getRecaudacion());
+      pstm.setString(10, pelicula.getUrl_trailer());
+      pstm.setBoolean(11, pelicula.getIsActive());
+      pstm.setString(12, pelicula.getUrl_fb());
+      pstm.setString(13, pelicula.getUrl_x());
+      pstm.setString(14, pelicula.getUrl_ig());
+      pstm.setString(15, pelicula.getUrl_estudio());
 
       pstm.executeUpdate();
 
