@@ -18,7 +18,7 @@ public class PeliculaDAO {
     // Statement stm = null;
     PreparedStatement pstm = null;
     ResultSet rs = null;
-    String insertPeliculaSql = "INSERT INTO pelicula (titulo, imagen, id_genero, id_director, duracion, estreno, descripcion, presupuesto, recaudacion, url_trailer, isActive, url_fb, url_x, url_ig, url_estudio) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    String insertPeliculaSql = "INSERT INTO peliculas (titulo, imagen, id_genero, id_director, duracion, estreno, descripcion, presupuesto, recaudacion, url_trailer, isActive, url_fb, url_x, url_ig, url_estudio) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     Connection cn = conexion.conectar();
 
