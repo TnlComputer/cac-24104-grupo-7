@@ -183,7 +183,4 @@ public class Pelicula {
         + ", url_trailer=" + url_trailer + ", isActive=" + isActive + ", url_fb=" + url_fb + ", url_x=" + url_x
         + ", url_ig=" + url_ig + ", url_estudio=" + url_estudio + "]";
   }
-
- 
-
 }

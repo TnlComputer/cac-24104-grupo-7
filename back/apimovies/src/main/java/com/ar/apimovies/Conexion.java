@@ -1,16 +1,19 @@
 package com.ar.apimovies;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class Conexion {
 
   private static final String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
-  private static final String URL = "jdbc:mysql://localhost:3306/tnlcom55_24104";
-  // private static final String URL = "jdbc:mysql://www.tnlcomputer.com.ar:3306/tnlcom55_cac24104";
-  private static final String USER = "root";
-  private static final String PASS = "";
+  private static final Dotenv dotenv = Dotenv.load();
+
+  private static final String URL = dotenv.get("DB_URL");
+  private static final String USER = dotenv.get("DB_USER");
+  private static final String PASS = dotenv.get("DB_PASS");
 
   static {
     try {
@@ -40,4 +43,15 @@ public class Conexion {
     return conexion;
   }
 
+  public static void cerrarConexion(Connection conexion) {
+    if (conexion != null) {
+      try {
+        conexion.close();
+        System.out.println("Conexión cerrada");
+      } catch (SQLException e) {
+        System.out.println("Error al cerrar la conexión");
+        e.printStackTrace();
+      }
+    }
+  }
 }
