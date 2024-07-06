@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "titulo": "The Beekeeper",
+    "imagen": "../assets/img/peli_1.jpg"
+  },
+  {
+    "id": 2,
+    "titulo": "Badlan Hunters",
+    "imagen": "../assets/img/peli_2.jpg"
+  },
+  {
+    "id": 3,
+    "titulo": "The Marvel 5",
+    "imagen": "../assets/img/peli_3.jpg"
+  },
+  {
+    "id": 4,
+    "titulo": "Wonka",
+    "imagen": "../assets/img/peli_4.jpg"
+  },
+  {
+    "id": 5,
+    "titulo": "Aquaman",
+    "imagen": "../assets/img/peli_5.jpg"
+  },
+  {
+    "id": 6,
+    "titulo": "Migration",
+    "imagen": "../assets/img/peli_6.jpg"
+  },
+  {
+    "id": 7,
+    "titulo": "60 Minutes",
+    "imagen": "../assets/img/peli_7.jpg"
+  },
+  {
+    "id": 8,
+    "titulo": "Wish",
+    "imagen": "../assets/img/peli_8.jpg"
+  },
+  {
+    "id": 9,
+    "titulo": "The Masked Saint",
+    "imagen": "../assets/img/peli_9.jpg"
+  },
+  {
+    "id": 10,
+    "titulo": "Due Justice",
+    "imagen": "../assets/img/peli_10.jpg"
+  },
+  {
+    "id": 11,
+    "titulo": "Orion and The Dark",
+    "imagen": "../assets/img/peli_11.jpg"
+  },
+  {
+    "id": 12,
+    "titulo": "Infierno Chino",
+    "imagen": "../assets/img/peli_12.jpg"
+  },
+  {
+    "id": 13,
+    "titulo": "Lift",
+    "imagen": "../assets/img/peli_13.jpg"
+  },
+  {
+    "id": 14,
+    "titulo": "Attak",
+    "imagen": "../assets/img/peli_14.jpg"
+  },
+  {
+    "id": 15,
+    "titulo": "Mutant Ghost Wargirl",
+    "imagen": "../assets/img/peli_15.jpg"
+  },
+  {
+    "id": 16,
+    "titulo": "Poor Things",
+    "imagen": "../assets/img/peli_16.jpg"
+  },
+  {
+    "id": 17,
+    "titulo": "The Five",
+    "imagen": "../assets/img/peli_17.jpg"
+  },
+  {
+    "id": 18,
+    "titulo": "Trunk Locked In",
+    "imagen": "../assets/img/peli_18.jpg"
+  },
+  {
+    "id": 19,
+    "titulo": "Anyone But You",
+    "imagen": "../assets/img/peli_19.jpg"
+  }
+]

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Disfruta de películas y series ilimitadas en CAC-Movies. Regístrate y empieza a ver tus favoritos hoy mismo." />
+  <meta name="keywords" content="películas, series, streaming, CAC-Movies, entretenimiento" />
+  <title>CAC-MOVIES</title>
+  <link rel="shortcut icon" href="../favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/header.css" />
+  <link rel="stylesheet" href="./css/footer.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body id="main">
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="./index.html">
+            <i class="fas fa-film" aria-hidden="true"></i>
+            CAC-Movies
+          </a>
+        </li>
+        <li><a href="./pages/marvel.html">Marvel</a></li>
+        <li><a href="#tendencia">Tendencias</a></li>
+        <li><a href="./pages/register.html">Registrarse</a></li>
+        <li>
+          <a href="./pages/login.html" class="login-btn">Iniciar Sesión</a>
+        </li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="seccionPrincipal">
+      <h1 class="titulo">
+        Películas y series ilimitadas <br />
+        en un solo lugar
+      </h1>
+      <h2 class="subtitulo">
+        Disfruta donde quieras. <br />
+        Cancela en cualquier momento.
+      </h2>
+      <a class="registro" href="./pages/register.html">Registrate</a>
+    </section>
+    <section class="buscador">
+      <h3 class="SeccionBusqueda">¿Qué estás buscando para ver?</h3>
+      <form class="BusquedaPeliculas">
+        <input class="ingresarbusqueda" type="text" placeholder="Buscar..." id="buscar" name="buscar" />
+        <input class="botonBuscar" type="submit" value="Buscar" />
+      </form>
+    </section>
+    <div class="separacion"></div>
+    <section id="tendencia" class="tendencia">
+      <h3 class="tituloTendencia">Las tendencias de hoy</h3>
+      <div class="peliculas" aria-live="polite"></div>
+      <button class="botonAnterior">Anterior</button>
+      <button class="botonSiguiente">Siguiente</button>
+    </section>
+
+    <div class="separacion"></div>
+    <section class="aclamadas">
+      <h3 class="tituloAclamada">Las más aclamadas</h3>
+
+      <div class="peliculasAclamadas">
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_1.jpg" alt="Imagen de película aclamada 1"
+            loading="lazy" />
+        </div>
+
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_2.jpg" alt="Imagen de película aclamada 2"
+            loading="lazy" />
+        </div>
+
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_3.jpg" alt="Imagen de película aclamada 3"
+            loading="lazy" />
+        </div>
+
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_4.jpg" alt="Imagen de película aclamada 4"
+            loading="lazy" />
+        </div>
+
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_5.jpg" alt="Imagen de película aclamada 5"
+            loading="lazy" />
+        </div>
+
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_6.jpg" alt="Imagen de película aclamada 6"
+            loading="lazy" />
+        </div>
+
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_7.jpg" alt="Imagen de película aclamada 7"
+            loading="lazy" />
+        </div>
+
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_8.jpg" alt="Imagen de película aclamada 8"
+            loading="lazy" />
+        </div>
+
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_9.jpg" alt="Imagen de película aclamada 9"
+            loading="lazy" />
+        </div>
+
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_10.jpg" alt="Imagen de película aclamada 10"
+            loading="lazy" />
+        </div>
+
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_11.jpg" alt="Imagen de película aclamada 11"
+            loading="lazy" />
+        </div>
+
+        <div class="peliculaAclamada">
+          <img class="imgTendencia" src="./assets/img/aclamada_12.jpg" alt="Imagen de película aclamada 12"
+            loading="lazy" />
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div>
+      <a href="./pages/terminos_condiciones.html">Términos y condiciones</a>
+      <a href="./pages/preguntas_frecuentes.html">Preguntas frecuentes</a>
+      <a href="./pages/ayuda.html">Ayuda</a>
+      <a href="./pages/administracion.html">Administrador Peliculas</a>
+    </div>
+    <a id="scrollToTop" href="#main" title="Volver arriba"><i class="fa-solid fa-angle-up"></i></a>
+  </footer>
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector("nav ul");
+      menu.classList.toggle("active");
+    }
+  </script>
+  <script src="./js/tendencias.js" defer></script>
+  <script src="./js/animations.js" defer></script>
+</body>
+
+</html>

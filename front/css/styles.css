@@ -1,0 +1,319 @@
+/* css Elias */
+.main {
+  .seccionPrincipal {
+    height: 90vh;
+    background-image: -webkit-linear-gradient(to right top, var(--negro), var(--negro)), url(../assets/img/banner-bg.jpg);
+    background-image: -moz-linear-gradient(to right top, var(--negro), var(--negro)), url(../assets/img/banner-bg.jpg);
+    background-image: -o-linear-gradient(to right top, var(--negro), var(--negro)), url(../assets/img/banner-bg.jpg);
+    background-image: linear-gradient(to right top, var(--negro), var(--negro)), url(../assets/img/banner-bg.jpg);
+
+    background-color: var(--bg-fondo-negro);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color-blanco);
+    animation: startFromCenter 1s;
+  }
+
+  .titulo {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .subtitulo {
+    font-size: 2.2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+}
+
+.registro,
+.botonBuscar {
+  background-color: var(--bg-color);
+  color: var(--text-color-blanco);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    background-color: var(--bg-color);
+    transform: scale(0.95);
+    box-shadow: 0 0 10px var(--bg-fondo-gris);
+  }
+}
+
+.buscador {
+  background-color: var(--text-color-negro);
+  color: var(--text-color-blanco);
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+
+  .SeccionBusqueda {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .BusquedaPeliculas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+
+    .ingresarbusqueda {
+      width: 500px;
+      height: 50px;
+      margin: 20px 0;
+      padding: 0 20px;
+      color: var(--text-color-negro);
+      font-size: 1.2rem;
+      border-radius: 25px;
+      border: 2px solid var(--bg-color-blanco);
+      outline: none;
+    }
+
+    .botonBuscar {
+      background-color: var(--bg-color);
+      color: var(--text-color-blanco);
+      height: 50px;
+      margin: 20px 10px;
+      padding: 0 20px;
+      border-radius: 25px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border: 2px solid var(--bg-fondo-blanco);
+      text-align: center;
+      transition: transform 5ms, box-shadow 5ms;
+      display: inline-block;
+
+      &:hover {
+        background-color: var(--bg-color);
+        transform: scale(0.95);
+        box-shadow: 0 0 10px var(--bg-fondo-gris);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .buscador {
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    .SeccionBusqueda {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .BusquedaPeliculas {
+      max-width: 100%;
+
+      .ingresarbusqueda {
+        width: 80%;
+        min-width: 80%;
+        padding: 0 20px;
+        font-size: 1rem;
+        border-radius: 25px;
+      }
+
+      .botonBuscar {
+        font-size: 1rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .buscador {
+
+    .SeccionBusqueda {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+    }
+
+    .BusquedaPeliculas {
+      display: block;
+      max-width: 100%;
+      text-align: center;
+
+      .ingresarbusqueda {
+        padding: 15px;
+        font-size: 1rem;
+        border-radius: 25px;
+      }
+    }
+  }
+}
+
+.tendencia {
+  color: var(--text-color-blanco);
+  width: 80vw;
+  margin: 10px auto 0 auto;
+  text-align: center;
+  padding-top: 10vh;
+  opacity: 0;
+
+  .tituloTendencia {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  .peliculas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 60px;
+  }
+
+  .pelicula {
+    width: 200px;
+    height: 300px;
+    position: relative;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+  }
+
+  .pelicula h3 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    overflow: hidden;
+    z-index: 2;
+    font-size: 1.6rem;
+    opacity: 0;
+    color: #000000;
+    transition: opacity 0.5s ease-in-out;
+    text-shadow: -1px -1px 0 var(--text-color-blanco),
+      1px -1px 0 var(--text-color-blanco), -1px 1px 0 var(--text-color-blanco),
+      1px 1px 0 var(--text-color-blanco);
+  }
+
+  .pelicula:hover {
+    box-shadow: 0 0 30px var(--bg-color);
+    transform: scale(0.9);
+  }
+
+  .pelicula:hover .imgTendencia {
+    filter: blur(2px);
+  }
+
+  .pelicula:hover h3 {
+    opacity: 1;
+  }
+
+  .imgTendencia {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .botonAnterior,
+  .botonSiguiente {
+    background-color: var(--bg-color);
+    color: var(--text-color-blanco);
+    border: 1px solid var(--bg-fondo-blanco);
+    box-sizing: content-box;
+    margin-top: 50px;
+    margin-left: 20px;
+    padding: 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 60px;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      background-color: var(--bg-color);
+      transform: scale(0.95);
+      box-shadow: 0 0 10px var(--bg-fondo-gris);
+    }
+  }
+}
+
+.aclamadas {
+  width: 80%;
+  color: var(--text-color-blanco);
+  margin: 10px auto 50px auto;
+  text-align: center;
+  opacity: 0;
+}
+
+.tituloAclamada {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.peliculasAclamadas {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-x: none;
+  overflow-y: hidden;
+
+  &:hover {
+    overflow-x: scroll;
+  }
+
+  .peliculaAclamada {
+    min-width: 170px;
+    max-width: 170px;
+    border-radius: 55px;
+    margin: 20px 20px;
+    cursor: pointer;
+
+    img {
+      border-radius: 5%;
+      width: 95%;
+      height: 95%;
+      object-fit: cover;
+    }
+  }
+}
+
+.animationFromBottom {
+  animation: appearFromBottom 1s forwards;
+}
+
+@keyframes startFromCenter {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes appearFromBottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

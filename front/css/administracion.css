@@ -1,0 +1,425 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-fondo-negro);
+}
+
+.container {
+  max-width: 800px;
+  min-height: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.searchSection h1 {
+  color: #333;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 32px;
+}
+
+#searchForm {
+  width: 100%;
+  color: #333;
+  margin-top: 15px;
+}
+
+.leftColumn {
+  width: 59%;
+  position: relative;
+  float: left;
+}
+
+.leftColumn input[type="text"] {
+  width: calc(100% - 40px);
+  height: 50px;
+  font-size: 20px;
+  padding: 5px;
+  border: 1px solid #000;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right: 0;
+}
+
+.leftColumn button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid #000;
+  border-left: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: transparent;
+  color: #000;
+  width: 40px;
+  height: 50px;
+}
+
+.leftColumn button:hover {
+  cursor: pointer;
+}
+
+.leftColumn button:hover i {
+  transform: scale(1.2);
+}
+
+.leftColumn button i {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.rightColumn {
+  width: 40%;
+  color: #333;
+  float: right;
+}
+
+.rightColumn label {
+  font-size: 18px;
+}
+
+.rightColumn label:hover,
+.rightColumn input:hover {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.sectionSelection {
+  clear: both;
+  width: 100%;
+  height: 100px;
+  position: relative;
+  text-align: center;
+}
+
+.sectionSelection button {
+  width: 150px;
+  height: 50px;
+  border: 1px solid #fff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  margin: 15px 5px 0;
+}
+
+.sectionSelection button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.displaySection {
+  color: #000;
+}
+
+.createMovie,
+.editMovie,
+.editUser {
+  display: none;
+  color: #000;
+}
+
+.moviesContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+.moviesContainer .movie {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  text-align: center;
+  border: 1px solid #000;
+}
+
+.moviesContainer .createMovieDiv {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #000;
+}
+
+.movie:hover {
+  box-shadow: 0 0 30px var(--bg-color);
+}
+
+.movie .movieImg {
+  filter: blur(2px);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.movie h3 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  overflow: hidden;
+  z-index: 2;
+  font-size: 1.6rem;
+  color: #000000;
+  text-shadow: -1px -1px 0 var(--text-color-blanco),
+    1px -1px 0 var(--text-color-blanco), -1px 1px 0 var(--text-color-blanco),
+    1px 1px 0 var(--text-color-blanco);
+}
+
+.movie i.fa-pen-to-square {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  padding: 10px;
+  border-top-left-radius: 9px;
+  border-bottom-right-radius: 5px;
+  color: yellow;
+  background-color: #000;
+}
+
+.movie i.fa-trash {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  padding: 10px;
+  border-top-right-radius: 9px;
+  border-bottom-left-radius: 5px;
+  color: red;
+  background-color: #000;
+}
+
+.movie i.fa-pen-to-square:hover,
+.movie i.fa-trash:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.createMovieDiv i.fa-plus {
+  color: green;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid green;
+  border-radius: 50%;
+  padding: 30px;
+  transition: all 0.5s ease;
+}
+
+.createMovieDiv:hover {
+  cursor: pointer;
+  box-shadow: 0 0 30px var(--bg-color);
+}
+
+.createMovieDiv:hover i.fa-plus {
+  background-color: rgba(0, 255, 0, 0.3);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+
+
+
+.usersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.user {
+  padding: 10px;
+  height: 50px;
+  width: 80%;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+.user.isAdmin {
+  background-image: repeating-linear-gradient(-45deg,
+      lightgray,
+      transparent 4px,
+      transparent 40px);
+}
+
+.user:hover {
+  box-shadow: 0 0 30px var(--bg-color);
+}
+
+.user i.fa-pen-to-square {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 46px;
+  padding: 14px 10px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  color: yellow;
+  background-color: #000;
+}
+
+.user i.fa-trash {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 46px;
+  padding: 14px 10px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  color: red;
+  background-color: #000;
+}
+
+.user i.fa-pen-to-square:hover,
+.user i.fa-trash:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.editUser h2 {
+  text-align: center;
+}
+
+.editUser form {
+  width: 100%;
+  padding: 20px 40px;
+}
+
+.editUser form p {
+  display: none;
+  color: var(--rojo);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.editUser form input,
+.editUser form select {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 40px;
+  padding: 0px 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  border-radius: 20px;
+  border: 2px solid var(--bg-color);
+  background-color: var(--negro-section);
+  outline: none;
+  color: var(--text-color-blanco);
+}
+
+.editUserFormBottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.editUserFormBottom>div {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editUserLCol,
+.editUserMCol,
+.editUserRCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.editUser form .editUserLCol input {
+  max-width: 150px;
+  min-width: 150px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.editUser form .editUserMCol input {
+  max-width: 150px;
+  min-width: 150px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.editUser form .editUserRCol input {
+  width: 30px;
+}
+
+.editUser .editUserFormButtons {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.editUser form button[type="reset"],
+.editUser form button[type="submit"] {
+  width: 200px;
+  margin: 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.editUser form button[type="reset"] {
+  background-color: rgb(180, 0, 0);
+}
+
+.editUser form button[type="submit"] {
+  background-color: green;
+}
+
+.editUserFormButtons button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .editUserFormBottom {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .editUser form .editUserFormButtons button {
+    margin: 5px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .leftColumn {
+    width: 100%;
+    float: none;
+    display: block;
+  }
+
+  .rightColumn {
+    width: 100%;
+    float: none;
+    display: block;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  .displaySection {
+    margin-top: 50px;
+  }
+}

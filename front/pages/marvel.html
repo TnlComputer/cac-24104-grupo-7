@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAC-MOVIES</title>
+  <link rel="shortcut icon" href="../favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="../css/marvel.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="../index.html">
+            <i class="fas fa-film" aria-hidden="true"></i>
+            CAC-Movies
+          </a>
+        </li>
+        <li><a href="./marvel.html">Marvel</a></li>
+        <li><a href="../index.html#tendencia">Tendencias</a></li>
+        <li><a href="./register.html">Registrarse</a></li>
+        <li><a href="./login.html" class="login-btn">Iniciar Sesión</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
+
+
+  <main>
+    <section class="marvel_characters">
+      <h4>Series de marvel</h4>
+      <div id="loader" class="loader"></div>
+      <div id="characters" class="characters"></div>
+      <button id="prevPage" class="botonAnterior">Anterior</button>
+      <!-- <p class="pagination"></p> -->
+      <button id="nextPage" class="botonSiguiente">Siguiente</button>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <a href="./terminos_condiciones.html">Términos y condiciones</a>
+      <a href="./preguntas_frecuentes.html">Preguntas frecuentes</a>
+      <a href="./ayuda.html">Ayuda</a>
+      <a href="./administracion.html">Administrador Peliculas</a>
+    </div>
+    <!-- <a href="#main"><i class="fa-solid fa-angle-up"></i></a> -->
+    <a id="scrollToTop" href="#main"><i class="fa-solid fa-angle-up"></i></a>
+  </footer>
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector("nav ul");
+      menu.classList.toggle("active");
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
+  <script src="../js/apiMarvel.js"></script>
+  <script src="../js/animations.js"></script>
+</body>
+
+</html>

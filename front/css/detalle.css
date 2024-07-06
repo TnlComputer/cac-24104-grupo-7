@@ -1,0 +1,186 @@
+.mainDetail {
+  .detail {
+    padding-top: 50px;
+    background: linear-gradient(
+        to right top,
+        var(--bg-fondo-gris),
+        var(--text-color-negro)
+      ),
+      url(../assets/img/mario-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 75%;
+    animation: startFromCenter 1s;
+
+    .detailDiv {
+      width: 75%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 60px;
+
+      img {
+        border-radius: 20px;
+      }
+
+      .pDetail {
+        h1 {
+          font-size: 2.2rem;
+          font-weight: 700;
+        }
+
+        h2 {
+          margin-top: 20px;
+        }
+      }
+      .credits {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .trailer {
+    padding-top: 150px;
+    padding-bottom: 100px;
+    width: 75vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 70px;
+    animation: appearFromBottom 1s forwards;
+
+    .contentInfo {
+      .redes {
+        margin-bottom: 20px;
+
+        ul {
+          list-style: none;
+          display: flex;
+          column-gap: 20px;
+
+          li {
+            a {
+              text-decoration: none;
+              color: var(--text-color-blanco);
+              font-size: 2.5rem;
+              margin-right: 50px;
+            }
+          }
+        }
+        .socialImg {
+          background-color: var(--bg-color-blanco);
+        }
+      }
+
+      .info {
+        table {
+          width: 100%;
+
+          tr {
+            td {
+              font-size: 1.2rem;
+              padding: 10px 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1152px) {
+  .mainDetail {
+    .detail {
+      .detailDiv {
+        flex-direction: column;
+        row-gap: 20px;
+
+        img {
+          width: 100%;
+          height: 300px;
+        }
+
+        .pDetail {
+          h1 {
+            font-size: 1.5rem;
+          }
+
+          h2 {
+            font-size: 1rem;
+          }
+
+          .credits {
+            flex-direction: column;
+            row-gap: 10px;
+          }
+        }
+      }
+    }
+
+    .trailer {
+      width: 95%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      flex-direction: column;
+      row-gap: 20px;
+
+      .contentTrailer {
+        width: 100%;
+
+        h2 {
+          margin-bottom: 20px;
+        }
+
+        iframe {
+          width: 100%;
+          height: 300px;
+        }
+      }
+
+      .contentInfo {
+        width: 100%;
+
+        .redes {
+          width: 100%;
+
+          ul {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            li {
+              a {
+                font-size: 2rem;
+                margin-right: 20px;
+              }
+            }
+          }
+        }
+
+        .info {
+          table {
+            tr {
+              td {
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes startFromCenter {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

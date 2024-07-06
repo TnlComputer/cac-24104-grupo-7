@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrarse | CAC-MOVIES</title>
+  <link rel="shortcut icon" href="../favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/register.css" />
+  <style>
+    .error-message {
+      display: none;
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+
+<body id="main">
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="../index.html">
+            <i class="fas fa-film" aria-hidden="true"></i>
+            CAC-Movies
+          </a>
+        </li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h1>Registro</h1>
+      <form id="registerForm" action="#" method="POST">
+        <input type="text" id="name" placeholder="Nombre" />
+        <p class="error-message" id="nameError">El nombre es obligatorio y solo debe contener letras y espacios</p>
+
+        <input type="text" id="surname" placeholder="Apellido" />
+        <p class="error-message" id="surnameError">El apellido es obligatorio y solo debe contener letras y espacios</p>
+
+        <input type="email" id="email" placeholder="Email" />
+        <p class="error-message" id="emailError">El correo electrónico es obligatorio y debe ser válido</p>
+
+        <input type="password" id="password" placeholder="Contraseña" />
+        <p class="error-message" id="passwordError">La contraseña es obligatoria y debe tener al menos 8 caracteres,
+          incluyendo una letra mayúscula, una minúscula y un número</p>
+
+        <input type="date" id="dateOfBirth" />
+        <p class="error-message" id="dateError">La fecha de nacimiento es obligatoria</p>
+
+        <select id="country">
+          <option value="">País</option>
+          <option value="AR">Argentina</option>
+          <option value="BO">Bolivia</option>
+          <option value="BR">Brasil</option>
+          <option value="CH">Chile</option>
+          <option value="CO">Colombia</option>
+          <option value="EC">Ecuador</option>
+          <option value="PY">Paraguay</option>
+          <option value="PE">Perú</option>
+          <option value="UY">Uruguay</option>
+          <option value="VE">Venezuela</option>
+        </select>
+        <p class="error-message" id="countryError">El país es obligatorio</p>
+
+        <div>
+          <input type="checkbox" id="terms" />
+          <label for="terms">Acepto términos y condiciones</label>
+        </div>
+        <p class="error-message" id="termsError">Debes aceptar los términos y condiciones</p>
+
+        <button type="submit">Registrarse</button>
+        <a href="#">¿Necesitas ayuda?</a>
+      </form>
+    </section>
+  </main>
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector("nav ul");
+      menu.classList.toggle("active");
+    }
+  </script>
+
+  <script src="../js/validacionRegistro.js"></script>
+</body>
+
+</html>
