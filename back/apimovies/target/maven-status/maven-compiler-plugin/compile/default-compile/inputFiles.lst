@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 F:\Proyectos\CaC-2024\Practicas\clone-final-entrega\back\apimovies\src\main\java\com\ar\apimovies\PeliculaServlet.java
 F:\Proyectos\CaC-2024\Practicas\clone-final-entrega\back\apimovies\src\main\java\com\ar\apimovies\TestConexion.java
 F:\Proyectos\CaC-2024\Practicas\clone-final-entrega\back\apimovies\src\main\java\com\ar\apimovies\Conexion.java
@@ -6,3 +7,13 @@ F:\Proyectos\CaC-2024\Practicas\clone-final-entrega\back\apimovies\src\main\java
 F:\Proyectos\CaC-2024\Practicas\clone-final-entrega\back\apimovies\src\main\java\com\ar\apimovies\UsuarioServlet.java
 F:\Proyectos\CaC-2024\Practicas\clone-final-entrega\back\apimovies\src\main\java\com\ar\apimovies\PeliculaDAO.java
 F:\Proyectos\CaC-2024\Practicas\clone-final-entrega\back\apimovies\src\main\java\com\ar\apimovies\Usuario.java
+=======
+c:\Jorge\CAC24104\cac-24104-grupo-7\back\apimovies\src\main\java\com\ar\apimovies\UsuarioDAO.java
+c:\Jorge\CAC24104\cac-24104-grupo-7\back\apimovies\src\main\java\com\ar\apimovies\TestConexion.java
+c:\Jorge\CAC24104\cac-24104-grupo-7\back\apimovies\src\main\java\com\ar\apimovies\Conexion.java
+c:\Jorge\CAC24104\cac-24104-grupo-7\back\apimovies\src\main\java\com\ar\apimovies\PeliculaDAO.java
+c:\Jorge\CAC24104\cac-24104-grupo-7\back\apimovies\src\main\java\com\ar\apimovies\UsuarioServlet.java
+c:\Jorge\CAC24104\cac-24104-grupo-7\back\apimovies\src\main\java\com\ar\apimovies\Pelicula.java
+c:\Jorge\CAC24104\cac-24104-grupo-7\back\apimovies\src\main\java\com\ar\apimovies\Usuario.java
+c:\Jorge\CAC24104\cac-24104-grupo-7\back\apimovies\src\main\java\com\ar\apimovies\PeliculaServlet.java
+>>>>>>> c9ef1f5eaf95e9d910875b32988ef1393ec75902
