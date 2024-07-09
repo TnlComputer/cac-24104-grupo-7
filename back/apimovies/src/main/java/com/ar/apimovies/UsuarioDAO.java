@@ -69,7 +69,7 @@ public class UsuarioDAO {
     PreparedStatement pstm = null;
     ResultSet rs = null;
 
-    String getAllUsuariosSql = "SELECT * FROM usuarios";
+    String getAllUsuariosSql = "SELECT * FROM usuarios WHERE isActive = true";
 
     try {
 

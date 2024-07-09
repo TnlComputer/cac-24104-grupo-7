@@ -1,12 +1,8 @@
 com\ar\apimovies\Pelicula.class
-<<<<<<< HEAD
 com\ar\apimovies\Usuario.class
 com\ar\apimovies\PeliculaServlet.class
 com\ar\apimovies\UsuarioServlet.class
 com\ar\apimovies\UsuarioDAO.class
-=======
-com\ar\apimovies\PeliculaServlet.class
->>>>>>> c9ef1f5eaf95e9d910875b32988ef1393ec75902
 com\ar\apimovies\PeliculaDAO.class
 com\ar\apimovies\TestConexion.class
 com\ar\apimovies\Conexion.class

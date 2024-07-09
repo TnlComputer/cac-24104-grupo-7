@@ -30,6 +30,7 @@ public class PeliculaServlet extends HttpServlet {
         String jsonResponse = objectMapper.writeValueAsString(idPelicula);
         resp.setContentType("application/json");
         resp.getWriter().write(jsonResponse);
+
         resp.setStatus(HttpServletResponse.SC_CREATED);
       } else {
         resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error inserting pelicula");
@@ -59,6 +60,56 @@ public class PeliculaServlet extends HttpServlet {
     }
   }
 
+  // ** edit y delete realizado por Maira ** //
+  // **************** DO PUT *************** //
+  @Override
+  protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    setupResponseHeaders(resp);
+
+    try {
+      req.setCharacterEncoding("UTF-8");
+      resp.setCharacterEncoding("UTF-8");
+
+      Pelicula pelicula = objectMapper.readValue(req.getInputStream(), Pelicula.class);
+      boolean isUpdated = peliculaDAO.updatePelicula(pelicula);
+
+      if (isUpdated) {
+        resp.setStatus(HttpServletResponse.SC_OK);
+      } else {
+        resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error updating peliculas");
+      }
+    } catch (Exception e) {
+      resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid request data");
+      e.printStackTrace();
+    }
+
+  }
+
+  // *********** DO DELETE ************/
+  @Override
+  protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    setupResponseHeaders(resp);
+
+    try {
+      req.setCharacterEncoding("UTF-8");
+      resp.setCharacterEncoding("UTF-8");
+
+      Pelicula pelicula = objectMapper.readValue(req.getInputStream(), Pelicula.class);
+      boolean isDeleted = peliculaDAO.deletePelicula(pelicula);
+
+      if (isDeleted) {
+        resp.setStatus(HttpServletResponse.SC_OK);
+      } else {
+        resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error deleting peliculas");
+      }
+    } catch (Exception e) {
+      resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid request data");
+      e.printStackTrace();
+    }
+
+  }
+
+
   @Override
   protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     setupResponseHeaders(resp);
@@ -67,7 +118,7 @@ public class PeliculaServlet extends HttpServlet {
 
   private void setupResponseHeaders(HttpServletResponse resp) {
     resp.setHeader("Access-Control-Allow-Origin", "*");
-    resp.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    resp.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
   }
 }
