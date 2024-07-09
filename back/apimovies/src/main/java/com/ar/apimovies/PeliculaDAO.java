@@ -14,7 +14,7 @@ public class PeliculaDAO {
     Conexion conexion = new Conexion();
     PreparedStatement pstm = null;
     ResultSet rs = null;
-    String insertPeliculaSql = "INSERT INTO peliculas (titulo, imagen, id_genero, id_director, duracion, estreno, descripcion, presupuesto, recaudacion, url_trailer, isActive, url_fb, url_x, url_ig, url_estudio) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    String insertPeliculaSql = "INSERT INTO peliculas (titulo, imagen, genero, director, duracion, estreno, descripcion, isActive) VALUES (?,?,?,?,?,?,?,?)";
 
     Connection cn = conexion.conectar();
 
@@ -23,20 +23,12 @@ public class PeliculaDAO {
 
       pstm.setString(1, pelicula.getTitulo());
       pstm.setString(2, pelicula.getImagen());
-      pstm.setLong(3, pelicula.getId_genero());
-      pstm.setLong(4, pelicula.getId_director());
+      pstm.setString(3, pelicula.getGenero());
+      pstm.setString(4, pelicula.getDirector());
       pstm.setTime(5, pelicula.getDuracion());
       pstm.setDate(6, pelicula.getEstreno());
       pstm.setString(7, pelicula.getDescripcion());
-      pstm.setDouble(8, pelicula.getPresupuesto());
-      pstm.setDouble(9, pelicula.getRecaudacion());
-      pstm.setString(10, pelicula.getUrl_trailer());
-      pstm.setBoolean(11, true);
-      // pstm.setBoolean(11, pelicula.getIsActive());
-      pstm.setString(12, pelicula.getUrl_fb());
-      pstm.setString(13, pelicula.getUrl_x());
-      pstm.setString(14, pelicula.getUrl_ig());
-      pstm.setString(15, pelicula.getUrl_estudio());
+      pstm.setBoolean(8, true);
 
       int result = pstm.executeUpdate();
 
@@ -79,23 +71,14 @@ public class PeliculaDAO {
         Long idP = rs.getLong("id");
         String titu = rs.getString("titulo");
         String imag = rs.getString("imagen");
-        Long idGen = rs.getLong("id_genero");
-        Long idDir = rs.getLong("id_director");
+        String gene = rs.getString("genero");
+        String dire = rs.getString("director");
         Time dura = rs.getTime("duracion");
         Date estr = rs.getDate("estreno");
         String desc = rs.getString("descripcion");
-        Double presu = rs.getDouble("presupuesto");
-        Double recau = rs.getDouble("recaudacion");
-        String urlT = rs.getString("url_trailer");
-        Boolean isAct = rs.getBoolean(1);
-        // Boolean isAct = rs.getBoolean("isActive");
-        String urlFb = rs.getString("url_fb");
-        String urlX = rs.getString("url_x");
-        String urlIg = rs.getString("url_ig");
-        String urlEstu = rs.getString("url_estudio");
+        Boolean isAct = rs.getBoolean("isActive");
 
-        Pelicula pelicula = new Pelicula(idP, titu, imag, idGen, idDir, dura, estr, desc, presu, recau, urlT, isAct,
-            urlFb, urlX, urlIg, urlEstu);
+        Pelicula pelicula = new Pelicula(idP, titu, imag, gene, dire, dura, estr, desc, isAct);
 
         peliculas.add(pelicula);
       }
@@ -107,86 +90,25 @@ public class PeliculaDAO {
     return peliculas;
   }
 
-  // public boolean updatePelicula(Pelicula pelicula) {
-  // Conexion conexion = new Conexion();
-  // Connection cn = conexion.conectar();
-  // PreparedStatement pstm = null;
-  // String updatePeliculaSql = "UPDATE peliculas SET titulo=?, imagen=?,
-  // id_genero=?, id_director=?, duracion=?, estreno=?, descripcion=?,
-  // presupuesto=?, recaudacion=?, url_trailer=?, isActive=?, url_fb=?, url_x=?,
-  // url_ig=?, url_estudio=? WHERE id=?";
-
-  // try {
-  // pstm = cn.prepareStatement(updatePeliculaSql);
-
-  // pstm.setString(1, pelicula.getTitulo());
-  // pstm.setString(2, pelicula.getImagen());
-  // pstm.setLong(3, pelicula.getId_genero());
-  // pstm.setLong(4, pelicula.getId_director());
-  // pstm.setTime(5, pelicula.getDuracion());
-  // pstm.setDate(6, pelicula.getEstreno());
-  // pstm.setString(7, pelicula.getDescripcion());
-  // pstm.setDouble(8, pelicula.getPresupuesto());
-  // pstm.setDouble(9, pelicula.getRecaudacion());
-  // pstm.setString(10, pelicula.getUrl_trailer());
-  // pstm.setBoolean(11, pelicula.getIsActive());
-  // pstm.setString(12, pelicula.getUrl_fb());
-  // pstm.setString(13, pelicula.getUrl_x());
-  // pstm.setString(14, pelicula.getUrl_ig());
-  // pstm.setString(15, pelicula.getUrl_estudio());
-  // pstm.setLong(16, pelicula.getIdPelicula());
-
-  // int result = pstm.executeUpdate();
-
-  // return result > 0;
-
-  // } catch (Exception e) {
-  // e.printStackTrace();
-  // return false;
-  // }
-  // }
-
-  // public boolean deletePelicula(Long idPelicula) {
-  // Conexion conexion = new Conexion();
-  // Connection cn = conexion.conectar();
-  // PreparedStatement pstm = null;
-  // String deletePeliculaSql = "UPDATE peliculas SET isActive=0 WHERE id=?";
-
-  // try {
-  // pstm = cn.prepareStatement(deletePeliculaSql);
-  // pstm.setLong(1, idPelicula);
-
-  // int result = pstm.executeUpdate();
-
-  // return result > 0;
-
-  // } catch (Exception e) {
-  // e.printStackTrace();
-  // return false;
-  // }
-  // }
-
-  // *********** UPDATE ************/
-
   public boolean updatePelicula(Pelicula pelicula) {
-
     boolean isUpdated = false;
-
     Conexion conexion = new Conexion();
-    Connection cn = null;
-    String updatePeliculaSql = "UPDATE peliculas SET titulo = ?, imagen = ?, id_genero = ?, duracion = ? WHERE id = ?";
-
+    Connection cn = conexion.conectar();
     PreparedStatement pstm = null;
+    String updatePeliculaSql = "UPDATE peliculas SET titulo=?, imagen=?, genero=?, director=?, duracion=?, estreno=?, descripcion=? WHERE id=?";
 
     try {
-      cn = conexion.conectar();
       pstm = cn.prepareStatement(updatePeliculaSql);
 
       pstm.setString(1, pelicula.getTitulo());
       pstm.setString(2, pelicula.getImagen());
-      pstm.setLong(3, pelicula.getId_genero());
-      pstm.setTime(4, pelicula.getDuracion());
-      pstm.setLong(5, pelicula.getIdPelicula());
+      pstm.setString(3, pelicula.getGenero());
+      pstm.setString(4, pelicula.getDirector());
+      pstm.setTime(5, pelicula.getDuracion());
+      pstm.setDate(6, pelicula.getEstreno());
+      pstm.setString(7, pelicula.getDescripcion());
+      pstm.setBoolean(8, pelicula.getIsActive());
+      pstm.setLong(8, pelicula.getIdPelicula());
 
       int rowsAffected = pstm.executeUpdate();
       isUpdated = rowsAffected > 0;
@@ -207,15 +129,13 @@ public class PeliculaDAO {
     return isUpdated;
   }
 
-  // *********** DELETE ************/
-
   public boolean deletePelicula(Pelicula pelicula) {
 
     boolean isDeleted = false;
 
     Conexion conexion = new Conexion();
     Connection cn = null;
-    String deleteUsuarioSql = "UPDATE peliculas SET isActive = ? WHERE id = ?";
+    String deleteUsuarioSql = "UPDATE peliculas SET isActive = false WHERE id = ?";
 
     PreparedStatement pstm = null;
 
@@ -224,7 +144,7 @@ public class PeliculaDAO {
       pstm = cn.prepareStatement(deleteUsuarioSql);
 
       pstm.setLong(1, pelicula.getIdPelicula());
-      pstm.setBoolean(11, false);
+      // pstm.setBoolean(11, false);
 
       int rowsAffected = pstm.executeUpdate();
       isDeleted = rowsAffected > 0;

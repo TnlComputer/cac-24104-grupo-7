@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const moviesPerPage = 8;
 
   function cargarPeliculas(pagina) {
-    fetch('./assets/data/peliculas.json')
+    fetch('http://localhost:8080/apimovies/peliculas')
       .then(response => response.json())
       .then(data => {
         const startIndex = (pagina - 1) * moviesPerPage;
@@ -29,7 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
           const imagenElement = document.createElement('img');
           imagenElement.classList.add('imgTendencia');
-          imagenElement.src = pelicula.imagen;
+          imagenElement.src = './assets/img/' + pelicula.imagen;
+          // imagenElement.src = pelicula.imagen;
           imagenElement.alt = pelicula.alt;
           peliculaElement.appendChild(imagenElement);
 
