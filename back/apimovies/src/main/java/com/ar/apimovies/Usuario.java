@@ -1,27 +1,24 @@
 package com.ar.apimovies;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 
 public class Usuario {
 
   private Long idUsuario;
-  private int isAdmin;
-  private int isActive;
+  private Boolean isAdmin;
+  private Boolean isActive;
   private String nombre;
   private String apellido;
   private String email;
   private String clave;
   private Date fecha_nacimiento;
   private int id_pais;
-  private Timestamp created_at;
-  private Timestamp updated_at;
 
   public Usuario() {
   }
 
-  public Usuario(Long idUsuario, int isAdmin, int isActive, String nombre, String apellido, String email, String clave,
-      Date fecha_nacimiento, int id_pais, Timestamp created_at, Timestamp updated_at) {
+  public Usuario(Long idUsuario, Boolean isAdmin, Boolean isActive, String nombre, String apellido, String email,
+      String clave, Date fecha_nacimiento, int id_pais) {
     this.idUsuario = idUsuario;
     this.isAdmin = isAdmin;
     this.isActive = isActive;
@@ -31,31 +28,29 @@ public class Usuario {
     this.clave = clave;
     this.fecha_nacimiento = fecha_nacimiento;
     this.id_pais = id_pais;
-    this.created_at = created_at;
-    this.updated_at = updated_at;
   }
 
-  public Long getId() {
+  public Long getIdUsuario() {
     return idUsuario;
   }
 
-  public void setId(Long idUsuario) {
+  public void setIdUsuario(Long idUsuario) {
     this.idUsuario = idUsuario;
   }
 
-  public int getIsAdmin() {
+  public Boolean getIsAdmin() {
     return isAdmin;
   }
 
-  public void setIsAdmin(int isAdmin) {
+  public void setIsAdmin(Boolean isAdmin) {
     this.isAdmin = isAdmin;
   }
 
-  public int getIsActive() {
+  public Boolean getIsActive() {
     return isActive;
   }
 
-  public void setIsActive(int isActive) {
+  public void setIsActive(Boolean isActive) {
     this.isActive = isActive;
   }
 
@@ -107,27 +102,27 @@ public class Usuario {
     this.id_pais = id_pais;
   }
 
-  public Timestamp getCreated_at() {
-    return created_at;
-  }
+  // public Timestamp getCreated_at() {
+  //   return created_at;
+  // }
 
-  public void setCreated_at(Timestamp created_at) {
-    this.created_at = created_at;
-  }
+  // public void setCreated_at(Timestamp created_at) {
+  //   this.created_at = created_at;
+  // }
 
-  public Timestamp getUpdated_at() {
-    return updated_at;
-  }
+  // public Timestamp getUpdated_at() {
+  //   return updated_at;
+  // }
 
-  public void setUpdated_at(Timestamp updated_at) {
-    this.updated_at = updated_at;
-  }
+  // public void setUpdated_at(Timestamp updated_at) {
+  //   this.updated_at = updated_at;
+  // }
 
   @Override
   public String toString() {
     return "Usuario [idUsuario=" + idUsuario + ", isAdmin=" + isAdmin + ", isActive=" + isActive + ", nombre=" + nombre
         + ", apellido=" + apellido + ", email=" + email + ", clave=" + clave + ", fecha_nacimiento=" + fecha_nacimiento
-        + ", id_pais=" + id_pais + ", created_at=" + created_at + ", updated_at=" + updated_at + "]";
+        + ", id_pais=" + id_pais + "]";
   }
 
 }

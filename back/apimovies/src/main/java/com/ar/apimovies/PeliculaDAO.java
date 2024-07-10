@@ -95,7 +95,7 @@ public class PeliculaDAO {
     Conexion conexion = new Conexion();
     Connection cn = conexion.conectar();
     PreparedStatement pstm = null;
-    String updatePeliculaSql = "UPDATE peliculas SET titulo=?, imagen=?, genero=?, director=?, duracion=?, estreno=?, descripcion=? WHERE id=?";
+    String updatePeliculaSql = "UPDATE peliculas SET titulo=?, imagen=?, genero=?, director=?, duracion=?, estreno=?, descripcion=?, isActive=? WHERE id=?";
 
     try {
       pstm = cn.prepareStatement(updatePeliculaSql);
@@ -108,7 +108,7 @@ public class PeliculaDAO {
       pstm.setDate(6, pelicula.getEstreno());
       pstm.setString(7, pelicula.getDescripcion());
       pstm.setBoolean(8, pelicula.getIsActive());
-      pstm.setLong(8, pelicula.getIdPelicula());
+      pstm.setLong(9, pelicula.getIdPelicula());
 
       int rowsAffected = pstm.executeUpdate();
       isUpdated = rowsAffected > 0;

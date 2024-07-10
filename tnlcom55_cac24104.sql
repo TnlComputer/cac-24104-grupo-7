@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.0-rc1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 03-07-2024 a las 20:07:40
--- Versión del servidor: 10.6.17-MariaDB
--- Versión de PHP: 8.1.14
+-- Tiempo de generación: 10-07-2024 a las 19:57:44
+-- Versión del servidor: 8.0.30
+-- Versión de PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,52 +24,12 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `directores`
---
-
-CREATE TABLE `directores` (
-  `id` int(11) NOT NULL,
-  `ayn` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `directores`
---
-
-INSERT INTO `directores` (`id`, `ayn`) VALUES
-(1, 'Aaron Horvath'),
-(2, 'Yorgos Lanthimos'),
-(3, 'Bong Joon Ho');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `generos`
---
-
-CREATE TABLE `generos` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `generos`
---
-
-INSERT INTO `generos` (`id`, `nombre`) VALUES
-(1, 'Aventura'),
-(2, 'Comedia'),
-(3, 'Drama');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `paises`
 --
 
 CREATE TABLE `paises` (
-  `id` int(11) NOT NULL,
-  `Nombre` char(52) NOT NULL DEFAULT ''
+  `id` int NOT NULL,
+  `Nombre` char(52) COLLATE utf8mb4_general_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -324,32 +284,41 @@ INSERT INTO `paises` (`id`, `Nombre`) VALUES
 --
 
 CREATE TABLE `peliculas` (
-  `id` int(11) NOT NULL,
-  `titulo` varchar(150) NOT NULL,
-  `imagen` varchar(255) NOT NULL,
-  `id_genero` int(11) DEFAULT NULL,
-  `id_director` int(11) DEFAULT NULL,
+  `id` int NOT NULL,
+  `titulo` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `imagen` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `genero` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `director` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `duracion` time NOT NULL,
   `estreno` date DEFAULT NULL,
-  `descripcion` varchar(100) DEFAULT NULL,
-  `presupuesto` decimal(15,2) DEFAULT NULL,
-  `recaudacion` decimal(15,2) DEFAULT NULL,
-  `url_trailer` varchar(255) DEFAULT NULL,
-  `isActive` tinyint(1) NOT NULL DEFAULT 1,
-  `url_fb` varchar(255) DEFAULT NULL,
-  `url_x` varchar(255) DEFAULT NULL,
-  `url_ig` varchar(255) DEFAULT NULL,
-  `url_estudio` varchar(255) DEFAULT NULL
+  `descripcion` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `isActive` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `peliculas`
 --
 
-INSERT INTO `peliculas` (`id`, `titulo`, `imagen`, `id_genero`, `id_director`, `duracion`, `estreno`, `descripcion`, `presupuesto`, `recaudacion`, `url_trailer`, `isActive`, `url_fb`, `url_x`, `url_ig`, `url_estudio`) VALUES
-(1, 'Mario Bros', '', 1, 1, '02:15:00', '2023-05-05', 'descripcion de la pelicula', '100000000.00', '1361992475.00', NULL, 1, NULL, NULL, NULL, NULL),
-(2, 'Poor Things', '', 2, 2, '03:20:00', '2023-06-07', 'descripcion de la pelicula', '35000000.00', '117625455.00', NULL, 1, NULL, NULL, NULL, NULL),
-(3, 'Parasite', '', 3, 3, '02:30:00', '2019-08-09', 'descripcion de la pelicula', '11400000.00', '262099264.00', NULL, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `peliculas` (`id`, `titulo`, `imagen`, `genero`, `director`, `duracion`, `estreno`, `descripcion`, `isActive`) VALUES
+(1, 'The Beekeeper', 'peli_1.jpg', 'Acción, Crimen, Suspenso', 'David Ayer', '01:45:00', '2024-01-12', 'La brutal campaña de venganza de un hombre adquiere dimensiones nacionales cuando se descubre que es un antiguo agente de una poderosa organización clandestina conocida como \"Los apicultores\".', 1),
+(2, 'Badlan Hunters', 'peli_2.jpg', 'Acción, Aventura, Crimen', 'Kim Bo-tong, Kwak Jae-min', '01:47:00', '2024-01-26', 'Cuando Seúl se vuelve un lugar yermo y sin ley tras un terremoto, un cazador entra en acción para rescatar a una adolescente que fue secuestrada por un médico trastornado.', 1),
+(3, 'The MarvelS', 'peli_3.jpg', 'Acción, Aventura, Aventura', 'Nia DaCVosta', '01:45:00', '2023-10-11', 'Secuela de la película del 2019 \"Capitán Marvel\".', 1),
+(4, 'Wonka', 'peli_4.jpg', 'Aventura, Comedia, Familia', 'Paul King', '01:56:00', '2023-12-15', 'La historia se centrará específicamente en un joven Willy Wonka y en cómo conoció a los Oompa-Loompas en una de sus primeras aventuras.', 1),
+(5, 'Aquaman', 'peli_5.jpg', 'Acción, Aventura, Fantasía', 'James Wan', '02:23:00', '2018-12-13', 'El heredero de Atlantis, Arthur Curry, se embarca a prevenir una guerra entre los mundos del agua y la tierra.', 1),
+(6, 'Migration', 'peli_6.jpg', 'Animación, Aventura, Comedia', 'Benjamin Renner, Guylo Homsy', '01:23:00', '2023-12-06', 'Una familia de patos intenta convencer a su sobreprotector padre para que se vaya de vacaciones.', 1),
+(7, '60 Minutes', 'peli_7.jpg', 'Acción, Aventura, Drama', 'Oliver Kienle', '01:28:00', '2024-01-19', 'Desesperado por no perder la custodia de su hija, un luchador de artes marciales mixtas abandona una pelea y recorre Berlín a todo gas para verla el día de su cumpleaños.', 1),
+(8, 'Wish', 'peli_8.jpg', 'Animación, Aventira, Comedia', 'Chris Buck, Fawn Veerasunthorn', '01:35:00', '2023-11-22', 'Asha pide un deseo a una estrella y recibe una respuesta mucho más directa de lo que esperaba cuando un astro problemático baja del cielo para unirse a ella.', 1),
+(9, 'The Masked Saint', 'peli_9.jpg', 'Acción, Biografía, Crimen', 'Warren P. Sonoda', '01:45:00', '2016-01-08', 'A pastor and professional wrestler accepts a position at a struggling church where he helps the community both in his official capacity and as his alter ego The Saint.', 1),
+(10, 'Due Justice', 'peli_10.jpg', 'Acción, Crimen, Drama', 'Kjavier, Crimen, Drama', '01:37:00', '2023-11-24', 'Un abogado con pasado militar persigue a la banda que mató a su mujer y a su hermano y se llevó a su hija.', 1),
+(11, 'Orion and The Dark', 'peli_11.jpg', 'Animación, Aventura, Comedia', 'Sean Charmatz', '01:33:00', '2024-02-02', 'Orion le tiene miedo a las alturas, a los animales y se queda casi paralizado ante el peor de todos los peligros: la oscuridad. Esta, lleva a Orión en un viaje nocturno para demostrarle que lo único que hay que temer es el propio miedo.', 1),
+(12, 'Genghis Khan', 'peli_12.jpg', 'Fantasía, Acción, Aventura', 'Hasi Chaolu', '01:59:00', '2018-04-28', 'Temüjin y Börte son amantes de la infancia que están profundamente enamorados, pero las noticias de la muerte del padre de Temüjin interrumpieron rápidamente su relación. Temüjin regresa a su ciudad natal, pero se enfrentó a un ataque repentino de los antiguos camaradas de su padre, causando la destrucción de toda su tribu.', 1),
+(13, 'Lift', 'peli_13.jpg', 'Acción, Comedia, Crimen', 'F. Gary Gray', '01:47:00', '2024-01-12', 'Sigue a una maestra ladrona y a su ex novio, que se unen para robar 100 millones de dólares en lingotes de oro que se transportan en un avión A380 de pasajeros.', 1),
+(14, 'Attack', 'peli_14.jpg', 'Acción, ciencia ficción, thriller ', 'Lakshya Raj Anand', '02:01:00', '2022-04-01', 'Con el Parlamento bajo asedio, el primer supersoldado de la India, Arjun Shergill, se encarga de apoderar a los terroristas en el momento, salvar al Primer Ministro de sus garras y evitar que una bomba sucia explote y destruya Delhi. Arjun triturá en su misión?', 1),
+(15, 'Mutant Ghost Wargirl', 'peli_15.jpg', 'Accion, Ciencia Ficción', 'Binjie Liu', '01:11:00', '2022-09-26', 'En el mundo futuro, la tecnología avanza a pasos agigantados. Ha surgido en el mundo una organización misteriosa, especializada en organizar una \"competencia\" clandestina para los ricos: la Batalla del Mañana.', 1),
+(16, 'Poor Things', 'peli_16.jpg', 'Comedia, Drama, Romance', 'Yorgos Lanthimos', '02:21:00', '2023-12-08', 'El increíble relato de la fantástica evolución de Bella Baxter, una joven resucitada por el brillante y poco ortodoxo científico, el doctor Godwin Baxter.', 1),
+(17, 'The Five', 'peli_17.jpg', 'Accioón, Drama, Película del Oeste', 'Travis Mills', '01:15:00', '2023-01-07', 'Una mujer despreciada solicita la ayuda de cinco desconocidos para ejecutar un robo a un banco. La tensión aumenta a medida que los hombres esperan ansiosamente su llegada con el dinero, dejando a la tripulación preguntándose si han sido traicionados.', 1),
+(18, 'Trunk Locked In', 'peli_18.jpg', 'Drama, Suspenso', 'Marc Schießer', '01:36:00', '2023-10-24', 'Malina wakes up disoriented in the trunk of a speeding car and discovers to her horror that she is missing more than her memory. With her mobile phone as the only link to the outside world, she wages a desperate battle for survival.', 1),
+(19, 'Anyone But You', 'peli_19.jpg', 'Comedia, Romance', 'Will Gluck', '01:43:00', '2023-12-22', 'Dos archienemigos universitarios se reúnen años después de su graduación en una boda de ensueño y fingen ser amantes por motivos personales.', 1);
 
 -- --------------------------------------------------------
 
@@ -358,41 +327,28 @@ INSERT INTO `peliculas` (`id`, `titulo`, `imagen`, `id_genero`, `id_director`, `
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `isAdmin` tinyint(1) NOT NULL DEFAULT 0,
-  `isActive` tinyint(1) NOT NULL DEFAULT 1,
-  `nombre` varchar(100) NOT NULL,
-  `apellido` varchar(100) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `clave` varchar(255) NOT NULL,
+  `id` int NOT NULL,
+  `isAdmin` tinyint(1) NOT NULL DEFAULT '0',
+  `isActive` tinyint(1) NOT NULL DEFAULT '1',
+  `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `apellido` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `clave` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
-  `id_pais` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `id_pais` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `isAdmin`, `isActive`, `nombre`, `apellido`, `email`, `clave`, `fecha_nacimiento`, `id_pais`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'Juan', 'Perez', 'juanperez@gmail.com', 'clave123', '2003-10-03', 102, '2024-07-01 22:01:25', '2024-07-01 23:00:11');
+INSERT INTO `usuarios` (`id`, `isAdmin`, `isActive`, `nombre`, `apellido`, `email`, `clave`, `fecha_nacimiento`, `id_pais`) VALUES
+(1, 1, 1, 'Juan', 'Perez', 'juanperez@gmail.com', 'clave123', '2003-10-03', 102),
+(2, 0, 1, 'Prueba', 'CaC24104', 'prueba@cac24104.com', 'prueba', '2024-05-11', 102);
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `directores`
---
-ALTER TABLE `directores`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `generos`
---
-ALTER TABLE `generos`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `paises`
@@ -406,8 +362,8 @@ ALTER TABLE `paises`
 ALTER TABLE `peliculas`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `titulo` (`titulo`),
-  ADD KEY `id_genero` (`id_genero`),
-  ADD KEY `id_director` (`id_director`);
+  ADD KEY `id_genero` (`genero`),
+  ADD KEY `id_director` (`director`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -422,45 +378,26 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de la tabla `directores`
---
-ALTER TABLE `directores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `generos`
---
-ALTER TABLE `generos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT de la tabla `paises`
 --
 ALTER TABLE `paises`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
 
 --
 -- AUTO_INCREMENT de la tabla `peliculas`
 --
 ALTER TABLE `peliculas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `peliculas`
---
-ALTER TABLE `peliculas`
-  ADD CONSTRAINT `peliculas_ibfk_1` FOREIGN KEY (`id_genero`) REFERENCES `generos` (`id`),
-  ADD CONSTRAINT `peliculas_ibfk_2` FOREIGN KEY (`id_director`) REFERENCES `directores` (`id`);
 
 --
 -- Filtros para la tabla `usuarios`

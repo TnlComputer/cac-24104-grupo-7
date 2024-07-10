@@ -65,6 +65,55 @@ public class UsuarioServlet extends HttpServlet {
     resp.setStatus(HttpServletResponse.SC_OK);
   }
 
+  // ** edit y delete realizado por Maira ** //
+  // **************** DO PUT *************** //
+  @Override
+  protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    setupResponseHeaders(resp);
+
+    try {
+      req.setCharacterEncoding("UTF-8");
+      resp.setCharacterEncoding("UTF-8");
+
+     Usuario usuario = objectMapper.readValue(req.getInputStream(),Usuario.class);
+      boolean isUpdated = usuarioDAO.updateUsuario(usuario);
+
+      if (isUpdated) {
+        resp.setStatus(HttpServletResponse.SC_OK);
+      } else {
+        resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error updating usuarios");
+      }
+    } catch (Exception e) {
+      resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid request data");
+      e.printStackTrace();
+    }
+
+  }
+
+  // *********** DO DELETE ************/
+  @Override
+  protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    setupResponseHeaders(resp);
+
+    try {
+      req.setCharacterEncoding("UTF-8");
+      resp.setCharacterEncoding("UTF-8");
+
+      Usuario usuario = objectMapper.readValue(req.getInputStream(), Usuario.class);
+      boolean isDeleted = usuarioDAO.deleteUsuario(usuario);
+
+      if (isDeleted) {
+        resp.setStatus(HttpServletResponse.SC_OK);
+      } else {
+        resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error deleting usuarios");
+      }
+    } catch (Exception e) {
+      resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid request data");
+      e.printStackTrace();
+    }
+
+  }
+
   private void setupResponseHeaders(HttpServletResponse resp) {
     resp.setHeader("Access-Control-Allow-Origin", "*");
     resp.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
