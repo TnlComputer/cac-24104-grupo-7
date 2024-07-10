@@ -255,7 +255,7 @@ function addMovies(pageArray) {
 
     const url = './pages/detalle.html?movid=' + movie.id;
     const anchorElem = document.createElement('a');
-    anchorElem.href = '../d:\Users\Central\Downloads\tnlcom55_cac24104.sqlassets/img/' + url;
+    anchorElem.href = url;
 
     const movieDiv = document.createElement('div');
     movieDiv.classList.add('pelicula');
