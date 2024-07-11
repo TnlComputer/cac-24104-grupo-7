@@ -195,7 +195,77 @@ function displayCreateMovie() {
 
   const createMovieElem = document.querySelector('.createMovie');
   createMovieElem.style.display = 'block';
+
+  const form = document.createElement('form');
+  form.id = 'createMovieForm';
+  form.innerHTML = `
+        <h2>Crear Nueva Película</h2>
+        <input type="text" id="movieTitle" placeholder="Título" title="Ingrese el título de la película" required>
+        <input type="text" id="movieImage" placeholder="URL de la imagen" title="Ingrese la url de la imagen de la película" required>
+        <input type="text" id="movieGenre" placeholder="Genero" title="Ingrese el Genero de la película" required>
+        <input type="text" id="movieDirector" placeholder="Director" title="Ingrese el Director de la película" required>
+        <div class="duration-input">
+            <label for="movieDurationHours">Duración:</label>
+            <input type="time" id="movieDuration" required>
+        </div>
+        <div class="release-date-input">
+            <label for="movieReleaseDate">Fecha de estreno:</label>
+            <input type="date" id="movieReleaseDate" required>
+        </div>
+        <textarea id="movieDescription" placeholder="Descripción" required title="Ingrese una descripción de la película"></textarea>
+        <div class="form-buttons">
+            <button type="submit">Crear película</button>
+            <button type="button" id="cancelCreateMovie">Cancelar</button>
+        </div>
+    `;
+
+  createMovieElem.innerHTML = '';
+  createMovieElem.appendChild(form);
+
+  form.addEventListener('submit', handleCreateMovieForm);
+
+  document.getElementById('cancelCreateMovie').addEventListener('click', () => {
+    selectMoviesButton();
+  });
 }
+
+async function handleCreateMovieForm(e) {
+  e.preventDefault();
+
+  const movieData = {
+    titulo: document.getElementById('movieTitle').value,
+    imagen: document.getElementById('movieImage').value,
+    genero: document.getElementById('movieGenre').value,
+    director: document.getElementById('movieDirector').value,
+    duracion: document.getElementById('movieDuration').value + ":00",
+    estreno: document.getElementById('movieReleaseDate').value,
+    descripcion: document.getElementById('movieDescription').value,
+    isActive: true
+  };
+  //console.log('Sending data:', JSON.stringify(movieData));
+
+  try {
+    const response = await fetch('http://localhost:8080/apimovies/peliculas', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(movieData)
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+    }
+
+    const data = await response.json();
+    console.log('Película creada exitosamente con ID:', data);
+    selectMoviesButton();
+  } catch (error) {
+    console.error('Error al crear la película:', error);
+  }
+}
+
 
 function displayEditMovie(movie) {
   hideAll();
@@ -209,7 +279,8 @@ function displayEditMovie(movie) {
 async function deleteMovie(movieId, movieTitle) {
   if (confirm(`Esta seguro que desea eliminar la pelicula '${movieTitle}'?`)) {
     try {
-      const response = await fetch(`${api}/movies/delete/${movieId}`);
+      const response = await fetch(`http://localhost:8080/apimovies/peliculas`, movieId);
+      console.log(movieId);
       const data = await response.json();
       if (!data.includes('error')) {
         console.log('Pelicula eliminada exitosamente');
@@ -254,7 +325,7 @@ function displayEditUser(user) {
 async function deleteUser(userId, fullname) {
   if (confirm(`Esta seguro que desea eliminar el usuario '${fullname}'?`)) {
     try {
-      const response = await fetch(`${api}/users/delete/${userId}`);
+      const response = await fetch(`http://localhost:8080/apimovies/usuarios`, userId);
       const data = await response.json();
       if (!data.includes('error')) {
         console.log('Usuario eliminado exitosamente');
@@ -285,7 +356,7 @@ async function handleEditUserForm(e) {
   };
 
   try {
-    const response = await fetch(`${api}/users/edit`, requestOptions);
+    const response = await fetch(`http://localhost:8080/apimovies/usuarios`, requestOptions);
     const data = await response.json();
     if (!data.includes('error')) {
       console.log('Usuario editado exitosamente');
@@ -368,8 +439,6 @@ function validateEditUserData() {
     password: userPass ? userPass.trim() : "",
     fecha_nacimiento: userDOB.trim(),
     pais: userCountry,
-    created_at: userCreated,
-    updated_at: new Date().toISOString().slice(0, 10)
   }
 }
 

@@ -9,7 +9,6 @@ import java.util.List;
 
 public class UsuarioDAO {
   public Long insertUsuario(Usuario usuario) {
-
     Conexion conexion = new Conexion();
 
     // Statement stm = null;
@@ -26,7 +25,7 @@ public class UsuarioDAO {
       if (usuario.getIsAdmin() == null) {
         pstm.setBoolean(1, false);
       } else {
-        pstm.setBoolean(1, usuario.getIsAdmin());
+        pstm.setBoolean(1, true);
       }
       pstm.setBoolean(2, true);
       pstm.setString(3, usuario.getNombre());

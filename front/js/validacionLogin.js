@@ -19,14 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  form.addEventListener("submit", function (event) {
+  form.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     if (formButton.innerHTML === "Cerrar Sesión") {
       window.sessionStorage.setItem("cac_java_logged", "false");
+      localStorage.removeItem("user_id");
       window.location.href = './login.html';
-    }
-    else {
+    } else {
       if (!emailPattern.test(emailInput.value.trim())) {
         emailError.style.display = "block";
         return;
@@ -41,22 +41,35 @@ document.addEventListener("DOMContentLoaded", function () {
         passwordError.style.display = "none";
       }
 
-      const savedUser = window.sessionStorage.getItem(emailInput.value.trim());
+      try {
+        const response = await fetch('http://localhost:8080/apimovies/usuarios', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
 
-      if (!savedUser) {
-        // TODO: Deberia mostrar error que email o pass incorrecto
-        console.error('mal email');
-        return;
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const users = await response.json();
+
+        const user = users.find(user => user.email === emailInput.value.trim());
+
+        if (user && user.clave === passwordInput.value.trim()) {
+          window.sessionStorage.setItem("cac_java_logged", "true");
+          localStorage.setItem("user_id", user.idUsuario); 
+          window.location.href = '../index.html';
+        } else {
+          emailError.style.display = "block";
+          passwordError.style.display = "block";
+          emailError.innerHTML = "Email o contraseña incorrectos";
+          passwordError.innerHTML = "Email o contraseña incorrectos";
+        }
+      } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
       }
-
-      if (savedUser !== passwordInput.value.trim()) {
-        // TODO: Deberia mostrar error que email o pass incorrecto
-        console.error('mal pass');
-        return;
-      }
-
-      window.sessionStorage.setItem("cac_java_logged", "true");
-      window.location.href = '../index.html';
     }
   });
 });

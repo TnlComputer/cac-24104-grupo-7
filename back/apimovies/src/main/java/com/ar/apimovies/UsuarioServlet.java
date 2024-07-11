@@ -1,6 +1,7 @@
 package com.ar.apimovies;
 
 import java.io.IOException;
+// import java.sql.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +23,25 @@ public class UsuarioServlet extends HttpServlet {
     try {
       req.setCharacterEncoding("UTF-8");
       resp.setCharacterEncoding("UTF-8");
+
+      // // Obtener los datos del formulario
+      // String isAdmin = req.getParameter("isAdmin");
+      // String nombre = req.getParameter("nombre");
+      // String apellido = req.getParameter("apellido");
+      // String email = req.getParameter("email");
+      // String clave = req.getParameter("clave");
+      // String fecha_nacimiento = req.getParameter("fecha_nacimiento");
+      // String id_pais = req.getParameter("pais");
+
+      // // Mostrar los datos en la consola
+      // System.out.println("Datos recibidos del frontend:");
+      // System.out.println("IsAdmin: " + idAdmin);
+      // System.out.println("Nombre: " + nombre);
+      // System.out.println("Apellido: " + apellido);
+      // System.out.println("Email: " + email);
+      // System.out.println("Contraseña: " + clave);
+      // System.out.println("Fecha de Nacimiento: " + fecha_nacimiento);
+      // System.out.println("País: " + id_pais);
 
       Usuario usuario = objectMapper.readValue(req.getInputStream(), Usuario.class);
       Long idUsuario = usuarioDAO.insertUsuario(usuario);
@@ -75,7 +95,7 @@ public class UsuarioServlet extends HttpServlet {
       req.setCharacterEncoding("UTF-8");
       resp.setCharacterEncoding("UTF-8");
 
-     Usuario usuario = objectMapper.readValue(req.getInputStream(),Usuario.class);
+      Usuario usuario = objectMapper.readValue(req.getInputStream(), Usuario.class);
       boolean isUpdated = usuarioDAO.updateUsuario(usuario);
 
       if (isUpdated) {

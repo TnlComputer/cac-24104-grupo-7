@@ -226,8 +226,172 @@ body {
   transform: translate(-50%, -50%) scale(1.1);
 }
 
+.createMovie form {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: var(--negro-main);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-family: 'Nunito', sans-serif;
+}
+
+.createMovie form h2 {
+  text-align: center;
+  color: var(--bg-color);
+}
+
+.createMovie form input,
+.createMovie form select,
+.createMovie form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 40px;
+  padding: 0px 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  border-radius: 20px;
+  border: 2px solid var(--bg-color);
+  background-color: var(--negro-section);
+  outline: none;
+  color: var(--text-color-blanco);
+}
+
+.createMovie form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.createMovie form .form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.createMovie form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.createMovie form button[type="submit"] {
+  background-color: var(--bg-color);
+  color: white;
+}
+
+.createMovie form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.createMovie form button[type="button"] {
+  background-color: #ccc;
+  color: #333;
+}
+
+.createMovie form button[type="button"]:hover {
+  background-color: #bbb;
+}
+
+.editMovie {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: var(--negro-main);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Nunito', sans-serif;
+}
+
+.editMovie h2 {
+  text-align: center;
+  color: var(--bg-color);
+}
+
+.editMovie input,
+.editMovie select,
+.editMovie textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 40px;
+  padding: 0px 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  border-radius: 20px;
+  border: 2px solid var(--bg-color);
+  background-color: var(--negro-section);
+  outline: none;
+  color: var(--text-color-blanco);
+}
+
+.editMovie textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.editMovie .form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.editMovie button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.editMovie button[type="submit"] {
+  background-color: var(--bg-color);
+  color: white;
+}
+
+.editMovie button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.editMovie button[type="button"] {
+  background-color: #ccc;
+  color: #333;
+}
+
+.editMovie button[type="button"]:hover {
+  background-color: #bbb;
+}
 
 
+
+.duration-input, .release-date-input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-color-blanco);
+}
+
+.duration-input input[type="time"] {
+  width: 130px;
+}
+
+.duration-input label, .release-date-input label {
+  min-width: 120px;
+}
+
+.release-date-input input[type="date"] {
+  flex-grow: 1;
+}
 
 .usersContainer {
   display: flex;
