@@ -282,6 +282,26 @@ function displayEditMovie(movie) {
 
   const editMovieElem = document.querySelector('.editMovie');
   editMovieElem.style.display = 'block';
+
+  const movieId = document.getElementById('editMovieId');
+  movieId.value = movie.idPelicula;
+  const movieTitle = document.getElementById('editMovieTitle');
+  movieTitle.value = movie.titulo;
+  const movieImage = document.getElementById('editMovieImage');
+  movieImage.value = movie.imagen;
+  const movieGenre = document.getElementById('editMovieGenre');
+  movieGenre.value = movie.genero;
+  const movieDirector = document.getElementById('editMovieDirector');
+  movieDirector.value = movie.director;
+  const movieDuration = document.getElementById('editMovieDuration');
+  movieDuration.value = movie.duracion;
+  const movieReleaseDate = document.getElementById('editMovieReleaseDate');
+  movieReleaseDate.value = movie.estreno;
+  const movieDescription = document.getElementById('editMovieDescription');
+  movieDescription.value = movie.descripcion;
+
+  const movieIsActive = document.getElementById('isActive');
+  movie.isActive ? movieIsActive.checked = true : movieIsActive.checked = false;
 }
 
 async function deleteMovie(movieId, movieTitle) {
