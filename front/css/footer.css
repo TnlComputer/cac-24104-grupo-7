@@ -72,6 +72,10 @@ footer > a i {
   opacity: 1;
 }
 
+.hideAdmButton {
+  display: none;
+}
+
 @media only screen and (max-width: 798px) {
   footer {
     height: 20vh;

@@ -206,6 +206,7 @@ function displayCreateMovie() {
   const form = document.createElement('form');
   form.id = 'createMovieForm';
   form.innerHTML = `
+        <form
         <h2>Crear Nueva Película</h2>
         <input type="text" id="movieTitle" placeholder="Título" title="Ingrese el título de la película" required>
         <input type="text" id="movieImage" placeholder="URL de la imagen" title="Ingrese la url de la imagen de la película" required>

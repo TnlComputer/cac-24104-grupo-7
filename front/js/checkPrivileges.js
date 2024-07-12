@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-	const elem = document.getElementById('adminButtonFooter');
-	elem.classList.add('hideAdmButton');
+  const elem = document.getElementById('adminButtonFooter');
+  elem.classList.add('hideAdmButton');
 
-	const isLogged = window.sessionStorage.getItem("cac_java_logged")
-	if (!isLogged || isLogged === "false") return;
+  const isLogged = window.sessionStorage.getItem("cac_java_logged");
+  const isAdmin = window.sessionStorage.getItem("cac_java_isAdmin");
 
-	const isAdmin = window.sessionStorage.getItem("cac_java_isAdmin");
-	if (!isAdmin || isAdmin === "false") return;
-
-	elem.classList.remove('hideAdmButton');
+  if (isLogged === "true" && isAdmin === "true") {
+    elem.classList.remove('hideAdmButton');
+  }
 });
