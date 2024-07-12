@@ -1,6 +1,12 @@
-const api = "google.com";
+const api = "http://localhost:8080/apimovies";
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  const isLogged = window.sessionStorage.getItem("cac_java_logged")
+  if (!isLogged || isLogged === "false") window.location.href = '../pages/login.html';
+
+  const isAdmin = window.sessionStorage.getItem("cac_java_isAdmin");
+  if (!isAdmin || isAdmin === "false") window.location.href = '../pages/login.html';;
 
   searchForm = document.getElementById('searchForm');
   searchForm.addEventListener('submit', e => handleSearchForm(e));
@@ -119,6 +125,7 @@ function displayMovies(movies) {
   moviesContainer.appendChild(crearPeliculaElement);
 
   movies.forEach(pelicula => {
+
     const movieElement = document.createElement('div');
     movieElement.classList.add('movie');
 
@@ -280,7 +287,6 @@ async function deleteMovie(movieId, movieTitle) {
   if (confirm(`Esta seguro que desea eliminar la pelicula '${movieTitle}'?`)) {
     try {
       const response = await fetch(`http://localhost:8080/apimovies/peliculas`, movieId);
-      console.log(movieId);
       const data = await response.json();
       if (!data.includes('error')) {
         console.log('Pelicula eliminada exitosamente');
@@ -308,15 +314,15 @@ function displayEditUser(user) {
   const userLastname = document.getElementById('editUserSurname');
   userLastname.value = user.apellido;
   const userEmail = document.getElementById('editUserEmail');
-  userEmail.value = user.mail;
+  userEmail.value = user.email;
   const userDOB = document.getElementById('editUserDOB');
   userDOB.value = user.fecha_nacimiento;
   const userCountry = document.getElementById('editUserCountry');
-  userCountry.value = user.pais;
-  const userCreated = document.getElementById('editUserCreated');
-  userCreated.value = user.created_at;
-  const userUpdated = document.getElementById('editUserUpdated');
-  userUpdated.value = user.updated_at;
+  userCountry.value = user.id_pais;
+  // const userCreated = document.getElementById('editUserCreated');
+  // userCreated.value = user.created_at;
+  // const userUpdated = document.getElementById('editUserUpdated');
+  // userUpdated.value = user.updated_at;
 
   const userIsAdmin = document.getElementById('editUserAdmin');
   user.id_role === 2 ? userIsAdmin.checked = true : userIsAdmin.checked = false;
@@ -377,7 +383,7 @@ function validateEditUserData() {
   const userDOB = document.getElementById('editUserDOB').value;
   const userCountry = document.getElementById('editUserCountry').value;
 
-  const userCreated = document.getElementById('editUserCreated').value;
+  // const userCreated = document.getElementById('editUserCreated').value;
   const userIsAdmin = document.getElementById('editUserAdmin').checked;
 
   const nameError = document.getElementById("editUserNameError");
@@ -431,14 +437,14 @@ function validateEditUserData() {
   }
 
   return {
-    id: userFirstname.getAttribute('data-user-id'),
-    id_role: userIsAdmin ? 2 : 1,
+    idUsuario: userFirstname.getAttribute('data-user-id'),
+    idAdmin: userIsAdmin ? 2 : 1,
     nombre: userFirstname.value.trim(),
     apellido: userLastname.trim(),
-    mail: userEmail.trim(),
-    password: userPass ? userPass.trim() : "",
+    email: userEmail.trim(),
+    clave: userPass ? userPass.trim() : "",
     fecha_nacimiento: userDOB.trim(),
-    pais: userCountry,
+    id_pais: userCountry.trim(),
   }
 }
 

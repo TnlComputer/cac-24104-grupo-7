@@ -1,6 +1,6 @@
 package com.ar.apimovies;
 
-import java.sql.Date;
+// import java.sql.Date;
 
 public class Usuario {
 
@@ -11,14 +11,14 @@ public class Usuario {
   private String apellido;
   private String email;
   private String clave;
-  private Date fecha_nacimiento;
-  private int id_pais;
+  private String fecha_nacimiento;
+  private String id_pais;
 
   public Usuario() {
   }
 
   public Usuario(Long idUsuario, Boolean isAdmin, Boolean isActive, String nombre, String apellido, String email,
-      String clave, Date fecha_nacimiento, int id_pais) {
+      String clave, String fecha_nacimiento, String id_pais) {
     this.idUsuario = idUsuario;
     this.isAdmin = isAdmin;
     this.isActive = isActive;
@@ -86,37 +86,21 @@ public class Usuario {
     this.clave = clave;
   }
 
-  public Date getFecha_nacimiento() {
+  public String getFecha_nacimiento() {
     return fecha_nacimiento;
   }
 
-  public void setFecha_nacimiento(Date fecha_nacimiento) {
+  public void setFecha_nacimiento(String fecha_nacimiento) {
     this.fecha_nacimiento = fecha_nacimiento;
   }
 
-  public int getId_pais() {
+  public String getId_pais() {
     return id_pais;
   }
 
-  public void setId_pais(int id_pais) {
+  public void setId_pais(String id_pais) {
     this.id_pais = id_pais;
   }
-
-  // public Timestamp getCreated_at() {
-  //   return created_at;
-  // }
-
-  // public void setCreated_at(Timestamp created_at) {
-  //   this.created_at = created_at;
-  // }
-
-  // public Timestamp getUpdated_at() {
-  //   return updated_at;
-  // }
-
-  // public void setUpdated_at(Timestamp updated_at) {
-  //   this.updated_at = updated_at;
-  // }
 
   @Override
   public String toString() {

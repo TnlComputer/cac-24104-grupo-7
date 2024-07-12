@@ -1,7 +1,7 @@
 package com.ar.apimovies;
 
 import java.sql.Connection;
-import java.sql.Date;
+// import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Time;
@@ -26,7 +26,7 @@ public class PeliculaDAO {
       pstm.setString(3, pelicula.getGenero());
       pstm.setString(4, pelicula.getDirector());
       pstm.setTime(5, pelicula.getDuracion());
-      pstm.setDate(6, pelicula.getEstreno());
+      pstm.setString(6, pelicula.getEstreno());
       pstm.setString(7, pelicula.getDescripcion());
       pstm.setBoolean(8, true);
 
@@ -74,7 +74,7 @@ public class PeliculaDAO {
         String gene = rs.getString("genero");
         String dire = rs.getString("director");
         Time dura = rs.getTime("duracion");
-        Date estr = rs.getDate("estreno");
+        String estr = rs.getString("estreno");
         String desc = rs.getString("descripcion");
         Boolean isAct = rs.getBoolean("isActive");
 
@@ -105,7 +105,7 @@ public class PeliculaDAO {
       pstm.setString(3, pelicula.getGenero());
       pstm.setString(4, pelicula.getDirector());
       pstm.setTime(5, pelicula.getDuracion());
-      pstm.setDate(6, pelicula.getEstreno());
+      pstm.setString(6, pelicula.getEstreno());
       pstm.setString(7, pelicula.getDescripcion());
       pstm.setBoolean(8, pelicula.getIsActive());
       pstm.setLong(9, pelicula.getIdPelicula());

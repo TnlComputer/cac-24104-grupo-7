@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (formButton.innerHTML === "Cerrar Sesión") {
       window.sessionStorage.setItem("cac_java_logged", "false");
-      localStorage.removeItem("user_id");
+      window.sessionStorage.removeItem("cac_java_uid");
       window.location.href = './login.html';
     } else {
       if (!emailPattern.test(emailInput.value.trim())) {
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (user && user.clave === passwordInput.value.trim()) {
           window.sessionStorage.setItem("cac_java_logged", "true");
-          localStorage.setItem("user_id", user.idUsuario); 
+          window.sessionStorage.setItem("cac_java_isAdmin", user.isAdmin);
           window.location.href = '../index.html';
         } else {
           emailError.style.display = "block";

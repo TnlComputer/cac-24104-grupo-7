@@ -1,7 +1,7 @@
 package com.ar.apimovies;
 
 import java.sql.Connection;
-import java.sql.Date;
+// import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -32,8 +32,8 @@ public class UsuarioDAO {
       pstm.setString(4, usuario.getApellido());
       pstm.setString(5, usuario.getEmail());
       pstm.setString(6, usuario.getClave());
-      pstm.setDate(7, usuario.getFecha_nacimiento());
-      pstm.setInt(8, usuario.getId_pais());
+      pstm.setString(7, usuario.getFecha_nacimiento());
+      pstm.setString(8, usuario.getId_pais());
 
       int result = pstm.executeUpdate();
 
@@ -87,8 +87,8 @@ public class UsuarioDAO {
         String apell = rs.getString("apellido");
         String mail = rs.getString("email");
         String pass = rs.getString("clave");
-        Date fecnac = rs.getDate("fecha_nacimiento");
-        Integer idPais = rs.getInt("id_pais");
+        String fecnac = rs.getString("fecha_nacimiento");
+        String idPais = rs.getString("id_pais");
 
         Usuario usuario = new Usuario(idU, isAdm, isAct, nomb, apell, mail, pass, fecnac, idPais);
 
@@ -118,8 +118,8 @@ public class UsuarioDAO {
       pstm.setString(4, usuario.getApellido());
       pstm.setString(5, usuario.getEmail());
       pstm.setString(6, usuario.getClave());
-      pstm.setDate(7, usuario.getFecha_nacimiento());
-      pstm.setInt(8, usuario.getId_pais());
+      pstm.setString(7, usuario.getFecha_nacimiento());
+      pstm.setString(8, usuario.getId_pais());
       pstm.setLong(9, usuario.getIdUsuario());
 
       int rowsAffected = pstm.executeUpdate();

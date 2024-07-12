@@ -1,6 +1,6 @@
 package com.ar.apimovies;
 
-import java.sql.Date;
+// import java.sql.Date;
 import java.sql.Time;
 
 public class Pelicula {
@@ -11,7 +11,7 @@ public class Pelicula {
   private String genero;
   private String director;
   private Time duracion;
-  private Date estreno;
+  private String estreno;
   private String descripcion;
   private Boolean isActive;
 
@@ -20,7 +20,7 @@ public class Pelicula {
   }
 
   public Pelicula(Long idPelicula, String titulo, String imagen, String genero, String director, Time duracion,
-      Date estreno, String descripcion, Boolean isActive) {
+      String estreno, String descripcion, Boolean isActive) {
     this.idPelicula = idPelicula;
     this.titulo = titulo;
     this.imagen = imagen;
@@ -82,11 +82,11 @@ public class Pelicula {
     this.duracion = duracion;
   }
 
-  public Date getEstreno() {
+  public String getEstreno() {
     return estreno;
   }
 
-  public void setEstreno(Date estreno) {
+  public void setEstreno(String estreno) {
     this.estreno = estreno;
   }
 
