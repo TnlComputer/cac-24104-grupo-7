@@ -88,77 +88,70 @@
             </div>
           </form>
         </div>
-        <div class="editUser">
-          <h2>Editar usuario</h2>
-          <form id="editUserForm">
-            <input type="text" id="editUserName" placeholder="Nombre" />
-            <p class="error-message" id="editUserNameError">
-              El nombre es obligatorio y solo debe contener letras y espacios
-            </p>
-
-            <input type="text" id="editUserSurname" placeholder="Apellido" />
-            <p class="error-message" id="editUserSurnameError">
-              El apellido es obligatorio y solo debe contener letras y
-              espacios
-            </p>
-
-            <input type="email" id="editUserEmail" placeholder="Email" />
-            <p class="error-message" id="editUserEmailError">
-              El correo electrónico es obligatorio y debe ser válido
-            </p>
-
-            <input type="password" id="editUserPassword" placeholder="Nueva contraseña" />
-            <p class="error-message" id="editUserPasswordError">
-              La contraseña debe tener al menos 8 caracteres, incluyendo una
-              letra mayúscula, una minúscula y un número
-            </p>
-
-            <input type="date" id="editUserDOB" />
-            <p class="error-message" id="editUserDateError">
-              La fecha de nacimiento es obligatoria
-            </p>
-
-            <select id="editUserCountry">
-              <option value="">País</option>
-              <option value="AR">Argentina</option>
-              <option value="BO">Bolivia</option>
-              <option value="BR">Brasil</option>
-              <option value="CH">Chile</option>
-              <option value="CO">Colombia</option>
-              <option value="EC">Ecuador</option>
-              <option value="PY">Paraguay</option>
-              <option value="PE">Perú</option>
-              <option value="UY">Uruguay</option>
-              <option value="VE">Venezuela</option>
-            </select>
-            <p class="error-message" id="editUserCountryError">
-              El país es obligatorio
-            </p>
-
-            <div class="editUserFormBottom">
-              <div class="editUserLCol">
-                <span>Fecha de creación</span>
-                <input type="date" id="editUserCreated" disabled />
-              </div>
-              <div class="editUserMCol">
-                <span>Ultima modificación</span>
-                <input type="date" id="editUserUpdated" disabled />
-              </div>
-              <div class="editUserRCol">
-                <span>Es administrador</span>
-                <input type="checkbox" id="editUserAdmin" />
-              </div>
-            </div>
-
-            <div class="editUserFormButtons">
-              <button type="reset">Cancelar</button>
-              <button type="submit">Actualizar</button>
-            </div>
-          </form>
+    <div class="editUser">
+      <h2>Editar usuario</h2>
+      <form id="editUserForm">
+        <input type="text" id="editUserName" placeholder="Nombre" />
+        <p class="error-message" id="editUserNameError">
+          El nombre es obligatorio y solo debe contener letras y espacios
+        </p>
+    
+        <input type="text" id="editUserSurname" placeholder="Apellido" />
+        <p class="error-message" id="editUserSurnameError">
+          El apellido es obligatorio y solo debe contener letras y
+          espacios
+        </p>
+    
+        <input type="email" id="editUserEmail" placeholder="Email" />
+        <p class="error-message" id="editUserEmailError">
+          El correo electrónico es obligatorio y debe ser válido
+        </p>
+    
+        <input type="password" id="editUserPassword" placeholder="Nueva contraseña" />
+        <p class="error-message" id="editUserPasswordError">
+          La contraseña debe tener al menos 8 caracteres, incluyendo una
+          letra mayúscula, una minúscula y un número
+        </p>
+    
+        <input type="date" id="editUserDOB" />
+        <p class="error-message" id="editUserDateError">
+          La fecha de nacimiento es obligatoria
+        </p>
+    
+        <select id="editUserCountry">
+          <option value="">País</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Bolivia">Bolivia</option>
+          <option value="Brasil">Brasil</option>
+          <option value="Chile">Chile</option>
+          <option value="Colombia">Colombia</option>
+          <option value="Ecuador">Ecuador</option>
+          <option value="Paraguay">Paraguay</option>
+          <option value="Perú">Perú</option>
+          <option value="Uruguay">Uruguay</option>
+          <option value="Venezuela">Venezuela</option>
+        </select>
+        <p class="error-message" id="editUserCountryError">
+          El país es obligatorio
+        </p>
+    
+        <div class="editUserFormBottom">
+    
+          <div class="editUserRCol">
+            <span>Es administrador</span>
+            <input type="checkbox" id="editUserAdmin" />
+          </div>
         </div>
-      </section>
+    
+        <div class="editUserFormButtons">
+          <button type="reset">Cancelar</button>
+          <button type="submit">Actualizar</button>
+        </div>
+      </form>
     </div>
-  </main>
+    </section>
+    </div>
+    </main>
 
   <footer>
     <div>
