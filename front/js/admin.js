@@ -1,3 +1,5 @@
+
+
 const api = "http://localhost:8080/apimovies";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,45 +25,45 @@ document.addEventListener('DOMContentLoaded', () => {
   selectMoviesButton();
 });
 
-// async function handleSearchForm(e) {
-//   e.preventDefault();
-//   const searchText = document.getElementById('searchBox').value.trim();
-//   if (!searchText) return;
+async function handleSearchForm(e) {
+  e.preventDefault();
+  const searchText = document.getElementById('searchBox').value.trim();
+  if (!searchText) return;
+  // todo: display error or something
 
-//   const buttonMovies = document.getElementById('moviesSectionButton');
-//   const buttonUsers = document.getElementById('usersSectionButton');
-//   const searchTypeMovies = document.querySelector('#searchMovies:checked');
-//   if (searchTypeMovies) {
-//     const movies = await getMovies();
-//     if (!movies) return;
+  const buttonMovies = document.getElementById('moviesSectionButton');
+  const buttonUsers = document.getElementById('usersSectionButton');
+  const searchTypeMovies = document.querySelector('#searchMovies:checked');
+  if (searchTypeMovies) {
+    const movies = await getMovies();
+    if (!movies) return;
+    // todo: display message saying no movies were found
 
-//     let myArr = [];
-//     movies.forEach(movie => {
-//       if (movie.titulo.includes(searchText)) myArr.push(movie);
-//     });
-//     displayMovies(myArr);
-//     buttonUsers.style.backgroundColor = bgColor;
-//     buttonMovies.style.backgroundColor = 'red';
-//   }
-//   else {
-//     const users = await getUsers();
-//     if (!users) return;
+    let myArr = [];
+    movies.forEach(movie => {
+      if (movie.titulo.includes(searchText)) myArr.push(movie);
+    });
+    displayMovies(myArr);
+    buttonUsers.style.backgroundColor = bgColor;
+    buttonMovies.style.backgroundColor = 'red';
+  }
+  else {
+    const users = await getUsers();
+    if (!users) return;
+    // todo: display message saying no users were found
 
-//     let myArr = [];
-//     users.forEach(user => {
-//       if (user.nombre.includes(searchText)) myArr.push(user);
-//     });
-//     displayUsers(myArr);
-//     buttonMovies.style.backgroundColor = bgColor;
-//     buttonUsers.style.backgroundColor = 'red';
-//   }
-// }
+    let myArr = [];
+    users.forEach(user => {
+      if (user.nombre.includes(searchText)) myArr.push(user);
+    });
+    displayUsers(myArr);
+    buttonMovies.style.backgroundColor = bgColor;
+    buttonUsers.style.backgroundColor = 'red';
+  }
+}
 
 const root = document.querySelector(':root');
 const bgColor = getComputedStyle(root).getPropertyValue('--bg-color').trim();
-
-
-/** PELICULAS **/
 
 async function selectMoviesButton() {
   const buttonMovies = document.getElementById('moviesSectionButton');
@@ -72,6 +74,16 @@ async function selectMoviesButton() {
   displayMovies(movies);
 }
 
+async function selectUsersButton() {
+  const buttonUsers = document.getElementById('usersSectionButton');
+  const buttonMovies = document.getElementById('moviesSectionButton');
+  buttonMovies.style.backgroundColor = bgColor;
+  buttonUsers.style.backgroundColor = 'red';
+  const users = await getUsers();
+  displayUsers(users);
+}
+
+
 async function getMovies() {
   try {
     const response = await fetch('http://localhost:8080/apimovies/peliculas');
@@ -79,6 +91,17 @@ async function getMovies() {
     return data;
   } catch (error) {
     console.error('Error al cargar las películas:', error);
+    return [];
+  }
+}
+
+async function getUsers() {
+  try {
+    const response = await fetch('http://localhost:8080/apimovies/usuarios');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error al cargar los usuarios:', error);
     return [];
   }
 }
@@ -136,6 +159,44 @@ function displayMovies(movies) {
   displayContainer.appendChild(moviesContainer);
 }
 
+function displayUsers(users) {
+  hideAll();
+  const displayContainer = document.querySelector('.displaySection');
+  displayContainer.style.display = 'block';
+
+  const usersContainer = document.createElement('div');
+  usersContainer.classList.add('usersContainer');
+
+  users.forEach(user => {
+    const userElement = document.createElement('div');
+    userElement.classList.add('user');
+
+    if (user.id_role === 2) {
+      userElement.classList.add('isAdmin');
+    }
+
+    const nombreElement = document.createElement('h3');
+    nombreElement.innerHTML = `${user.nombre} ${user.apellido}`;
+    userElement.appendChild(nombreElement);
+
+    const editIconElement = document.createElement('i');
+    editIconElement.classList.add('fas');
+    editIconElement.classList.add('fa-pen-to-square');
+    editIconElement.addEventListener('click', () => displayEditUser(user));
+    userElement.appendChild(editIconElement);
+
+    const deleteIconElement = document.createElement('i');
+    deleteIconElement.classList.add('fas');
+    deleteIconElement.classList.add('fa-trash');
+    deleteIconElement.addEventListener('click', () => deleteUser(user.id, `${user.nombre} ${user.apellido}`));
+    userElement.appendChild(deleteIconElement);
+
+    usersContainer.appendChild(userElement);
+  });
+
+  displayContainer.appendChild(usersContainer);
+}
+
 function displayCreateMovie() {
   hideAll();
   const displayContainer = document.querySelector('.displaySection');
@@ -176,7 +237,6 @@ function displayCreateMovie() {
     selectMoviesButton();
   });
 }
-
 function getFileNameAndExtension(file) {
   const name = file.name;
   const lastDotIndex = name.lastIndexOf('.');
@@ -185,7 +245,6 @@ function getFileNameAndExtension(file) {
     extension: name.substring(lastDotIndex + 1)
   };
 }
-
 async function handleCreateMovieForm(e) {
   e.preventDefault();
 
@@ -226,6 +285,7 @@ async function handleCreateMovieForm(e) {
     console.error('Error al crear la película:', error);
   }
 }
+
 
 function displayEditMovie(movie) {
   hideAll();
@@ -290,7 +350,6 @@ async function handleEditMovieForm(e) {
     console.error('Error al actualizar la película:', error);
   }
 }
-
 async function deleteMovie(idPelicula, name) {
   const movieData = {
     idPelicula,
@@ -321,65 +380,6 @@ async function deleteMovie(idPelicula, name) {
   }
 }
 
-
-/** USUARIOS **/
-async function selectUsersButton() {
-  const buttonUsers = document.getElementById('usersSectionButton');
-  const buttonMovies = document.getElementById('moviesSectionButton');
-  buttonMovies.style.backgroundColor = bgColor;
-  buttonUsers.style.backgroundColor = 'red';
-  const users = await getUsers();
-  displayUsers(users);
-}
-async function getUsers() {
-  try {
-    const response = await fetch('http://localhost:8080/apimovies/usuarios');
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error al cargar los usuarios:', error);
-    return [];
-  }
-}
-
-function displayUsers(users) {
-  hideAll();
-  const displayContainer = document.querySelector('.displaySection');
-  displayContainer.style.display = 'block';
-
-  const usersContainer = document.createElement('div');
-  usersContainer.classList.add('usersContainer');
-
-  users.forEach(user => {
-    const userElement = document.createElement('div');
-    userElement.classList.add('user');
-
-    if (user.id_role === 2) {
-      userElement.classList.add('isAdmin');
-    }
-
-    const nombreElement = document.createElement('h3');
-    nombreElement.innerHTML = `${user.nombre} ${user.apellido}`;
-    userElement.appendChild(nombreElement);
-
-    const editIconElement = document.createElement('i');
-    editIconElement.classList.add('fas');
-    editIconElement.classList.add('fa-pen-to-square');
-    // editIconElement.addEventListener('click', () => displayEditUser(user));
-    userElement.appendChild(editIconElement);
-
-    const deleteIconElement = document.createElement('i');
-    deleteIconElement.classList.add('fas');
-    deleteIconElement.classList.add('fa-trash');
-    // deleteIconElement.addEventListener('click', () => deleteUser(user.idUsuario, `${user.nombre} ${user.apellido}`));
-    userElement.appendChild(deleteIconElement);
-
-    usersContainer.appendChild(userElement);
-  });
-
-  displayContainer.appendChild(usersContainer);
-}
-
 function displayEditUser(user) {
   hideAll();
   const displayContainer = document.querySelector('.displaySection');
@@ -388,11 +388,9 @@ function displayEditUser(user) {
   const editUserElem = document.querySelector('.editUser');
   editUserElem.style.display = 'block';
 
-  const userId = document.getElementById('editUserId');
-  userId.value = user.idUsuario;
-
   const userFirstname = document.getElementById('editUserName');
   userFirstname.value = user.nombre;
+  userFirstname.setAttribute('data-user-id', user.id);
   const userLastname = document.getElementById('editUserSurname');
   userLastname.value = user.apellido;
   const userEmail = document.getElementById('editUserEmail');
@@ -407,39 +405,13 @@ function displayEditUser(user) {
   // userUpdated.value = user.updated_at;
 
   const userIsAdmin = document.getElementById('editUserAdmin');
-  user.id_role === 1 ? userIsAdmin.checked = true : userIsAdmin.checked = false;
+  user.id_role === 2 ? userIsAdmin.checked = true : userIsAdmin.checked = false;
 }
 
 async function deleteUser(userId, fullname) {
-  // const userData = {
-  //   userId,
-  // };
-  // console.log(userData)
   if (confirm(`Esta seguro que desea eliminar el usuario '${fullname}'?`)) {
-    //     try {
-    //       const response = await fetch("http://localhost:8080/apimovies/usuarios", {
-    //         method: 'DELETE',
-    //         headers: {
-    //           'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(userData)
-    //       });
-
-    //       if (!response.ok) {
-    //         const errorText = await response.text();
-    //         throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
-    //       }
-
-    //       console.log('El usuario fue eliminada exitosamente');
-    //       selectUserButton();
-    //     } catch (error) {
-    //       console.error('Error al eliminar el usuario:', error);
-    //     }
-
-    //   }
-    // }
     try {
-      const response = await fetch("http://localhost:8080/apimovies/usuarios", userId);
+      const response = await fetch(`http://localhost:8080/apimovies/usuarios`, userId);
       const data = await response.json();
       if (!data.includes('error')) {
         console.log('Usuario eliminado exitosamente');
@@ -452,6 +424,7 @@ async function deleteUser(userId, fullname) {
     }
   }
 }
+
 async function handleEditUserForm(e) {
   e.preventDefault();
 
@@ -483,8 +456,7 @@ async function handleEditUserForm(e) {
 }
 
 function validateEditUserData() {
-  const userId = document.getElementById('editUserId');
-  const userFirstname = document.getElementById('editUserName').value;
+  const userFirstname = document.getElementById('editUserName');
   const userLastname = document.getElementById('editUserSurname').value;
   const userEmail = document.getElementById('editUserEmail').value;
   const userPass = document.getElementById('editUserPassword').value;
@@ -545,8 +517,8 @@ function validateEditUserData() {
   }
 
   return {
-    userId: userId.value.trim(),
-    idAdmin: userIsAdmin ? 1 : 0,
+    idUsuario: userFirstname.getAttribute('data-user-id'),
+    idAdmin: userIsAdmin ? 2 : 1,
     nombre: userFirstname.value.trim(),
     apellido: userLastname.trim(),
     email: userEmail.trim(),
