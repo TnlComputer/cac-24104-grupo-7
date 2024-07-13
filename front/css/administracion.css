@@ -250,7 +250,7 @@ body {
 .createMovie form textarea {
   width: 100%;
   margin-bottom: 10px;
-  height: 40px;
+  height: 45px;
   padding: 0px 20px;
   margin-top: 10px;
   font-size: 20px;
@@ -260,6 +260,48 @@ body {
   outline: none;
   color: var(--text-color-blanco);
 }
+
+/* Ajuste específico para el input file */
+.createMovie form input[type="file"] {
+  display: block; 
+  margin: 0px 0px; 
+  padding: 0px 0px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente adecuado */
+  border: 2px solid var(--bg-color); /* Borde con el color personalizado */
+  border-radius: 20px; /* Bordes redondeados */
+  /*background-color: var(--bg-color); /* Color de fondo del botón */
+  color: var(--text-color-blanco); /* Color del texto */
+  cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+}
+
+/* Ocultar el input de archivo real y personalizar el botón */
+.createMovie form input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden; /* Ocultar el botón de subida por defecto en navegadores Webkit */
+  width: 0;
+}
+
+.createMovie form input[type="file"]::before {
+  content: 'Seleccionar archivo'; /* Texto del botón */
+  display: inline-block; /* Mostrar como un bloque en línea */
+  background-color: var(--bg-color); /* Color de fondo */
+  color: var(--text-color-blanco); /* Color del texto */
+  border: 2px solid var(--bg-color); /* Borde con color personalizado */
+  border-radius: 15px;
+  padding: 8px 20px; /* Espaciado interno */
+  outline: none; /* Sin contorno */
+  cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+  font-size: 16px; /* Tamaño de fuente */
+  margin-right: 10px; /* Margen derecho */
+}
+
+.createMovie form input[type="file"]:hover::before {
+  background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
+.createMovie form input[type="file"]:active::before {
+  background-color: #004494; /* Color de fondo al hacer clic */
+}
+
 
 .createMovie form textarea {
   resize: vertical;
@@ -323,7 +365,7 @@ body {
 .editMovie textarea {
   width: 100%;
   margin-bottom: 10px;
-  height: 40px;
+  height: 45px;
   padding: 0px 20px;
   margin-top: 10px;
   font-size: 20px;
@@ -333,7 +375,46 @@ body {
   outline: none;
   color: var(--text-color-blanco);
 }
+/* Ajuste específico para el input file */
+.editMovie form input[type="file"] {
+  display: block; 
+  margin: 0px 0px; 
+  padding: 0px 0px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente adecuado */
+  border: 2px solid var(--bg-color); /* Borde con el color personalizado */
+  border-radius: 20px; /* Bordes redondeados */
+  /*background-color: var(--bg-color); /* Color de fondo del botón */
+  color: var(--text-color-blanco); /* Color del texto */
+  cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+}
 
+/* Ocultar el input de archivo real y personalizar el botón */
+.editMovie form input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden; /* Ocultar el botón de subida por defecto en navegadores Webkit */
+  width: 0;
+}
+
+.editMovie form input[type="file"]::before {
+  content: 'Seleccionar archivo'; /* Texto del botón */
+  display: inline-block; /* Mostrar como un bloque en línea */
+  background-color: var(--bg-color); /* Color de fondo */
+  color: var(--text-color-blanco); /* Color del texto */
+  border: 2px solid var(--bg-color); /* Borde con color personalizado */
+  border-radius: 15px;
+  padding: 8px 20px; /* Espaciado interno */
+  outline: none; /* Sin contorno */
+  cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+  font-size: 16px; /* Tamaño de fuente */
+  margin-right: 10px; /* Margen derecho */
+}
+
+.editMovie form input[type="file"]:hover::before {
+  background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
+.editMovie form input[type="file"]:active::before {
+  background-color: #004494; /* Color de fondo al hacer clic */
+}
 .editMovie textarea {
   resize: vertical;
   min-height: 100px;

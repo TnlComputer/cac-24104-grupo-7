@@ -1,3 +1,5 @@
+
+
 const api = "http://localhost:8080/apimovies";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const isAdmin = window.sessionStorage.getItem("cac_java_isAdmin");
   if (!isAdmin || isAdmin === "false") window.location.href = '../pages/login.html';;
 
-  searchForm = document.getElementById('searchForm');
-  searchForm.addEventListener('submit', e => handleSearchForm(e));
+  // searchForm = document.getElementById('searchForm');
+  // searchForm.addEventListener('submit', e => handleSearchForm(e));
 
   const buttonMovies = document.getElementById('moviesSectionButton');
   buttonMovies.addEventListener('click', () => selectMoviesButton());
@@ -148,7 +150,7 @@ function displayMovies(movies) {
     const deleteIconElement = document.createElement('i');
     deleteIconElement.classList.add('fas');
     deleteIconElement.classList.add('fa-trash');
-    deleteIconElement.addEventListener('click', () => deleteMovie(pelicula.id, pelicula.titulo));
+    deleteIconElement.addEventListener('click', () => deleteMovie(pelicula.idPelicula, pelicula.titulo));
     movieElement.appendChild(deleteIconElement);
 
     moviesContainer.appendChild(movieElement);
@@ -206,26 +208,25 @@ function displayCreateMovie() {
   const form = document.createElement('form');
   form.id = 'createMovieForm';
   form.innerHTML = `
-        <form
-        <h2>Crear Nueva Película</h2>
-        <input type="text" id="movieTitle" placeholder="Título" title="Ingrese el título de la película" required>
-        <input type="text" id="movieImage" placeholder="URL de la imagen" title="Ingrese la url de la imagen de la película" required>
-        <input type="text" id="movieGenre" placeholder="Genero" title="Ingrese el Genero de la película" required>
-        <input type="text" id="movieDirector" placeholder="Director" title="Ingrese el Director de la película" required>
-        <div class="duration-input">
-            <label for="movieDurationHours">Duración:</label>
-            <input type="time" id="movieDuration" required>
-        </div>
-        <div class="release-date-input">
-            <label for="movieReleaseDate">Fecha de estreno:</label>
-            <input type="date" id="movieReleaseDate" required>
-        </div>
-        <textarea id="movieDescription" placeholder="Descripción" required title="Ingrese una descripción de la película"></textarea>
-        <div class="form-buttons">
-            <button type="submit">Crear película</button>
-            <button type="button" id="cancelCreateMovie">Cancelar</button>
-        </div>
-    `;
+      <h2>Crear Nueva Película</h2>
+      <input type="text" id="movieTitle" placeholder="Título" title="Ingrese el título de la película" required>
+      <input type="file" id="movieImage" accept="image/*" title="Seleccione la imagen de la película" required>
+      <input type="text" id="movieGenre" placeholder="Genero" title="Ingrese el Genero de la película" required>
+      <input type="text" id="movieDirector" placeholder="Director" title="Ingrese el Director de la película" required>
+      <div class="duration-input">
+          <label for="movieDurationHours">Duración:</label>
+          <input type="time" id="movieDuration" required>
+      </div>
+      <div class="release-date-input">
+          <label for="movieReleaseDate">Fecha de estreno:</label>
+          <input type="date" id="movieReleaseDate" required>
+      </div>
+      <textarea id="movieDescription" placeholder="Descripción" required title="Ingrese una descripción de la película"></textarea>
+      <div class="form-buttons">
+          <button type="submit">Crear película</button>
+          <button type="button" id="cancelCreateMovie">Cancelar</button>
+      </div>
+  `;
 
   createMovieElem.innerHTML = '';
   createMovieElem.appendChild(form);
@@ -236,13 +237,24 @@ function displayCreateMovie() {
     selectMoviesButton();
   });
 }
-
+function getFileNameAndExtension(file) {
+  const name = file.name;
+  const lastDotIndex = name.lastIndexOf('.');
+  return {
+    name: name.substring(0, lastDotIndex),
+    extension: name.substring(lastDotIndex + 1)
+  };
+}
 async function handleCreateMovieForm(e) {
   e.preventDefault();
 
+  const imageFile = document.getElementById('movieImage').files[0];
+  const { name, extension } = getFileNameAndExtension(imageFile);
+  const imageName = `${name}.${extension}`;
+
   const movieData = {
     titulo: document.getElementById('movieTitle').value,
-    imagen: document.getElementById('movieImage').value,
+    imagen: imageName,
     genero: document.getElementById('movieGenre').value,
     director: document.getElementById('movieDirector').value,
     duracion: document.getElementById('movieDuration').value + ":00",
@@ -250,13 +262,13 @@ async function handleCreateMovieForm(e) {
     descripcion: document.getElementById('movieDescription').value,
     isActive: true
   };
-  //console.log('Sending data:', JSON.stringify(movieData));
+  console.log('Datos a enviar:', JSON.stringify(movieData));
 
   try {
-    const response = await fetch('http://localhost:8080/apimovies/peliculas', {
+    const response = await fetch(`` + api + `/peliculas`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'multipart/form-data'
       },
       body: JSON.stringify(movieData)
     });
@@ -283,41 +295,88 @@ function displayEditMovie(movie) {
   const editMovieElem = document.querySelector('.editMovie');
   editMovieElem.style.display = 'block';
 
-  const movieId = document.getElementById('editMovieId');
-  movieId.value = movie.idPelicula;
-  const movieTitle = document.getElementById('editMovieTitle');
-  movieTitle.value = movie.titulo;
-  const movieImage = document.getElementById('editMovieImage');
-  movieImage.value = movie.imagen;
-  const movieGenre = document.getElementById('editMovieGenre');
-  movieGenre.value = movie.genero;
-  const movieDirector = document.getElementById('editMovieDirector');
-  movieDirector.value = movie.director;
-  const movieDuration = document.getElementById('editMovieDuration');
-  movieDuration.value = movie.duracion;
-  const movieReleaseDate = document.getElementById('editMovieReleaseDate');
-  movieReleaseDate.value = movie.estreno;
-  const movieDescription = document.getElementById('editMovieDescription');
-  movieDescription.value = movie.descripcion;
+  document.getElementById('editMovieId').value = movie.idPelicula;
+  document.getElementById('editMovieTitle').value = movie.titulo;
+  document.getElementById('editMovieGenre').value = movie.genero;
+  document.getElementById('editMovieDirector').value = movie.director;
+  document.getElementById('editMovieDuration').value = movie.duracion.slice(0, 5);
+  document.getElementById('editMovieReleaseDate').value = movie.estreno;
+  document.getElementById('editMovieDescription').value = movie.descripcion;
+  document.getElementById('editMovieImage2').value = movie.imagen
+  document.getElementById('isActive').checked = movie.isActive;
 
-  const movieIsActive = document.getElementById('isActive');
-  movie.isActive ? movieIsActive.checked = true : movieIsActive.checked = false;
+  //console.log(movie.idPelicula)
+
+  document.getElementById('editMovieForm').addEventListener('submit', handleEditMovieForm);
+  document.getElementById('editMovieCancel').addEventListener('click', selectMoviesButton);
 }
 
-async function deleteMovie(movieId, movieTitle) {
-  if (confirm(`Esta seguro que desea eliminar la pelicula '${movieTitle}'?`)) {
-    try {
-      const response = await fetch(`http://localhost:8080/apimovies/peliculas`, movieId);
-      const data = await response.json();
-      if (!data.includes('error')) {
-        console.log('Pelicula eliminada exitosamente');
-        window.location.href = '../pages/administracion.html';
-      } else {
-        throw new Error(JSON.stringify(data));
-      }
-    } catch (error) {
-      console.error('Error al eliminar la pelicula:', error);
+async function handleEditMovieForm(e) {
+  e.preventDefault();
+  const movieId = parseInt(document.getElementById('editMovieId').value);
+  //console.log(movieId);
+  const movieIsActive = document.getElementById('isActive');
+  const x = movieIsActive ? movieIsActive.checked = true : movieIsActive.checked = false
+
+  const movieData = {
+    idPelicula: movieId,
+    titulo: document.getElementById('editMovieTitle').value,
+    imagen: document.getElementById('editMovieImage2').value,
+    genero: document.getElementById('editMovieGenre').value,
+    director: document.getElementById('editMovieDirector').value,
+    duracion: document.getElementById('editMovieDuration').value + ":00",
+    estreno: document.getElementById('editMovieReleaseDate').value,
+    descripcion: document.getElementById('editMovieDescription').value,
+    isActive: x
+  };
+
+  try {
+    const response = await fetch("http://localhost:8080/apimovies/peliculas", {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      },
+      body: JSON.stringify(movieData)
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
     }
+
+    console.log('Película actualizada exitosamente');
+    selectMoviesButton(); // Volver a la lista de películas
+  } catch (error) {
+    console.error('Error al actualizar la película:', error);
+  }
+}
+async function deleteMovie(idPelicula, name) {
+  const movieData = {
+    idPelicula,
+  };
+  console.log(movieData);
+
+  if (confirm(`Esta seguro que desea eliminar la pelicula '${name}'?`)) {
+    try {
+      const response = await fetch("http://localhost:8080/apimovies/peliculas", {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(movieData)
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+      }
+
+      console.log('Película fue eliminada exitosamente');
+      selectMoviesButton(); // Volver a la lista de películas
+    } catch (error) {
+      console.error('Error al actualizar la película:', error);
+    }
+
   }
 }
 

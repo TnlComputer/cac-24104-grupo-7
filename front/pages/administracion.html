@@ -43,7 +43,7 @@
       <section class="searchSection">
         <h1>Administración</h1>
         <hr />
-        <form id="searchForm">
+        <!-- <form id="searchForm">
           <div class="leftColumn">
             <input type="text" id="searchBox" placeholder="Buscar..." />
             <button type="submit">
@@ -57,7 +57,7 @@
             <input type="radio" id="searchUser" name="searchType" />
             <label for="searchUser">Buscar en usuarios</label>
           </div>
-        </form>
+        </form> -->
       </section>
       <div class="sectionSelection">
         <button type="button" id="moviesSectionButton">Peliculas</button>
@@ -69,7 +69,24 @@
           <h2>Crear pelicula</h2>
         </div>
         <div class="editMovie">
-          <h2>Editar pelicula</h2>
+          <h2>Editar película</h2>
+          <form id="editMovieForm">
+            <input type="hidden" id="editMovieId" name="id" value="" />
+            <input type="text" id="editMovieTitle" name="titulo" placeholder="Título" />
+            <input type="file" id="editMovieImage" name="imagen" placeholder="URL de la imagen" />
+            <input type="hidden" id="editMovieImage2" name="imagen2" placeholder="URL de la imagen" />
+            <input type="text" id="editMovieGenre" name="genero" placeholder="Género" />
+            <input type="text" id="editMovieDirector" name="director" placeholder="Director" />
+            <input type="time" id="editMovieDuration" name="duracion" placeholder="Duración (HH:MM)" />
+            <input type="date" id="editMovieReleaseDate" name="estreno" placeholder="Fecha de lanzamiento" />
+            <textarea id="editMovieDescription" name="descripcion" placeholder="Descripción"></textarea>
+            <label for="isActive">Activo:</label>
+            <input type="checkbox" id="isActive" name="isActive" checked>
+            <div class="form-buttons">
+              <button type="button" id="editMovieCancel">Cancelar</button>
+              <button type="submit" id="editMovieUpdate">Actualizar</button>
+            </div>
+          </form>
         </div>
         <div class="editUser">
           <h2>Editar usuario</h2>
@@ -103,23 +120,30 @@
 
             <select id="editUserCountry">
               <option value="">País</option>
-              <option value="Argentina">Argentina</option>
-              <option value="Bolivia">Bolivia</option>
-              <option value="Brasil">Brasil</option>
-              <option value="Chile">Chile</option>
-              <option value="Colombia">Colombia</option>
-              <option value="Ecuador">Ecuador</option>
-              <option value="Paraguay">Paraguay</option>
-              <option value="Perú">Perú</option>
-              <option value="Uruguay">Uruguay</option>
-              <option value="Venezuela">Venezuela</option>
+              <option value="AR">Argentina</option>
+              <option value="BO">Bolivia</option>
+              <option value="BR">Brasil</option>
+              <option value="CH">Chile</option>
+              <option value="CO">Colombia</option>
+              <option value="EC">Ecuador</option>
+              <option value="PY">Paraguay</option>
+              <option value="PE">Perú</option>
+              <option value="UY">Uruguay</option>
+              <option value="VE">Venezuela</option>
             </select>
             <p class="error-message" id="editUserCountryError">
               El país es obligatorio
             </p>
 
             <div class="editUserFormBottom">
-
+              <div class="editUserLCol">
+                <span>Fecha de creación</span>
+                <input type="date" id="editUserCreated" disabled />
+              </div>
+              <div class="editUserMCol">
+                <span>Ultima modificación</span>
+                <input type="date" id="editUserUpdated" disabled />
+              </div>
               <div class="editUserRCol">
                 <span>Es administrador</span>
                 <input type="checkbox" id="editUserAdmin" />
