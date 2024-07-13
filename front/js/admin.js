@@ -29,7 +29,6 @@ async function handleSearchForm(e) {
   e.preventDefault();
   const searchText = document.getElementById('searchBox').value.trim();
   if (!searchText) return;
-  // todo: display error or something
 
   const buttonMovies = document.getElementById('moviesSectionButton');
   const buttonUsers = document.getElementById('usersSectionButton');
@@ -37,7 +36,6 @@ async function handleSearchForm(e) {
   if (searchTypeMovies) {
     const movies = await getMovies();
     if (!movies) return;
-    // todo: display message saying no movies were found
 
     let myArr = [];
     movies.forEach(movie => {
@@ -50,7 +48,6 @@ async function handleSearchForm(e) {
   else {
     const users = await getUsers();
     if (!users) return;
-    // todo: display message saying no users were found
 
     let myArr = [];
     users.forEach(user => {
@@ -388,9 +385,11 @@ function displayEditUser(user) {
   const editUserElem = document.querySelector('.editUser');
   editUserElem.style.display = 'block';
 
+  const userId = document.getElementById('editUserId');
+  userId.value = user.idUsuario;
+
   const userFirstname = document.getElementById('editUserName');
   userFirstname.value = user.nombre;
-  userFirstname.setAttribute('data-user-id', user.id);
   const userLastname = document.getElementById('editUserSurname');
   userLastname.value = user.apellido;
   const userEmail = document.getElementById('editUserEmail');
@@ -405,23 +404,31 @@ function displayEditUser(user) {
   // userUpdated.value = user.updated_at;
 
   const userIsAdmin = document.getElementById('editUserAdmin');
-  user.id_role === 2 ? userIsAdmin.checked = true : userIsAdmin.checked = false;
+  user.id_role === 1 ? userIsAdmin.checked = true : userIsAdmin.checked = false;
 }
 
 async function deleteUser(userId, fullname) {
   if (confirm(`Esta seguro que desea eliminar el usuario '${fullname}'?`)) {
     try {
-      const response = await fetch(`http://localhost:8080/apimovies/usuarios`, userId);
-      const data = await response.json();
-      if (!data.includes('error')) {
-        console.log('Usuario eliminado exitosamente');
-        window.location.href = '../pages/administracion.html';
-      } else {
-        throw new Error(JSON.stringify(data));
+      const response = await fetch("http://localhost:8080/apimovies/usuarios", {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(movieData)
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
       }
+
+      console.log('El usuario fue eliminada exitosamente');
+      selectMoviesButton(); // Volver a la lista de películas
     } catch (error) {
-      console.error('Error al eliminar al usuario:', error);
+      console.error('Error al eliminar el usuario:', error);
     }
+
   }
 }
 
@@ -456,7 +463,8 @@ async function handleEditUserForm(e) {
 }
 
 function validateEditUserData() {
-  const userFirstname = document.getElementById('editUserName');
+  const userId = document.getElementById('editUserId');
+  const userFirstname = document.getElementById('editUserName').value;
   const userLastname = document.getElementById('editUserSurname').value;
   const userEmail = document.getElementById('editUserEmail').value;
   const userPass = document.getElementById('editUserPassword').value;
@@ -517,8 +525,8 @@ function validateEditUserData() {
   }
 
   return {
-    idUsuario: userFirstname.getAttribute('data-user-id'),
-    idAdmin: userIsAdmin ? 2 : 1,
+    idUsuario: userId.value.trim(),
+    idAdmin: userIsAdmin ? 1 : 0,
     nombre: userFirstname.value.trim(),
     apellido: userLastname.trim(),
     email: userEmail.trim(),
