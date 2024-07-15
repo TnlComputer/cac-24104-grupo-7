@@ -227,6 +227,7 @@
   }
 
   .botonAnterior,
+  .botonTodas,
   .botonSiguiente {
     background-color: var(--bg-color);
     color: var(--text-color-blanco);
@@ -246,6 +247,10 @@
       transform: scale(0.95);
       box-shadow: 0 0 10px var(--bg-fondo-gris);
     }
+  }
+
+  .hideBotonTodas {
+    display: none;
   }
 }
 

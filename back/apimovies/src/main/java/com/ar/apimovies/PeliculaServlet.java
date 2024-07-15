@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@WebServlet("/peliculas")
+@WebServlet("/peliculas/*")
 public class PeliculaServlet extends HttpServlet {
 
   private PeliculaDAO peliculaDAO = new PeliculaDAO();
@@ -19,25 +19,30 @@ public class PeliculaServlet extends HttpServlet {
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     setupResponseHeaders(resp);
 
-    try {
-      req.setCharacterEncoding("UTF-8");
-      resp.setCharacterEncoding("UTF-8");
+    String path = req.getPathInfo();
+    if ("/buscar".equals(path)) {
+      handleSearch(req, resp);
+    } else {
+      try {
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
 
-      Pelicula pelicula = objectMapper.readValue(req.getInputStream(), Pelicula.class);
-      Long idPelicula = peliculaDAO.insertPelicula(pelicula);
+        Pelicula pelicula = objectMapper.readValue(req.getInputStream(), Pelicula.class);
+        Long idPelicula = peliculaDAO.insertPelicula(pelicula);
 
-      if (idPelicula != null) {
-        String jsonResponse = objectMapper.writeValueAsString(idPelicula);
-        resp.setContentType("application/json");
-        resp.getWriter().write(jsonResponse);
+        if (idPelicula != null) {
+          String jsonResponse = objectMapper.writeValueAsString(idPelicula);
+          resp.setContentType("application/json");
+          resp.getWriter().write(jsonResponse);
 
-        resp.setStatus(HttpServletResponse.SC_CREATED);
-      } else {
-        resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error inserting pelicula");
+          resp.setStatus(HttpServletResponse.SC_CREATED);
+        } else {
+          resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error inserting pelicula");
+        }
+      } catch (Exception e) {
+        resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid request data");
+        e.printStackTrace();
       }
-    } catch (Exception e) {
-      resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid request data");
-      e.printStackTrace();
     }
   }
 
@@ -85,7 +90,6 @@ public class PeliculaServlet extends HttpServlet {
 
   }
 
-  // *********** DO DELETE ************/
   @Override
   protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     setupResponseHeaders(resp);
@@ -109,6 +113,22 @@ public class PeliculaServlet extends HttpServlet {
 
   }
 
+  private void handleSearch(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    try {
+      req.setCharacterEncoding("UTF-8");
+      resp.setCharacterEncoding("UTF-8");
+
+      SearchTerm searchTerm = objectMapper.readValue(req.getInputStream(), SearchTerm.class);
+      List<Pelicula> peliculas = peliculaDAO.postSearchAllPeliculas(searchTerm.getSearchString());
+      String jsonResp = objectMapper.writeValueAsString(peliculas);
+
+      resp.setContentType("application/json");
+      resp.getWriter().write(jsonResp);
+    } catch (Exception e) {
+      resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error searching peliculas");
+      e.printStackTrace();
+    }
+  }
 
   @Override
   protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -120,5 +140,17 @@ public class PeliculaServlet extends HttpServlet {
     resp.setHeader("Access-Control-Allow-Origin", "*");
     resp.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  }
+}
+
+class SearchTerm {
+  private String searchString;
+
+  public String getSearchString() {
+    return searchString;
+  }
+
+  public void setSearchString(String searchString) {
+    this.searchString = searchString;
   }
 }

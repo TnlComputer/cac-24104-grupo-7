@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const isAdmin = window.sessionStorage.getItem("cac_java_isAdmin");
   if (!isAdmin || isAdmin === "false") window.location.href = '../pages/login.html';;
 
-  // searchForm = document.getElementById('searchForm');
-  // searchForm.addEventListener('submit', e => handleSearchForm(e));
+  searchForm = document.getElementById('searchForm');
+  searchForm.addEventListener('submit', e => handleSearchForm(e));
 
   const buttonMovies = document.getElementById('moviesSectionButton');
   buttonMovies.addEventListener('click', () => selectMoviesButton());

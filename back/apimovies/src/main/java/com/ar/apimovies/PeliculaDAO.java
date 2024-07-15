@@ -90,6 +90,55 @@ public class PeliculaDAO {
     return peliculas;
   }
 
+  public List<Pelicula> postSearchAllPeliculas(String searchTerm) {
+    Conexion conexion = new Conexion();
+    Connection cn = conexion.conectar();
+
+    List<Pelicula> peliculas = new ArrayList<>();
+
+    PreparedStatement pstm = null;
+    ResultSet rs = null;
+
+    String getSearchAllPeliculasSql = "SELECT * FROM peliculas WHERE isActive=true AND titulo LIKE ?";
+
+    try {
+      pstm = cn.prepareStatement(getSearchAllPeliculasSql);
+      pstm.setString(1, "%" + searchTerm + "%");
+      rs = pstm.executeQuery();
+
+      while (rs.next()) {
+        Long idP = rs.getLong("id");
+        String titu = rs.getString("titulo");
+        String imag = rs.getString("imagen");
+        String gene = rs.getString("genero");
+        String dire = rs.getString("director");
+        Time dura = rs.getTime("duracion");
+        String estr = rs.getString("estreno");
+        String desc = rs.getString("descripcion");
+        Boolean isAct = rs.getBoolean("isActive");
+
+        Pelicula pelicula = new Pelicula(idP, titu, imag, gene, dire, dura, estr, desc, isAct);
+
+        peliculas.add(pelicula);
+      }
+
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    } finally {
+      try {
+        if (pstm != null)
+          pstm.close();
+        if (cn != null)
+          cn.close();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
+
+    return peliculas;
+  }
+
   public boolean updatePelicula(Pelicula pelicula) {
     boolean isUpdated = false;
     Conexion conexion = new Conexion();

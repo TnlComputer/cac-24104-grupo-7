@@ -1,6 +1,4 @@
 com\ar\apimovies\Pelicula.class
 com\ar\apimovies\Usuario.class
-com\ar\apimovies\PeliculaServlet.class
-com\ar\apimovies\PeliculaDAO.class
 com\ar\apimovies\TestConexion.class
 com\ar\apimovies\Conexion.class

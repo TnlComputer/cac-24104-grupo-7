@@ -8,7 +8,7 @@
     content="Disfruta de películas y series ilimitadas en CAC-Movies. Regístrate y empieza a ver tus favoritos hoy mismo." />
   <meta name="keywords" content="películas, series, streaming, CAC-Movies, entretenimiento" />
   <title>CAC-MOVIES</title>
-  <link rel="shortcut icon" href="../favicon.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="./favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="./css/header.css" />
   <link rel="stylesheet" href="./css/footer.css" />
   <link rel="stylesheet" href="./css/styles.css" />
@@ -57,9 +57,9 @@
     </section>
     <section class="buscador">
       <h3 class="SeccionBusqueda">¿Qué estás buscando para ver?</h3>
-      <form class="BusquedaPeliculas">
-        <input class="ingresarbusqueda" type="text" placeholder="Buscar..." id="buscar" name="buscar" />
-        <input class="botonBuscar" type="submit" value="Buscar" />
+      <form class="BusquedaPeliculas" id="busquedaPeliculas">
+        <input type="text" placeholder="Buscar..." class="ingresarbusqueda" id="buscarForm" name="buscar" />
+        <input type="submit" value="Buscar" class="botonBuscar" />
       </form>
     </section>
     <div class="separacion"></div>
@@ -67,6 +67,7 @@
       <h3 class="tituloTendencia">Las tendencias de hoy</h3>
       <div class="peliculas" aria-live="polite"></div>
       <button class="botonAnterior">Anterior</button>
+      <button class="botonTodas hideBotonTodas">Tendencias</button>
       <button class="botonSiguiente">Siguiente</button>
     </section>
 
