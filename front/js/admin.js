@@ -399,87 +399,8 @@ function displayEditUser(user) {
   document.getElementById('editUserCancel').addEventListener('click', selectUsersButton);
 }
 
-// function validateEditUserData() {
-//   const userFirstname = document.getElementById('editUserName').value;
-//   const userLastname = document.getElementById('editUserSurname').value;
-//   const userEmail = document.getElementById('editUserEmail').value;
-//   const userPass = document.getElementById('editUserPassword').value;
-//   const userDOB = document.getElementById('editUserDOB').value;
-//   const userCountry = document.getElementById('editUserCountry').value;
-//   const userId = document.getElementById('editUserId').value;
-
-//   // const userCreated = document.getElementById('editUserCreated').value;
-//   // const userIsAdmin = xUserAdmin;
-
-//   const nameError = document.getElementById("editUserNameError");
-//   const surnameError = document.getElementById("editUserSurnameError");
-//   const emailError = document.getElementById("editUserEmailError");
-//   const passwordError = document.getElementById("editUserPasswordError");
-//   const dateError = document.getElementById("editUserDateError");
-//   const countryError = document.getElementById("editUserCountryError");
-
-//   const namePattern = /^[A-Za-zÁáÉéÍíÓóÚúÑñ]{3}[A-Za-zÁáÉéÍíÓóÚúÑñ0-9\s]*$/;
-//   // const namePattern = /^[A-Za-zÁáÉéÍíÓóÚúÑñ\s]+$/;
-//   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//   const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
-//   if (userFirstname.value && namePattern.test(userFirstname.value.trim())) {
-//     nameError.style.display = "none";
-//   } else {
-//     nameError.style.display = "block";
-//     return {};
-//   }
-//   if (userLastname && namePattern.test(userLastname.trim())) {
-//     surnameError.style.display = "none";
-//   } else {
-//     surnameError.style.display = "block";
-//     return {};
-//   }
-//   if (userEmail && emailPattern.test(userEmail.trim())) {
-//     emailError.style.display = "none";
-//   } else {
-//     emailError.style.display = "block";
-//     return {};
-//   }
-//   if (userPass) {
-//     if (passwordPattern.test(userPass.trim())) {
-//       passwordError.style.display = "none";
-//     } else {
-//       passwordError.style.display = "block";
-//       return {};
-//     }
-//   }
-//   if (userDOB && userDOB.trim() === "") {
-//     dateError.style.display = "block";
-//     return {};
-//   } else {
-//     dateError.style.display = "none";
-//   }
-//   if (userCountry === "") {
-//     countryError.style.display = "block";
-//     return {};
-//   } else {
-//     countryError.style.display = "none";
-//   }
-
-//   return {
-//     idUsuario: userId,
-//     idAdmin: userIsAdmin ? 1 : 0,
-//     nombre: userFirstname.value.trim(),
-//     apellido: userLastname.trim(),
-//     email: userEmail.trim(),
-//     clave: userPass ? userPass.trim() : "",
-//     fecha_nacimiento: userDOB.trim(),
-//     id_pais: userCountry.trim(),
-//   }
-// }
-
 async function handleEditUserForm(e) {
   e.preventDefault();
-  // const validUser = validateEditUserData();
-  // if (Object.keys(validUser).length === 0) {
-  //   return;
-  // }
   const userId = parseInt(document.getElementById('editUserId').value);
   // console.log(userId);
   const userIsAdmin = document.getElementById('editUserAdmin');
