@@ -1,5 +1,3 @@
-
-
 const api = "http://localhost:8080/apimovies";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -171,7 +169,7 @@ function displayUsers(users) {
     const userElement = document.createElement('div');
     userElement.classList.add('user');
 
-    if (user.id_role === 2) {
+    if (user.isAdmin === 1) {
       userElement.classList.add('isAdmin');
     }
 
@@ -188,7 +186,7 @@ function displayUsers(users) {
     const deleteIconElement = document.createElement('i');
     deleteIconElement.classList.add('fas');
     deleteIconElement.classList.add('fa-trash');
-    deleteIconElement.addEventListener('click', () => deleteUser(user.id, `${user.nombre} ${user.apellido}`));
+    deleteIconElement.addEventListener('click', () => deleteUser(user.idUsuario, `${user.nombre} ${user.apellido}`));
     userElement.appendChild(deleteIconElement);
 
     usersContainer.appendChild(userElement);
@@ -286,7 +284,6 @@ async function handleCreateMovieForm(e) {
   }
 }
 
-
 function displayEditMovie(movie) {
   hideAll();
   const displayContainer = document.querySelector('.displaySection');
@@ -314,7 +311,7 @@ function displayEditMovie(movie) {
 async function handleEditMovieForm(e) {
   e.preventDefault();
   const movieId = parseInt(document.getElementById('editMovieId').value);
-  //console.log(movieId);
+  console.log(movieId);
   const movieIsActive = document.getElementById('isActive');
   const x = movieIsActive ? movieIsActive.checked = true : movieIsActive.checked = false
 
@@ -350,6 +347,7 @@ async function handleEditMovieForm(e) {
     console.error('Error al actualizar la película:', error);
   }
 }
+
 async function deleteMovie(idPelicula, name) {
   const movieData = {
     idPelicula,
@@ -374,9 +372,8 @@ async function deleteMovie(idPelicula, name) {
       console.log('Película fue eliminada exitosamente');
       selectMoviesButton(); // Volver a la lista de películas
     } catch (error) {
-      console.error('Error al actualizar la película:', error);
+      console.error('Error al eliminar la película:', error);
     }
-
   }
 }
 
@@ -388,143 +385,169 @@ function displayEditUser(user) {
   const editUserElem = document.querySelector('.editUser');
   editUserElem.style.display = 'block';
 
-  const userFirstname = document.getElementById('editUserName');
-  userFirstname.value = user.nombre;
-  userFirstname.setAttribute('data-user-id', user.id);
-  const userLastname = document.getElementById('editUserSurname');
-  userLastname.value = user.apellido;
-  const userEmail = document.getElementById('editUserEmail');
-  userEmail.value = user.email;
-  const userDOB = document.getElementById('editUserDOB');
-  userDOB.value = user.fecha_nacimiento;
-  const userCountry = document.getElementById('editUserCountry');
-  userCountry.value = user.id_pais;
-  // const userCreated = document.getElementById('editUserCreated');
-  // userCreated.value = user.created_at;
-  // const userUpdated = document.getElementById('editUserUpdated');
-  // userUpdated.value = user.updated_at;
+  document.getElementById('editUserId').value = user.idUsuario;
+  document.getElementById('editUserName').value = user.nombre;
+  document.getElementById('editUserSurname').value = user.apellido;
+  document.getElementById('editUserEmail').value = user.email;
+  document.getElementById('editUserPassword').value = user.clave;
+  document.getElementById('editUserDOB').value = user.fecha_nacimiento;
+  document.getElementById('editUserCountry').value = user.id_pais;
+  document.getElementById('editUserAdmin').checked = user.isAdmin;
+  document.getElementById('editIsActive').checked = user.isActive;
 
-  const userIsAdmin = document.getElementById('editUserAdmin');
-  user.id_role === 2 ? userIsAdmin.checked = true : userIsAdmin.checked = false;
+  document.getElementById('editUserForm').addEventListener('submit', handleEditUserForm);
+  document.getElementById('editUserCancel').addEventListener('click', selectUsersButton);
 }
 
-async function deleteUser(userId, fullname) {
-  if (confirm(`Esta seguro que desea eliminar el usuario '${fullname}'?`)) {
-    try {
-      const response = await fetch(`http://localhost:8080/apimovies/usuarios`, userId);
-      const data = await response.json();
-      if (!data.includes('error')) {
-        console.log('Usuario eliminado exitosamente');
-        window.location.href = '../pages/administracion.html';
-      } else {
-        throw new Error(JSON.stringify(data));
-      }
-    } catch (error) {
-      console.error('Error al eliminar al usuario:', error);
-    }
-  }
-}
+// function validateEditUserData() {
+//   const userFirstname = document.getElementById('editUserName').value;
+//   const userLastname = document.getElementById('editUserSurname').value;
+//   const userEmail = document.getElementById('editUserEmail').value;
+//   const userPass = document.getElementById('editUserPassword').value;
+//   const userDOB = document.getElementById('editUserDOB').value;
+//   const userCountry = document.getElementById('editUserCountry').value;
+//   const userId = document.getElementById('editUserId').value;
+
+//   // const userCreated = document.getElementById('editUserCreated').value;
+//   // const userIsAdmin = xUserAdmin;
+
+//   const nameError = document.getElementById("editUserNameError");
+//   const surnameError = document.getElementById("editUserSurnameError");
+//   const emailError = document.getElementById("editUserEmailError");
+//   const passwordError = document.getElementById("editUserPasswordError");
+//   const dateError = document.getElementById("editUserDateError");
+//   const countryError = document.getElementById("editUserCountryError");
+
+//   const namePattern = /^[A-Za-zÁáÉéÍíÓóÚúÑñ]{3}[A-Za-zÁáÉéÍíÓóÚúÑñ0-9\s]*$/;
+//   // const namePattern = /^[A-Za-zÁáÉéÍíÓóÚúÑñ\s]+$/;
+//   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+//   if (userFirstname.value && namePattern.test(userFirstname.value.trim())) {
+//     nameError.style.display = "none";
+//   } else {
+//     nameError.style.display = "block";
+//     return {};
+//   }
+//   if (userLastname && namePattern.test(userLastname.trim())) {
+//     surnameError.style.display = "none";
+//   } else {
+//     surnameError.style.display = "block";
+//     return {};
+//   }
+//   if (userEmail && emailPattern.test(userEmail.trim())) {
+//     emailError.style.display = "none";
+//   } else {
+//     emailError.style.display = "block";
+//     return {};
+//   }
+//   if (userPass) {
+//     if (passwordPattern.test(userPass.trim())) {
+//       passwordError.style.display = "none";
+//     } else {
+//       passwordError.style.display = "block";
+//       return {};
+//     }
+//   }
+//   if (userDOB && userDOB.trim() === "") {
+//     dateError.style.display = "block";
+//     return {};
+//   } else {
+//     dateError.style.display = "none";
+//   }
+//   if (userCountry === "") {
+//     countryError.style.display = "block";
+//     return {};
+//   } else {
+//     countryError.style.display = "none";
+//   }
+
+//   return {
+//     idUsuario: userId,
+//     idAdmin: userIsAdmin ? 1 : 0,
+//     nombre: userFirstname.value.trim(),
+//     apellido: userLastname.trim(),
+//     email: userEmail.trim(),
+//     clave: userPass ? userPass.trim() : "",
+//     fecha_nacimiento: userDOB.trim(),
+//     id_pais: userCountry.trim(),
+//   }
+// }
 
 async function handleEditUserForm(e) {
   e.preventDefault();
+  // const validUser = validateEditUserData();
+  // if (Object.keys(validUser).length === 0) {
+  //   return;
+  // }
+  const userId = parseInt(document.getElementById('editUserId').value);
+  // console.log(userId);
+  const userIsAdmin = document.getElementById('editUserAdmin');
+  const xUserAdmin = userIsAdmin ? userIsAdmin.checked = true : userIsAdmin.checked = false
 
-  const validUser = validateEditUserData();
-  if (Object.keys(validUser).length === 0) {
-    return;
-  }
+  const userIsActive = document.getElementById('editIsActive');
+  const xActive = userIsActive ? userIsActive.checked = true : userIsActive.checked = false
 
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(validUser)
+  const userData = {
+    idUsuario: userId,
+    nombre: document.getElementById('editUserName').value,
+    apellido: document.getElementById('editUserSurname').value,
+    email: document.getElementById('editUserEmail').value,
+    clave: document.getElementById('editUserPassword').value,
+    fecha_nacimiento: document.getElementById('editUserDOB').value,
+    id_pais: document.getElementById('editUserCountry').value,
+    isAdmin: xUserAdmin,
+    isActive: xActive
   };
 
   try {
-    const response = await fetch(`http://localhost:8080/apimovies/usuarios`, requestOptions);
-    const data = await response.json();
-    if (!data.includes('error')) {
-      console.log('Usuario editado exitosamente');
-      window.location.href = '../pages/administracion.html';
-    } else {
-      throw new Error(JSON.stringify(data));
+    const response = await fetch("http://localhost:8080/apimovies/usuarios", {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    });
+    console.log(response)
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
     }
+
+    console.log('Usuario actualizado exitosamente');
+    selectUsersButton();
   } catch (error) {
-    console.error('Error al editar al usuario:', error);
+    console.error('Error al actualizar el Usuario:', error);
   }
 }
 
-function validateEditUserData() {
-  const userFirstname = document.getElementById('editUserName');
-  const userLastname = document.getElementById('editUserSurname').value;
-  const userEmail = document.getElementById('editUserEmail').value;
-  const userPass = document.getElementById('editUserPassword').value;
-  const userDOB = document.getElementById('editUserDOB').value;
-  const userCountry = document.getElementById('editUserCountry').value;
+async function deleteUser(idUsuario, fullname) {
+  const userData = {
+    idUsuario,
+  };
 
-  // const userCreated = document.getElementById('editUserCreated').value;
-  const userIsAdmin = document.getElementById('editUserAdmin').checked;
+  console.log(userData);
 
-  const nameError = document.getElementById("editUserNameError");
-  const surnameError = document.getElementById("editUserSurnameError");
-  const emailError = document.getElementById("editUserEmailError");
-  const passwordError = document.getElementById("editUserPasswordError");
-  const dateError = document.getElementById("editUserDateError");
-  const countryError = document.getElementById("editUserCountryError");
+  if (confirm(`¿Está seguro que desea eliminar al usuario '${fullname}'?`)) {
+    try {
+      const response = await fetch("http://localhost:8080/apimovies/usuarios", {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+      });
 
-  const namePattern = /^[A-Za-zÁáÉéÍíÓóÚúÑñ\s]+$/;
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+      }
 
-  if (userFirstname.value && namePattern.test(userFirstname.value.trim())) {
-    nameError.style.display = "none";
-  } else {
-    nameError.style.display = "block";
-    return {};
-  }
-  if (userLastname && namePattern.test(userLastname.trim())) {
-    surnameError.style.display = "none";
-  } else {
-    surnameError.style.display = "block";
-    return {};
-  }
-  if (userEmail && emailPattern.test(userEmail.trim())) {
-    emailError.style.display = "none";
-  } else {
-    emailError.style.display = "block";
-    return {};
-  }
-  if (userPass) {
-    if (passwordPattern.test(userPass.trim())) {
-      passwordError.style.display = "none";
-    } else {
-      passwordError.style.display = "block";
-      return {};
+      console.log('Usuario fue eliminado exitosamente');
+      selectUsersButton();
+    } catch (error) {
+      console.error('Error al eliminar el usuario:', error);
     }
-  }
-  if (userDOB && userDOB.trim() === "") {
-    dateError.style.display = "block";
-    return {};
-  } else {
-    dateError.style.display = "none";
-  }
-  if (userCountry === "") {
-    countryError.style.display = "block";
-    return {};
-  } else {
-    countryError.style.display = "none";
-  }
-
-  return {
-    idUsuario: userFirstname.getAttribute('data-user-id'),
-    idAdmin: userIsAdmin ? 2 : 1,
-    nombre: userFirstname.value.trim(),
-    apellido: userLastname.trim(),
-    email: userEmail.trim(),
-    clave: userPass ? userPass.trim() : "",
-    fecha_nacimiento: userDOB.trim(),
-    id_pais: userCountry.trim(),
   }
 }
 

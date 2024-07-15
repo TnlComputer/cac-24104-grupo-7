@@ -68,6 +68,7 @@
         <div class="createMovie">
           <h2>Crear pelicula</h2>
         </div>
+        <!--  MOVIES  -->
         <div class="editMovie">
           <h2>Editar película</h2>
           <form id="editMovieForm">
@@ -88,13 +89,16 @@
             </div>
           </form>
         </div>
+
+        <!--  USUARIOS  -->
         <div class="editUser">
           <h2>Editar usuario</h2>
           <form id="editUserForm">
-            <input type="hidden" id="editUserId" name="id" value="" />
+            <input type="hidden" id="editUserId" />
+
             <input type="text" id="editUserName" placeholder="Nombre" />
             <p class="error-message" id="editUserNameError">
-              El nombre es obligatorio y solo debe contener letras
+              El nombre es obligatorio
             </p>
 
             <input type="text" id="editUserSurname" placeholder="Apellido" />
@@ -108,7 +112,7 @@
               El correo electrónico es obligatorio y debe ser válido
             </p>
 
-            <input type="password" id="editUserPassword" placeholder="Nueva contraseña" />
+            <input type="password" id="editUserPassword" placeholder="contraseña" />
             <p class="error-message" id="editUserPasswordError">
               La contraseña debe tener al menos 8 caracteres, incluyendo una
               letra mayúscula, una minúscula y un número
@@ -136,17 +140,18 @@
               El país es obligatorio
             </p>
 
-            <div class="editUserFormBottom">
-
-              <div class="editUserRCol">
-                <span>Es administrador</span>
-                <input type="checkbox" id="editUserAdmin" />
-              </div>
+            <div class="editUserChckCol">
+              <label>Es administrador</label>
+              <input type="checkbox" id="editUserAdmin" />
+            </div>
+            <div class="editUserChckCol">
+              <label for="isActive">Activo:
+                <input type="checkbox" id="editIsActive" name="isActive" checked></label>
             </div>
 
             <div class="editUserFormButtons">
-              <button type="reset">Cancelar</button>
-              <button type="submit">Actualizar</button>
+              <button id="editUserCancel" type="reset">Cancelar</button>
+              <button id="editUserUpdate" type="submit">Actualizar</button>
             </div>
           </form>
         </div>

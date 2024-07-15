@@ -135,13 +135,13 @@ public class PeliculaDAO {
 
     Conexion conexion = new Conexion();
     Connection cn = null;
-    String deleteUsuarioSql = "UPDATE peliculas SET isActive = false WHERE id = ?";
+    String deletePeliculaSql = "UPDATE peliculas SET isActive = false WHERE id = ?";
 
     PreparedStatement pstm = null;
 
     try {
       cn = conexion.conectar();
-      pstm = cn.prepareStatement(deleteUsuarioSql);
+      pstm = cn.prepareStatement(deletePeliculaSql);
 
       pstm.setLong(1, pelicula.getIdPelicula());
       // pstm.setBoolean(11, false);
