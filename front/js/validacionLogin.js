@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (formButton.innerHTML === "Cerrar Sesión") {
       window.sessionStorage.setItem("cac_java_logged", "false");
       window.sessionStorage.removeItem("cac_java_uid");
-      window.location.href = './login.html';
+      window.location.href = '../index.html';
     } else {
       if (!emailPattern.test(emailInput.value.trim())) {
         emailError.style.display = "block";
